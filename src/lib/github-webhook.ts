@@ -26,7 +26,7 @@ export const GithubWebhook = async (req: Request, res: Response) => {
       where: { repository: repo.full_name },
     });
 
-    if(!project) {
+    if (!project) {
       project = await prisma.project.create({
         data: {
           name: repo.name,
@@ -139,6 +139,8 @@ const handleOpenedEvent = async (payload: any, res: Response) => {
     let ticketCode: string | null = null;
     const parts = branch.split("/");
 
+
+
     if (parts.length > 1) {
       const subParts = parts[1].split("-");
       if (subParts.length >= 2) {
@@ -153,7 +155,7 @@ const handleOpenedEvent = async (payload: any, res: Response) => {
       where: { repository: repo.full_name },
     });
 
-    if(!project) {
+    if (!project) {
       project = await prisma.project.create({
         data: {
           name: repo.name,
@@ -194,9 +196,15 @@ const handleOpenedEvent = async (payload: any, res: Response) => {
       res.status(200).send("Duplicate PR. Skipped.");
       return;
     }
-
+    const lastEvent = await prisma.event.findFirst({
+      where: {
+        project_id: project.id,
+        ticket_id: ticket?.id,
+      },
+      orderBy: { date_created: "desc" },
+    });
     // 5. Save the new PR
-    await prisma.event.create({
+    const newEvent = await prisma.event.create({
       data: {
         project_id: project.id,
         author_id: user.id,
@@ -216,6 +224,16 @@ const handleOpenedEvent = async (payload: any, res: Response) => {
         }
       },
     });
+    const isValidRevision = lastEvent && lastEvent?.event_type === "closed"
+
+    if (isValidRevision) {
+      await prisma.revision.create({
+        data: {
+          pr_event_id: newEvent.id,
+          user_id: lastEvent.author_id!
+        },
+      });
+    }
 
     console.log("PR saved:", {
       user: username,
@@ -388,13 +406,14 @@ const handlePushed = async (payload: any, res: Response) => {
 
 
 
-    const isValidRevision = lastEvent?.event_type === "changes_requested"
+    const isValidRevision = lastEvent?.event_type === "changes_requested" || lastEvent?.event_type === "closed";
 
     if (isValidRevision && lastEvent.reviewer_id) {
       await prisma.revision.create({
         data: {
           pr_event_id: event.id,
           reviewer_id: lastEvent.reviewer_id,
+          user_id: lastEvent.author_id!
         },
       });
     }

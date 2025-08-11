@@ -34,11 +34,12 @@ model Project {
 }
 
 model User {
-  id              Int        @id @default(autoincrement())
-  username        String     @unique
-  events          Event[]
-  revisions       Revision[]
-  reviewed_events Event[]    @relation("ReviewedEvents")
+  id                Int        @id @default(autoincrement())
+  username          String     @unique
+  events            Event[]
+  reviewed_events   Event[]    @relation("ReviewedEvents")
+  authoredRevisions Revision[] @relation("RevisionAuthor")
+  reviewedRevisions Revision[] @relation("RevisionReviewer")
 }
 
 model Ticket {
@@ -85,12 +86,15 @@ model Payload {
 
 model Revision {
   id          Int   @id @default(autoincrement())
+  user_id     Int
+  user        User  @relation("RevisionAuthor", fields: [user_id], references: [id])
+  reviewer_id Int?
+  reviewer    User? @relation("RevisionReviewer", fields: [reviewer_id], references: [id])
   pr_event_id Int
   pr_event    Event @relation(fields: [pr_event_id], references: [id])
-  reviewer_id Int
-  reviewer    User  @relation(fields: [reviewer_id], references: [id])
 
   @@unique([pr_event_id])
   @@index([pr_event_id])
   @@index([reviewer_id])
+  @@index([user_id])
 }
