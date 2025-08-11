@@ -23,7 +23,7 @@ async function detectRevisions() {
         await prisma.revision.upsert({
           where: { pr_event_id: next.id },
           update: {},
-          create: { pr_event_id: next.id, user_id: next.author_id! }
+          create: { pr_event_id: next.id, user_id: next.author_id }
         });
       }
     }
