@@ -36,6 +36,8 @@ model Project {
 model User {
   id                Int        @id @default(autoincrement())
   username          String     @unique
+  first_name        String? // <- added
+  last_name         String?
   events            Event[]
   reviewed_events   Event[]    @relation("ReviewedEvents")
   authoredRevisions Revision[] @relation("RevisionAuthor")
