@@ -38,7 +38,12 @@ export const GithubWebhook = async (req: Request, res: Response) => {
     const user = await prisma.user.upsert({
       where: { username },
       update: {},
-      create: { username },
+      create: {
+        username,
+        projects: {
+          connect: { id: project.id },
+        },
+      },
     });
 
     try {
@@ -168,7 +173,12 @@ const handleOpenedEvent = async (payload: any, res: Response) => {
     const user = await prisma.user.upsert({
       where: { username },
       update: {},
-      create: { username },
+      create: {
+        username,
+        projects: {
+          connect: { id: project.id },
+        },
+      },
     });
 
     // 3. Find or create the ticket (optional)
