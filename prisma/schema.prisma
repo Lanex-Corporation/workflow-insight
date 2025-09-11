@@ -26,18 +26,20 @@ enum EventType {
 }
 
 model Project {
-  id         Int      @id @default(autoincrement())
-  name       String
-  repository String
-  events     Event[]
-  tickets    Ticket[]
+  id           Int      @id @default(autoincrement())
+  name         String
+  repository   String
+  events       Event[]
+  tickets      Ticket[]
+  contributors User[]   @relation("UserProjects")
 }
 
 model User {
   id                Int        @id @default(autoincrement())
   username          String     @unique
-  first_name        String? // <- added
+  first_name        String?
   last_name         String?
+  projects          Project[]  @relation("UserProjects")
   events            Event[]
   reviewed_events   Event[]    @relation("ReviewedEvents")
   authoredRevisions Revision[] @relation("RevisionAuthor")
