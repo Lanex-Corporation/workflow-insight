@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { PrismaClient, Project, User, Ticket, } from '@prisma/client';
 import { CommitStats, GitHubPushPayload, PRLike, Repo } from './interface';
+import { PrismaClient, Project, Ticket, User } from '../../prisma/main/generated';
 
 
 const GITHUB_TOKEN = process.env.WEBHOOK_GITHUB_TOKEN;
@@ -115,4 +115,40 @@ export async function fetchPushCommitStats(
   }
 
   return { totalAdditions, totalDeletions };
+}
+
+
+export async function fetchPushCommitStatsFromAPI(
+  fullRepo: string, commits: { sha: string }[]
+): Promise<{ totalAdditions: number; totalDeletions: number; filesChanged: number }> {
+
+
+
+  let totalAdditions = 0;
+  let totalDeletions = 0;
+  let filesChanged = 0
+
+  for (const commit of commits) {
+    const sha = commit.sha;
+    try {
+      const response = await axios.get(`https://api.github.com/repos/${fullRepo}/commits/${sha}`, {
+        headers: {
+          Authorization: `token ${GITHUB_TOKEN}`,
+          Accept: 'application/vnd.github+json',
+        },
+      });
+
+      const stats = response.data.stats as CommitStats;
+      const files = response.data.files;
+
+      totalAdditions += stats.additions;
+      totalDeletions += stats.deletions;
+      filesChanged += files.length;
+
+    } catch (error: any) {
+      console.error(`Failed to fetch stats for commit ${sha}:`, error?.response?.data || error.message);
+    }
+  }
+
+  return { totalAdditions, totalDeletions, filesChanged };
 }
