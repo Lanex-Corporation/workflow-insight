@@ -37,3 +37,9 @@ export interface CommitStats {
   deletions: number;
   total: number;
 }
+
+export interface CommitFiles {
+  additions: number;
+  deletions: number;
+  total: number;
+}

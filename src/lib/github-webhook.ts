@@ -1,7 +1,9 @@
 import { NextFunction, Request, RequestHandler, Response } from "express";
-import { PrismaClient } from "@prisma/client";
+
 import { fetchPushCommitStats, getChangedFilesDetails, resolveEntities } from "./helper";
-import { EventType } from '@prisma/client';
+import { EventType, PrismaClient } from "../../prisma/main/generated";
+
+
 
 
 const prisma = new PrismaClient();

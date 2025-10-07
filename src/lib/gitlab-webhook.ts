@@ -1,6 +1,7 @@
-import { PrismaClient, Project, Ticket, User } from "@prisma/client";
+
 import { Request, Response } from "express";
 import axios from "axios";
+import { PrismaClient, Project, Ticket, User } from "../../prisma/main/generated";
 
 export enum GitlabWeebhookEventType {
   NOTE = 'note',
