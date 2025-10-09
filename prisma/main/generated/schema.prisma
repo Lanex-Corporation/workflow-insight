@@ -103,3 +103,68 @@ model Revision {
   @@index([reviewer_id])
   @@index([user_id])
 }
+
+model JiraEvent {
+  id               Int          @id @default(autoincrement())
+  webhook_event    String
+  issue_event_type String
+  issue            JiraIssue?   @relation(fields: [issue_id], references: [id])
+  issue_id         Int?
+  // changelog_id      String?
+  project_id       Int?
+  project          JiraProject? @relation(fields: [project_id], references: [id])
+  user_id          Int?
+  user             JiraUser?    @relation(fields: [user_id], references: [id])
+  payload          JiraPayload? @relation("JiraPayload")
+  date_created     DateTime     @default(now())
+}
+
+model JiraProject {
+  id         Int         @id @default(autoincrement())
+  key        String      @unique
+  name       String
+  issues     JiraIssue[]
+  created_at DateTime    @default(now())
+  JiraEvent  JiraEvent[]
+}
+
+model JiraUser {
+  id              Int         @id @default(autoincrement())
+  account_id      String      @unique
+  display_name    String?
+  created_issues  JiraIssue[] @relation("CreatedIssues")
+  assigned_issues JiraIssue[] @relation("AssignedIssues")
+  JiraEvent       JiraEvent[]
+}
+
+model JiraIssue {
+  id              Int          @id @default(autoincrement())
+  issue_id        String       @unique @map("issueId")
+  summary         String?
+  key             String
+  status_name     String?
+  status_id       String?
+  timespent       Int?
+  timeestimate    Int?
+  created_at      DateTime?
+  updated_at      DateTime?
+  resolution_date DateTime?
+  project_id      Int?
+  project         JiraProject? @relation(fields: [project_id], references: [id])
+  creator_id      Int?
+  creator         JiraUser?    @relation("CreatedIssues", fields: [creator_id], references: [id])
+  assignee_id     Int?
+  assignee        JiraUser?    @relation("AssignedIssues", fields: [assignee_id], references: [id])
+  sprint_name     String?
+  sprint_start    DateTime?
+  sprint_end      DateTime?
+  raw_fields      Json?
+  events          JiraEvent[]
+}
+
+model JiraPayload {
+  id          Int       @id @default(autoincrement())
+  raw_payload Json
+  event       JiraEvent @relation("JiraPayload", fields: [event_id], references: [id])
+  event_id    Int       @unique
+}

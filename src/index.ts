@@ -1,6 +1,7 @@
 import express, { Request, RequestHandler, Response } from "express";
 import { GitlabWebhook } from "./lib/gitlab-webhook";
 import { GithubWebhook } from "./lib/github-webhook";
+import { JiraWebhook } from "./lib/jira-webhook";
 // import { Octokit } from "octokit";
 
 // import { fetchPushCommitStatsFromAPI } from "./lib/helper";
@@ -19,6 +20,7 @@ app.get("/", (_req: Request, res: Response) => {
 
 app.post("/webhook/gitlab", GitlabWebhook as RequestHandler);
 app.post("/webhook", GithubWebhook as RequestHandler);
+app.post("/jira", JiraWebhook as RequestHandler);
 
 //Expedite Jira feature 
 

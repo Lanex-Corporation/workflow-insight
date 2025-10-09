@@ -43,6 +43,31 @@ export type Payload = $Result.DefaultSelection<Prisma.$PayloadPayload>
  * 
  */
 export type Revision = $Result.DefaultSelection<Prisma.$RevisionPayload>
+/**
+ * Model JiraEvent
+ * 
+ */
+export type JiraEvent = $Result.DefaultSelection<Prisma.$JiraEventPayload>
+/**
+ * Model JiraProject
+ * 
+ */
+export type JiraProject = $Result.DefaultSelection<Prisma.$JiraProjectPayload>
+/**
+ * Model JiraUser
+ * 
+ */
+export type JiraUser = $Result.DefaultSelection<Prisma.$JiraUserPayload>
+/**
+ * Model JiraIssue
+ * 
+ */
+export type JiraIssue = $Result.DefaultSelection<Prisma.$JiraIssuePayload>
+/**
+ * Model JiraPayload
+ * 
+ */
+export type JiraPayload = $Result.DefaultSelection<Prisma.$JiraPayloadPayload>
 
 /**
  * Enums
@@ -265,6 +290,56 @@ export class PrismaClient<
     * ```
     */
   get revision(): Prisma.RevisionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.jiraEvent`: Exposes CRUD operations for the **JiraEvent** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more JiraEvents
+    * const jiraEvents = await prisma.jiraEvent.findMany()
+    * ```
+    */
+  get jiraEvent(): Prisma.JiraEventDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.jiraProject`: Exposes CRUD operations for the **JiraProject** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more JiraProjects
+    * const jiraProjects = await prisma.jiraProject.findMany()
+    * ```
+    */
+  get jiraProject(): Prisma.JiraProjectDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.jiraUser`: Exposes CRUD operations for the **JiraUser** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more JiraUsers
+    * const jiraUsers = await prisma.jiraUser.findMany()
+    * ```
+    */
+  get jiraUser(): Prisma.JiraUserDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.jiraIssue`: Exposes CRUD operations for the **JiraIssue** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more JiraIssues
+    * const jiraIssues = await prisma.jiraIssue.findMany()
+    * ```
+    */
+  get jiraIssue(): Prisma.JiraIssueDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.jiraPayload`: Exposes CRUD operations for the **JiraPayload** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more JiraPayloads
+    * const jiraPayloads = await prisma.jiraPayload.findMany()
+    * ```
+    */
+  get jiraPayload(): Prisma.JiraPayloadDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -710,7 +785,12 @@ export namespace Prisma {
     Ticket: 'Ticket',
     Event: 'Event',
     Payload: 'Payload',
-    Revision: 'Revision'
+    Revision: 'Revision',
+    JiraEvent: 'JiraEvent',
+    JiraProject: 'JiraProject',
+    JiraUser: 'JiraUser',
+    JiraIssue: 'JiraIssue',
+    JiraPayload: 'JiraPayload'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -729,7 +809,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "project" | "user" | "ticket" | "event" | "payload" | "revision"
+      modelProps: "project" | "user" | "ticket" | "event" | "payload" | "revision" | "jiraEvent" | "jiraProject" | "jiraUser" | "jiraIssue" | "jiraPayload"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1129,6 +1209,336 @@ export namespace Prisma {
           }
         }
       }
+      JiraEvent: {
+        payload: Prisma.$JiraEventPayload<ExtArgs>
+        fields: Prisma.JiraEventFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.JiraEventFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraEventPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.JiraEventFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraEventPayload>
+          }
+          findFirst: {
+            args: Prisma.JiraEventFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraEventPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.JiraEventFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraEventPayload>
+          }
+          findMany: {
+            args: Prisma.JiraEventFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraEventPayload>[]
+          }
+          create: {
+            args: Prisma.JiraEventCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraEventPayload>
+          }
+          createMany: {
+            args: Prisma.JiraEventCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.JiraEventDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraEventPayload>
+          }
+          update: {
+            args: Prisma.JiraEventUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraEventPayload>
+          }
+          deleteMany: {
+            args: Prisma.JiraEventDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.JiraEventUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.JiraEventUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraEventPayload>
+          }
+          aggregate: {
+            args: Prisma.JiraEventAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateJiraEvent>
+          }
+          groupBy: {
+            args: Prisma.JiraEventGroupByArgs<ExtArgs>
+            result: $Utils.Optional<JiraEventGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.JiraEventCountArgs<ExtArgs>
+            result: $Utils.Optional<JiraEventCountAggregateOutputType> | number
+          }
+        }
+      }
+      JiraProject: {
+        payload: Prisma.$JiraProjectPayload<ExtArgs>
+        fields: Prisma.JiraProjectFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.JiraProjectFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraProjectPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.JiraProjectFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraProjectPayload>
+          }
+          findFirst: {
+            args: Prisma.JiraProjectFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraProjectPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.JiraProjectFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraProjectPayload>
+          }
+          findMany: {
+            args: Prisma.JiraProjectFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraProjectPayload>[]
+          }
+          create: {
+            args: Prisma.JiraProjectCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraProjectPayload>
+          }
+          createMany: {
+            args: Prisma.JiraProjectCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.JiraProjectDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraProjectPayload>
+          }
+          update: {
+            args: Prisma.JiraProjectUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraProjectPayload>
+          }
+          deleteMany: {
+            args: Prisma.JiraProjectDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.JiraProjectUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.JiraProjectUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraProjectPayload>
+          }
+          aggregate: {
+            args: Prisma.JiraProjectAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateJiraProject>
+          }
+          groupBy: {
+            args: Prisma.JiraProjectGroupByArgs<ExtArgs>
+            result: $Utils.Optional<JiraProjectGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.JiraProjectCountArgs<ExtArgs>
+            result: $Utils.Optional<JiraProjectCountAggregateOutputType> | number
+          }
+        }
+      }
+      JiraUser: {
+        payload: Prisma.$JiraUserPayload<ExtArgs>
+        fields: Prisma.JiraUserFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.JiraUserFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraUserPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.JiraUserFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraUserPayload>
+          }
+          findFirst: {
+            args: Prisma.JiraUserFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraUserPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.JiraUserFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraUserPayload>
+          }
+          findMany: {
+            args: Prisma.JiraUserFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraUserPayload>[]
+          }
+          create: {
+            args: Prisma.JiraUserCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraUserPayload>
+          }
+          createMany: {
+            args: Prisma.JiraUserCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.JiraUserDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraUserPayload>
+          }
+          update: {
+            args: Prisma.JiraUserUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraUserPayload>
+          }
+          deleteMany: {
+            args: Prisma.JiraUserDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.JiraUserUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.JiraUserUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraUserPayload>
+          }
+          aggregate: {
+            args: Prisma.JiraUserAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateJiraUser>
+          }
+          groupBy: {
+            args: Prisma.JiraUserGroupByArgs<ExtArgs>
+            result: $Utils.Optional<JiraUserGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.JiraUserCountArgs<ExtArgs>
+            result: $Utils.Optional<JiraUserCountAggregateOutputType> | number
+          }
+        }
+      }
+      JiraIssue: {
+        payload: Prisma.$JiraIssuePayload<ExtArgs>
+        fields: Prisma.JiraIssueFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.JiraIssueFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraIssuePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.JiraIssueFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraIssuePayload>
+          }
+          findFirst: {
+            args: Prisma.JiraIssueFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraIssuePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.JiraIssueFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraIssuePayload>
+          }
+          findMany: {
+            args: Prisma.JiraIssueFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraIssuePayload>[]
+          }
+          create: {
+            args: Prisma.JiraIssueCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraIssuePayload>
+          }
+          createMany: {
+            args: Prisma.JiraIssueCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.JiraIssueDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraIssuePayload>
+          }
+          update: {
+            args: Prisma.JiraIssueUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraIssuePayload>
+          }
+          deleteMany: {
+            args: Prisma.JiraIssueDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.JiraIssueUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.JiraIssueUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraIssuePayload>
+          }
+          aggregate: {
+            args: Prisma.JiraIssueAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateJiraIssue>
+          }
+          groupBy: {
+            args: Prisma.JiraIssueGroupByArgs<ExtArgs>
+            result: $Utils.Optional<JiraIssueGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.JiraIssueCountArgs<ExtArgs>
+            result: $Utils.Optional<JiraIssueCountAggregateOutputType> | number
+          }
+        }
+      }
+      JiraPayload: {
+        payload: Prisma.$JiraPayloadPayload<ExtArgs>
+        fields: Prisma.JiraPayloadFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.JiraPayloadFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraPayloadPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.JiraPayloadFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraPayloadPayload>
+          }
+          findFirst: {
+            args: Prisma.JiraPayloadFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraPayloadPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.JiraPayloadFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraPayloadPayload>
+          }
+          findMany: {
+            args: Prisma.JiraPayloadFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraPayloadPayload>[]
+          }
+          create: {
+            args: Prisma.JiraPayloadCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraPayloadPayload>
+          }
+          createMany: {
+            args: Prisma.JiraPayloadCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.JiraPayloadDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraPayloadPayload>
+          }
+          update: {
+            args: Prisma.JiraPayloadUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraPayloadPayload>
+          }
+          deleteMany: {
+            args: Prisma.JiraPayloadDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.JiraPayloadUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.JiraPayloadUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JiraPayloadPayload>
+          }
+          aggregate: {
+            args: Prisma.JiraPayloadAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateJiraPayload>
+          }
+          groupBy: {
+            args: Prisma.JiraPayloadGroupByArgs<ExtArgs>
+            result: $Utils.Optional<JiraPayloadGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.JiraPayloadCountArgs<ExtArgs>
+            result: $Utils.Optional<JiraPayloadCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1219,6 +1629,11 @@ export namespace Prisma {
     event?: EventOmit
     payload?: PayloadOmit
     revision?: RevisionOmit
+    jiraEvent?: JiraEventOmit
+    jiraProject?: JiraProjectOmit
+    jiraUser?: JiraUserOmit
+    jiraIssue?: JiraIssueOmit
+    jiraPayload?: JiraPayloadOmit
   }
 
   /* Types for Logging */
@@ -1452,6 +1867,126 @@ export namespace Prisma {
    */
   export type TicketCountOutputTypeCountEventsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: EventWhereInput
+  }
+
+
+  /**
+   * Count Type JiraProjectCountOutputType
+   */
+
+  export type JiraProjectCountOutputType = {
+    issues: number
+    JiraEvent: number
+  }
+
+  export type JiraProjectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    issues?: boolean | JiraProjectCountOutputTypeCountIssuesArgs
+    JiraEvent?: boolean | JiraProjectCountOutputTypeCountJiraEventArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * JiraProjectCountOutputType without action
+   */
+  export type JiraProjectCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraProjectCountOutputType
+     */
+    select?: JiraProjectCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * JiraProjectCountOutputType without action
+   */
+  export type JiraProjectCountOutputTypeCountIssuesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JiraIssueWhereInput
+  }
+
+  /**
+   * JiraProjectCountOutputType without action
+   */
+  export type JiraProjectCountOutputTypeCountJiraEventArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JiraEventWhereInput
+  }
+
+
+  /**
+   * Count Type JiraUserCountOutputType
+   */
+
+  export type JiraUserCountOutputType = {
+    created_issues: number
+    assigned_issues: number
+    JiraEvent: number
+  }
+
+  export type JiraUserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    created_issues?: boolean | JiraUserCountOutputTypeCountCreated_issuesArgs
+    assigned_issues?: boolean | JiraUserCountOutputTypeCountAssigned_issuesArgs
+    JiraEvent?: boolean | JiraUserCountOutputTypeCountJiraEventArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * JiraUserCountOutputType without action
+   */
+  export type JiraUserCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraUserCountOutputType
+     */
+    select?: JiraUserCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * JiraUserCountOutputType without action
+   */
+  export type JiraUserCountOutputTypeCountCreated_issuesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JiraIssueWhereInput
+  }
+
+  /**
+   * JiraUserCountOutputType without action
+   */
+  export type JiraUserCountOutputTypeCountAssigned_issuesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JiraIssueWhereInput
+  }
+
+  /**
+   * JiraUserCountOutputType without action
+   */
+  export type JiraUserCountOutputTypeCountJiraEventArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JiraEventWhereInput
+  }
+
+
+  /**
+   * Count Type JiraIssueCountOutputType
+   */
+
+  export type JiraIssueCountOutputType = {
+    events: number
+  }
+
+  export type JiraIssueCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    events?: boolean | JiraIssueCountOutputTypeCountEventsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * JiraIssueCountOutputType without action
+   */
+  export type JiraIssueCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraIssueCountOutputType
+     */
+    select?: JiraIssueCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * JiraIssueCountOutputType without action
+   */
+  export type JiraIssueCountOutputTypeCountEventsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JiraEventWhereInput
   }
 
 
@@ -7697,6 +8232,5278 @@ export namespace Prisma {
 
 
   /**
+   * Model JiraEvent
+   */
+
+  export type AggregateJiraEvent = {
+    _count: JiraEventCountAggregateOutputType | null
+    _avg: JiraEventAvgAggregateOutputType | null
+    _sum: JiraEventSumAggregateOutputType | null
+    _min: JiraEventMinAggregateOutputType | null
+    _max: JiraEventMaxAggregateOutputType | null
+  }
+
+  export type JiraEventAvgAggregateOutputType = {
+    id: number | null
+    issue_id: number | null
+    project_id: number | null
+    user_id: number | null
+  }
+
+  export type JiraEventSumAggregateOutputType = {
+    id: number | null
+    issue_id: number | null
+    project_id: number | null
+    user_id: number | null
+  }
+
+  export type JiraEventMinAggregateOutputType = {
+    id: number | null
+    webhook_event: string | null
+    issue_event_type: string | null
+    issue_id: number | null
+    project_id: number | null
+    user_id: number | null
+    date_created: Date | null
+  }
+
+  export type JiraEventMaxAggregateOutputType = {
+    id: number | null
+    webhook_event: string | null
+    issue_event_type: string | null
+    issue_id: number | null
+    project_id: number | null
+    user_id: number | null
+    date_created: Date | null
+  }
+
+  export type JiraEventCountAggregateOutputType = {
+    id: number
+    webhook_event: number
+    issue_event_type: number
+    issue_id: number
+    project_id: number
+    user_id: number
+    date_created: number
+    _all: number
+  }
+
+
+  export type JiraEventAvgAggregateInputType = {
+    id?: true
+    issue_id?: true
+    project_id?: true
+    user_id?: true
+  }
+
+  export type JiraEventSumAggregateInputType = {
+    id?: true
+    issue_id?: true
+    project_id?: true
+    user_id?: true
+  }
+
+  export type JiraEventMinAggregateInputType = {
+    id?: true
+    webhook_event?: true
+    issue_event_type?: true
+    issue_id?: true
+    project_id?: true
+    user_id?: true
+    date_created?: true
+  }
+
+  export type JiraEventMaxAggregateInputType = {
+    id?: true
+    webhook_event?: true
+    issue_event_type?: true
+    issue_id?: true
+    project_id?: true
+    user_id?: true
+    date_created?: true
+  }
+
+  export type JiraEventCountAggregateInputType = {
+    id?: true
+    webhook_event?: true
+    issue_event_type?: true
+    issue_id?: true
+    project_id?: true
+    user_id?: true
+    date_created?: true
+    _all?: true
+  }
+
+  export type JiraEventAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JiraEvent to aggregate.
+     */
+    where?: JiraEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraEvents to fetch.
+     */
+    orderBy?: JiraEventOrderByWithRelationInput | JiraEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: JiraEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned JiraEvents
+    **/
+    _count?: true | JiraEventCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: JiraEventAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: JiraEventSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: JiraEventMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: JiraEventMaxAggregateInputType
+  }
+
+  export type GetJiraEventAggregateType<T extends JiraEventAggregateArgs> = {
+        [P in keyof T & keyof AggregateJiraEvent]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateJiraEvent[P]>
+      : GetScalarType<T[P], AggregateJiraEvent[P]>
+  }
+
+
+
+
+  export type JiraEventGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JiraEventWhereInput
+    orderBy?: JiraEventOrderByWithAggregationInput | JiraEventOrderByWithAggregationInput[]
+    by: JiraEventScalarFieldEnum[] | JiraEventScalarFieldEnum
+    having?: JiraEventScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: JiraEventCountAggregateInputType | true
+    _avg?: JiraEventAvgAggregateInputType
+    _sum?: JiraEventSumAggregateInputType
+    _min?: JiraEventMinAggregateInputType
+    _max?: JiraEventMaxAggregateInputType
+  }
+
+  export type JiraEventGroupByOutputType = {
+    id: number
+    webhook_event: string
+    issue_event_type: string
+    issue_id: number | null
+    project_id: number | null
+    user_id: number | null
+    date_created: Date
+    _count: JiraEventCountAggregateOutputType | null
+    _avg: JiraEventAvgAggregateOutputType | null
+    _sum: JiraEventSumAggregateOutputType | null
+    _min: JiraEventMinAggregateOutputType | null
+    _max: JiraEventMaxAggregateOutputType | null
+  }
+
+  type GetJiraEventGroupByPayload<T extends JiraEventGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<JiraEventGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof JiraEventGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], JiraEventGroupByOutputType[P]>
+            : GetScalarType<T[P], JiraEventGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type JiraEventSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    webhook_event?: boolean
+    issue_event_type?: boolean
+    issue_id?: boolean
+    project_id?: boolean
+    user_id?: boolean
+    date_created?: boolean
+    issue?: boolean | JiraEvent$issueArgs<ExtArgs>
+    project?: boolean | JiraEvent$projectArgs<ExtArgs>
+    user?: boolean | JiraEvent$userArgs<ExtArgs>
+    payload?: boolean | JiraEvent$payloadArgs<ExtArgs>
+  }, ExtArgs["result"]["jiraEvent"]>
+
+
+
+  export type JiraEventSelectScalar = {
+    id?: boolean
+    webhook_event?: boolean
+    issue_event_type?: boolean
+    issue_id?: boolean
+    project_id?: boolean
+    user_id?: boolean
+    date_created?: boolean
+  }
+
+  export type JiraEventOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "webhook_event" | "issue_event_type" | "issue_id" | "project_id" | "user_id" | "date_created", ExtArgs["result"]["jiraEvent"]>
+  export type JiraEventInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    issue?: boolean | JiraEvent$issueArgs<ExtArgs>
+    project?: boolean | JiraEvent$projectArgs<ExtArgs>
+    user?: boolean | JiraEvent$userArgs<ExtArgs>
+    payload?: boolean | JiraEvent$payloadArgs<ExtArgs>
+  }
+
+  export type $JiraEventPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "JiraEvent"
+    objects: {
+      issue: Prisma.$JiraIssuePayload<ExtArgs> | null
+      project: Prisma.$JiraProjectPayload<ExtArgs> | null
+      user: Prisma.$JiraUserPayload<ExtArgs> | null
+      payload: Prisma.$JiraPayloadPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      webhook_event: string
+      issue_event_type: string
+      issue_id: number | null
+      project_id: number | null
+      user_id: number | null
+      date_created: Date
+    }, ExtArgs["result"]["jiraEvent"]>
+    composites: {}
+  }
+
+  type JiraEventGetPayload<S extends boolean | null | undefined | JiraEventDefaultArgs> = $Result.GetResult<Prisma.$JiraEventPayload, S>
+
+  type JiraEventCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<JiraEventFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: JiraEventCountAggregateInputType | true
+    }
+
+  export interface JiraEventDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['JiraEvent'], meta: { name: 'JiraEvent' } }
+    /**
+     * Find zero or one JiraEvent that matches the filter.
+     * @param {JiraEventFindUniqueArgs} args - Arguments to find a JiraEvent
+     * @example
+     * // Get one JiraEvent
+     * const jiraEvent = await prisma.jiraEvent.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends JiraEventFindUniqueArgs>(args: SelectSubset<T, JiraEventFindUniqueArgs<ExtArgs>>): Prisma__JiraEventClient<$Result.GetResult<Prisma.$JiraEventPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one JiraEvent that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {JiraEventFindUniqueOrThrowArgs} args - Arguments to find a JiraEvent
+     * @example
+     * // Get one JiraEvent
+     * const jiraEvent = await prisma.jiraEvent.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends JiraEventFindUniqueOrThrowArgs>(args: SelectSubset<T, JiraEventFindUniqueOrThrowArgs<ExtArgs>>): Prisma__JiraEventClient<$Result.GetResult<Prisma.$JiraEventPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JiraEvent that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraEventFindFirstArgs} args - Arguments to find a JiraEvent
+     * @example
+     * // Get one JiraEvent
+     * const jiraEvent = await prisma.jiraEvent.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends JiraEventFindFirstArgs>(args?: SelectSubset<T, JiraEventFindFirstArgs<ExtArgs>>): Prisma__JiraEventClient<$Result.GetResult<Prisma.$JiraEventPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JiraEvent that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraEventFindFirstOrThrowArgs} args - Arguments to find a JiraEvent
+     * @example
+     * // Get one JiraEvent
+     * const jiraEvent = await prisma.jiraEvent.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends JiraEventFindFirstOrThrowArgs>(args?: SelectSubset<T, JiraEventFindFirstOrThrowArgs<ExtArgs>>): Prisma__JiraEventClient<$Result.GetResult<Prisma.$JiraEventPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more JiraEvents that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraEventFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all JiraEvents
+     * const jiraEvents = await prisma.jiraEvent.findMany()
+     * 
+     * // Get first 10 JiraEvents
+     * const jiraEvents = await prisma.jiraEvent.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const jiraEventWithIdOnly = await prisma.jiraEvent.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends JiraEventFindManyArgs>(args?: SelectSubset<T, JiraEventFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JiraEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a JiraEvent.
+     * @param {JiraEventCreateArgs} args - Arguments to create a JiraEvent.
+     * @example
+     * // Create one JiraEvent
+     * const JiraEvent = await prisma.jiraEvent.create({
+     *   data: {
+     *     // ... data to create a JiraEvent
+     *   }
+     * })
+     * 
+     */
+    create<T extends JiraEventCreateArgs>(args: SelectSubset<T, JiraEventCreateArgs<ExtArgs>>): Prisma__JiraEventClient<$Result.GetResult<Prisma.$JiraEventPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many JiraEvents.
+     * @param {JiraEventCreateManyArgs} args - Arguments to create many JiraEvents.
+     * @example
+     * // Create many JiraEvents
+     * const jiraEvent = await prisma.jiraEvent.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends JiraEventCreateManyArgs>(args?: SelectSubset<T, JiraEventCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a JiraEvent.
+     * @param {JiraEventDeleteArgs} args - Arguments to delete one JiraEvent.
+     * @example
+     * // Delete one JiraEvent
+     * const JiraEvent = await prisma.jiraEvent.delete({
+     *   where: {
+     *     // ... filter to delete one JiraEvent
+     *   }
+     * })
+     * 
+     */
+    delete<T extends JiraEventDeleteArgs>(args: SelectSubset<T, JiraEventDeleteArgs<ExtArgs>>): Prisma__JiraEventClient<$Result.GetResult<Prisma.$JiraEventPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one JiraEvent.
+     * @param {JiraEventUpdateArgs} args - Arguments to update one JiraEvent.
+     * @example
+     * // Update one JiraEvent
+     * const jiraEvent = await prisma.jiraEvent.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends JiraEventUpdateArgs>(args: SelectSubset<T, JiraEventUpdateArgs<ExtArgs>>): Prisma__JiraEventClient<$Result.GetResult<Prisma.$JiraEventPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more JiraEvents.
+     * @param {JiraEventDeleteManyArgs} args - Arguments to filter JiraEvents to delete.
+     * @example
+     * // Delete a few JiraEvents
+     * const { count } = await prisma.jiraEvent.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends JiraEventDeleteManyArgs>(args?: SelectSubset<T, JiraEventDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more JiraEvents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraEventUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many JiraEvents
+     * const jiraEvent = await prisma.jiraEvent.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends JiraEventUpdateManyArgs>(args: SelectSubset<T, JiraEventUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one JiraEvent.
+     * @param {JiraEventUpsertArgs} args - Arguments to update or create a JiraEvent.
+     * @example
+     * // Update or create a JiraEvent
+     * const jiraEvent = await prisma.jiraEvent.upsert({
+     *   create: {
+     *     // ... data to create a JiraEvent
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the JiraEvent we want to update
+     *   }
+     * })
+     */
+    upsert<T extends JiraEventUpsertArgs>(args: SelectSubset<T, JiraEventUpsertArgs<ExtArgs>>): Prisma__JiraEventClient<$Result.GetResult<Prisma.$JiraEventPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of JiraEvents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraEventCountArgs} args - Arguments to filter JiraEvents to count.
+     * @example
+     * // Count the number of JiraEvents
+     * const count = await prisma.jiraEvent.count({
+     *   where: {
+     *     // ... the filter for the JiraEvents we want to count
+     *   }
+     * })
+    **/
+    count<T extends JiraEventCountArgs>(
+      args?: Subset<T, JiraEventCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], JiraEventCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a JiraEvent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraEventAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends JiraEventAggregateArgs>(args: Subset<T, JiraEventAggregateArgs>): Prisma.PrismaPromise<GetJiraEventAggregateType<T>>
+
+    /**
+     * Group by JiraEvent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraEventGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends JiraEventGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: JiraEventGroupByArgs['orderBy'] }
+        : { orderBy?: JiraEventGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, JiraEventGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJiraEventGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the JiraEvent model
+   */
+  readonly fields: JiraEventFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for JiraEvent.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__JiraEventClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    issue<T extends JiraEvent$issueArgs<ExtArgs> = {}>(args?: Subset<T, JiraEvent$issueArgs<ExtArgs>>): Prisma__JiraIssueClient<$Result.GetResult<Prisma.$JiraIssuePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    project<T extends JiraEvent$projectArgs<ExtArgs> = {}>(args?: Subset<T, JiraEvent$projectArgs<ExtArgs>>): Prisma__JiraProjectClient<$Result.GetResult<Prisma.$JiraProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    user<T extends JiraEvent$userArgs<ExtArgs> = {}>(args?: Subset<T, JiraEvent$userArgs<ExtArgs>>): Prisma__JiraUserClient<$Result.GetResult<Prisma.$JiraUserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    payload<T extends JiraEvent$payloadArgs<ExtArgs> = {}>(args?: Subset<T, JiraEvent$payloadArgs<ExtArgs>>): Prisma__JiraPayloadClient<$Result.GetResult<Prisma.$JiraPayloadPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the JiraEvent model
+   */
+  interface JiraEventFieldRefs {
+    readonly id: FieldRef<"JiraEvent", 'Int'>
+    readonly webhook_event: FieldRef<"JiraEvent", 'String'>
+    readonly issue_event_type: FieldRef<"JiraEvent", 'String'>
+    readonly issue_id: FieldRef<"JiraEvent", 'Int'>
+    readonly project_id: FieldRef<"JiraEvent", 'Int'>
+    readonly user_id: FieldRef<"JiraEvent", 'Int'>
+    readonly date_created: FieldRef<"JiraEvent", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * JiraEvent findUnique
+   */
+  export type JiraEventFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraEvent
+     */
+    select?: JiraEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraEvent
+     */
+    omit?: JiraEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraEventInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraEvent to fetch.
+     */
+    where: JiraEventWhereUniqueInput
+  }
+
+  /**
+   * JiraEvent findUniqueOrThrow
+   */
+  export type JiraEventFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraEvent
+     */
+    select?: JiraEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraEvent
+     */
+    omit?: JiraEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraEventInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraEvent to fetch.
+     */
+    where: JiraEventWhereUniqueInput
+  }
+
+  /**
+   * JiraEvent findFirst
+   */
+  export type JiraEventFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraEvent
+     */
+    select?: JiraEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraEvent
+     */
+    omit?: JiraEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraEventInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraEvent to fetch.
+     */
+    where?: JiraEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraEvents to fetch.
+     */
+    orderBy?: JiraEventOrderByWithRelationInput | JiraEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JiraEvents.
+     */
+    cursor?: JiraEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JiraEvents.
+     */
+    distinct?: JiraEventScalarFieldEnum | JiraEventScalarFieldEnum[]
+  }
+
+  /**
+   * JiraEvent findFirstOrThrow
+   */
+  export type JiraEventFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraEvent
+     */
+    select?: JiraEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraEvent
+     */
+    omit?: JiraEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraEventInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraEvent to fetch.
+     */
+    where?: JiraEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraEvents to fetch.
+     */
+    orderBy?: JiraEventOrderByWithRelationInput | JiraEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JiraEvents.
+     */
+    cursor?: JiraEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JiraEvents.
+     */
+    distinct?: JiraEventScalarFieldEnum | JiraEventScalarFieldEnum[]
+  }
+
+  /**
+   * JiraEvent findMany
+   */
+  export type JiraEventFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraEvent
+     */
+    select?: JiraEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraEvent
+     */
+    omit?: JiraEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraEventInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraEvents to fetch.
+     */
+    where?: JiraEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraEvents to fetch.
+     */
+    orderBy?: JiraEventOrderByWithRelationInput | JiraEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing JiraEvents.
+     */
+    cursor?: JiraEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraEvents.
+     */
+    skip?: number
+    distinct?: JiraEventScalarFieldEnum | JiraEventScalarFieldEnum[]
+  }
+
+  /**
+   * JiraEvent create
+   */
+  export type JiraEventCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraEvent
+     */
+    select?: JiraEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraEvent
+     */
+    omit?: JiraEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraEventInclude<ExtArgs> | null
+    /**
+     * The data needed to create a JiraEvent.
+     */
+    data: XOR<JiraEventCreateInput, JiraEventUncheckedCreateInput>
+  }
+
+  /**
+   * JiraEvent createMany
+   */
+  export type JiraEventCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many JiraEvents.
+     */
+    data: JiraEventCreateManyInput | JiraEventCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * JiraEvent update
+   */
+  export type JiraEventUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraEvent
+     */
+    select?: JiraEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraEvent
+     */
+    omit?: JiraEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraEventInclude<ExtArgs> | null
+    /**
+     * The data needed to update a JiraEvent.
+     */
+    data: XOR<JiraEventUpdateInput, JiraEventUncheckedUpdateInput>
+    /**
+     * Choose, which JiraEvent to update.
+     */
+    where: JiraEventWhereUniqueInput
+  }
+
+  /**
+   * JiraEvent updateMany
+   */
+  export type JiraEventUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update JiraEvents.
+     */
+    data: XOR<JiraEventUpdateManyMutationInput, JiraEventUncheckedUpdateManyInput>
+    /**
+     * Filter which JiraEvents to update
+     */
+    where?: JiraEventWhereInput
+    /**
+     * Limit how many JiraEvents to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * JiraEvent upsert
+   */
+  export type JiraEventUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraEvent
+     */
+    select?: JiraEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraEvent
+     */
+    omit?: JiraEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraEventInclude<ExtArgs> | null
+    /**
+     * The filter to search for the JiraEvent to update in case it exists.
+     */
+    where: JiraEventWhereUniqueInput
+    /**
+     * In case the JiraEvent found by the `where` argument doesn't exist, create a new JiraEvent with this data.
+     */
+    create: XOR<JiraEventCreateInput, JiraEventUncheckedCreateInput>
+    /**
+     * In case the JiraEvent was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<JiraEventUpdateInput, JiraEventUncheckedUpdateInput>
+  }
+
+  /**
+   * JiraEvent delete
+   */
+  export type JiraEventDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraEvent
+     */
+    select?: JiraEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraEvent
+     */
+    omit?: JiraEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraEventInclude<ExtArgs> | null
+    /**
+     * Filter which JiraEvent to delete.
+     */
+    where: JiraEventWhereUniqueInput
+  }
+
+  /**
+   * JiraEvent deleteMany
+   */
+  export type JiraEventDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JiraEvents to delete
+     */
+    where?: JiraEventWhereInput
+    /**
+     * Limit how many JiraEvents to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * JiraEvent.issue
+   */
+  export type JiraEvent$issueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraIssue
+     */
+    select?: JiraIssueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraIssue
+     */
+    omit?: JiraIssueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraIssueInclude<ExtArgs> | null
+    where?: JiraIssueWhereInput
+  }
+
+  /**
+   * JiraEvent.project
+   */
+  export type JiraEvent$projectArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraProject
+     */
+    select?: JiraProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraProject
+     */
+    omit?: JiraProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraProjectInclude<ExtArgs> | null
+    where?: JiraProjectWhereInput
+  }
+
+  /**
+   * JiraEvent.user
+   */
+  export type JiraEvent$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraUser
+     */
+    select?: JiraUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraUser
+     */
+    omit?: JiraUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraUserInclude<ExtArgs> | null
+    where?: JiraUserWhereInput
+  }
+
+  /**
+   * JiraEvent.payload
+   */
+  export type JiraEvent$payloadArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraPayload
+     */
+    select?: JiraPayloadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraPayload
+     */
+    omit?: JiraPayloadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraPayloadInclude<ExtArgs> | null
+    where?: JiraPayloadWhereInput
+  }
+
+  /**
+   * JiraEvent without action
+   */
+  export type JiraEventDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraEvent
+     */
+    select?: JiraEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraEvent
+     */
+    omit?: JiraEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraEventInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model JiraProject
+   */
+
+  export type AggregateJiraProject = {
+    _count: JiraProjectCountAggregateOutputType | null
+    _avg: JiraProjectAvgAggregateOutputType | null
+    _sum: JiraProjectSumAggregateOutputType | null
+    _min: JiraProjectMinAggregateOutputType | null
+    _max: JiraProjectMaxAggregateOutputType | null
+  }
+
+  export type JiraProjectAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type JiraProjectSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type JiraProjectMinAggregateOutputType = {
+    id: number | null
+    key: string | null
+    name: string | null
+    created_at: Date | null
+  }
+
+  export type JiraProjectMaxAggregateOutputType = {
+    id: number | null
+    key: string | null
+    name: string | null
+    created_at: Date | null
+  }
+
+  export type JiraProjectCountAggregateOutputType = {
+    id: number
+    key: number
+    name: number
+    created_at: number
+    _all: number
+  }
+
+
+  export type JiraProjectAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type JiraProjectSumAggregateInputType = {
+    id?: true
+  }
+
+  export type JiraProjectMinAggregateInputType = {
+    id?: true
+    key?: true
+    name?: true
+    created_at?: true
+  }
+
+  export type JiraProjectMaxAggregateInputType = {
+    id?: true
+    key?: true
+    name?: true
+    created_at?: true
+  }
+
+  export type JiraProjectCountAggregateInputType = {
+    id?: true
+    key?: true
+    name?: true
+    created_at?: true
+    _all?: true
+  }
+
+  export type JiraProjectAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JiraProject to aggregate.
+     */
+    where?: JiraProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraProjects to fetch.
+     */
+    orderBy?: JiraProjectOrderByWithRelationInput | JiraProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: JiraProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraProjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned JiraProjects
+    **/
+    _count?: true | JiraProjectCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: JiraProjectAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: JiraProjectSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: JiraProjectMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: JiraProjectMaxAggregateInputType
+  }
+
+  export type GetJiraProjectAggregateType<T extends JiraProjectAggregateArgs> = {
+        [P in keyof T & keyof AggregateJiraProject]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateJiraProject[P]>
+      : GetScalarType<T[P], AggregateJiraProject[P]>
+  }
+
+
+
+
+  export type JiraProjectGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JiraProjectWhereInput
+    orderBy?: JiraProjectOrderByWithAggregationInput | JiraProjectOrderByWithAggregationInput[]
+    by: JiraProjectScalarFieldEnum[] | JiraProjectScalarFieldEnum
+    having?: JiraProjectScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: JiraProjectCountAggregateInputType | true
+    _avg?: JiraProjectAvgAggregateInputType
+    _sum?: JiraProjectSumAggregateInputType
+    _min?: JiraProjectMinAggregateInputType
+    _max?: JiraProjectMaxAggregateInputType
+  }
+
+  export type JiraProjectGroupByOutputType = {
+    id: number
+    key: string
+    name: string
+    created_at: Date
+    _count: JiraProjectCountAggregateOutputType | null
+    _avg: JiraProjectAvgAggregateOutputType | null
+    _sum: JiraProjectSumAggregateOutputType | null
+    _min: JiraProjectMinAggregateOutputType | null
+    _max: JiraProjectMaxAggregateOutputType | null
+  }
+
+  type GetJiraProjectGroupByPayload<T extends JiraProjectGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<JiraProjectGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof JiraProjectGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], JiraProjectGroupByOutputType[P]>
+            : GetScalarType<T[P], JiraProjectGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type JiraProjectSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    key?: boolean
+    name?: boolean
+    created_at?: boolean
+    issues?: boolean | JiraProject$issuesArgs<ExtArgs>
+    JiraEvent?: boolean | JiraProject$JiraEventArgs<ExtArgs>
+    _count?: boolean | JiraProjectCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["jiraProject"]>
+
+
+
+  export type JiraProjectSelectScalar = {
+    id?: boolean
+    key?: boolean
+    name?: boolean
+    created_at?: boolean
+  }
+
+  export type JiraProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "key" | "name" | "created_at", ExtArgs["result"]["jiraProject"]>
+  export type JiraProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    issues?: boolean | JiraProject$issuesArgs<ExtArgs>
+    JiraEvent?: boolean | JiraProject$JiraEventArgs<ExtArgs>
+    _count?: boolean | JiraProjectCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $JiraProjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "JiraProject"
+    objects: {
+      issues: Prisma.$JiraIssuePayload<ExtArgs>[]
+      JiraEvent: Prisma.$JiraEventPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      key: string
+      name: string
+      created_at: Date
+    }, ExtArgs["result"]["jiraProject"]>
+    composites: {}
+  }
+
+  type JiraProjectGetPayload<S extends boolean | null | undefined | JiraProjectDefaultArgs> = $Result.GetResult<Prisma.$JiraProjectPayload, S>
+
+  type JiraProjectCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<JiraProjectFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: JiraProjectCountAggregateInputType | true
+    }
+
+  export interface JiraProjectDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['JiraProject'], meta: { name: 'JiraProject' } }
+    /**
+     * Find zero or one JiraProject that matches the filter.
+     * @param {JiraProjectFindUniqueArgs} args - Arguments to find a JiraProject
+     * @example
+     * // Get one JiraProject
+     * const jiraProject = await prisma.jiraProject.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends JiraProjectFindUniqueArgs>(args: SelectSubset<T, JiraProjectFindUniqueArgs<ExtArgs>>): Prisma__JiraProjectClient<$Result.GetResult<Prisma.$JiraProjectPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one JiraProject that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {JiraProjectFindUniqueOrThrowArgs} args - Arguments to find a JiraProject
+     * @example
+     * // Get one JiraProject
+     * const jiraProject = await prisma.jiraProject.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends JiraProjectFindUniqueOrThrowArgs>(args: SelectSubset<T, JiraProjectFindUniqueOrThrowArgs<ExtArgs>>): Prisma__JiraProjectClient<$Result.GetResult<Prisma.$JiraProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JiraProject that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraProjectFindFirstArgs} args - Arguments to find a JiraProject
+     * @example
+     * // Get one JiraProject
+     * const jiraProject = await prisma.jiraProject.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends JiraProjectFindFirstArgs>(args?: SelectSubset<T, JiraProjectFindFirstArgs<ExtArgs>>): Prisma__JiraProjectClient<$Result.GetResult<Prisma.$JiraProjectPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JiraProject that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraProjectFindFirstOrThrowArgs} args - Arguments to find a JiraProject
+     * @example
+     * // Get one JiraProject
+     * const jiraProject = await prisma.jiraProject.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends JiraProjectFindFirstOrThrowArgs>(args?: SelectSubset<T, JiraProjectFindFirstOrThrowArgs<ExtArgs>>): Prisma__JiraProjectClient<$Result.GetResult<Prisma.$JiraProjectPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more JiraProjects that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraProjectFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all JiraProjects
+     * const jiraProjects = await prisma.jiraProject.findMany()
+     * 
+     * // Get first 10 JiraProjects
+     * const jiraProjects = await prisma.jiraProject.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const jiraProjectWithIdOnly = await prisma.jiraProject.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends JiraProjectFindManyArgs>(args?: SelectSubset<T, JiraProjectFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JiraProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a JiraProject.
+     * @param {JiraProjectCreateArgs} args - Arguments to create a JiraProject.
+     * @example
+     * // Create one JiraProject
+     * const JiraProject = await prisma.jiraProject.create({
+     *   data: {
+     *     // ... data to create a JiraProject
+     *   }
+     * })
+     * 
+     */
+    create<T extends JiraProjectCreateArgs>(args: SelectSubset<T, JiraProjectCreateArgs<ExtArgs>>): Prisma__JiraProjectClient<$Result.GetResult<Prisma.$JiraProjectPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many JiraProjects.
+     * @param {JiraProjectCreateManyArgs} args - Arguments to create many JiraProjects.
+     * @example
+     * // Create many JiraProjects
+     * const jiraProject = await prisma.jiraProject.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends JiraProjectCreateManyArgs>(args?: SelectSubset<T, JiraProjectCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a JiraProject.
+     * @param {JiraProjectDeleteArgs} args - Arguments to delete one JiraProject.
+     * @example
+     * // Delete one JiraProject
+     * const JiraProject = await prisma.jiraProject.delete({
+     *   where: {
+     *     // ... filter to delete one JiraProject
+     *   }
+     * })
+     * 
+     */
+    delete<T extends JiraProjectDeleteArgs>(args: SelectSubset<T, JiraProjectDeleteArgs<ExtArgs>>): Prisma__JiraProjectClient<$Result.GetResult<Prisma.$JiraProjectPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one JiraProject.
+     * @param {JiraProjectUpdateArgs} args - Arguments to update one JiraProject.
+     * @example
+     * // Update one JiraProject
+     * const jiraProject = await prisma.jiraProject.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends JiraProjectUpdateArgs>(args: SelectSubset<T, JiraProjectUpdateArgs<ExtArgs>>): Prisma__JiraProjectClient<$Result.GetResult<Prisma.$JiraProjectPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more JiraProjects.
+     * @param {JiraProjectDeleteManyArgs} args - Arguments to filter JiraProjects to delete.
+     * @example
+     * // Delete a few JiraProjects
+     * const { count } = await prisma.jiraProject.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends JiraProjectDeleteManyArgs>(args?: SelectSubset<T, JiraProjectDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more JiraProjects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraProjectUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many JiraProjects
+     * const jiraProject = await prisma.jiraProject.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends JiraProjectUpdateManyArgs>(args: SelectSubset<T, JiraProjectUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one JiraProject.
+     * @param {JiraProjectUpsertArgs} args - Arguments to update or create a JiraProject.
+     * @example
+     * // Update or create a JiraProject
+     * const jiraProject = await prisma.jiraProject.upsert({
+     *   create: {
+     *     // ... data to create a JiraProject
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the JiraProject we want to update
+     *   }
+     * })
+     */
+    upsert<T extends JiraProjectUpsertArgs>(args: SelectSubset<T, JiraProjectUpsertArgs<ExtArgs>>): Prisma__JiraProjectClient<$Result.GetResult<Prisma.$JiraProjectPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of JiraProjects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraProjectCountArgs} args - Arguments to filter JiraProjects to count.
+     * @example
+     * // Count the number of JiraProjects
+     * const count = await prisma.jiraProject.count({
+     *   where: {
+     *     // ... the filter for the JiraProjects we want to count
+     *   }
+     * })
+    **/
+    count<T extends JiraProjectCountArgs>(
+      args?: Subset<T, JiraProjectCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], JiraProjectCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a JiraProject.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraProjectAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends JiraProjectAggregateArgs>(args: Subset<T, JiraProjectAggregateArgs>): Prisma.PrismaPromise<GetJiraProjectAggregateType<T>>
+
+    /**
+     * Group by JiraProject.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraProjectGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends JiraProjectGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: JiraProjectGroupByArgs['orderBy'] }
+        : { orderBy?: JiraProjectGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, JiraProjectGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJiraProjectGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the JiraProject model
+   */
+  readonly fields: JiraProjectFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for JiraProject.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__JiraProjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    issues<T extends JiraProject$issuesArgs<ExtArgs> = {}>(args?: Subset<T, JiraProject$issuesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JiraIssuePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    JiraEvent<T extends JiraProject$JiraEventArgs<ExtArgs> = {}>(args?: Subset<T, JiraProject$JiraEventArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JiraEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the JiraProject model
+   */
+  interface JiraProjectFieldRefs {
+    readonly id: FieldRef<"JiraProject", 'Int'>
+    readonly key: FieldRef<"JiraProject", 'String'>
+    readonly name: FieldRef<"JiraProject", 'String'>
+    readonly created_at: FieldRef<"JiraProject", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * JiraProject findUnique
+   */
+  export type JiraProjectFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraProject
+     */
+    select?: JiraProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraProject
+     */
+    omit?: JiraProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraProject to fetch.
+     */
+    where: JiraProjectWhereUniqueInput
+  }
+
+  /**
+   * JiraProject findUniqueOrThrow
+   */
+  export type JiraProjectFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraProject
+     */
+    select?: JiraProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraProject
+     */
+    omit?: JiraProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraProject to fetch.
+     */
+    where: JiraProjectWhereUniqueInput
+  }
+
+  /**
+   * JiraProject findFirst
+   */
+  export type JiraProjectFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraProject
+     */
+    select?: JiraProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraProject
+     */
+    omit?: JiraProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraProject to fetch.
+     */
+    where?: JiraProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraProjects to fetch.
+     */
+    orderBy?: JiraProjectOrderByWithRelationInput | JiraProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JiraProjects.
+     */
+    cursor?: JiraProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraProjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JiraProjects.
+     */
+    distinct?: JiraProjectScalarFieldEnum | JiraProjectScalarFieldEnum[]
+  }
+
+  /**
+   * JiraProject findFirstOrThrow
+   */
+  export type JiraProjectFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraProject
+     */
+    select?: JiraProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraProject
+     */
+    omit?: JiraProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraProject to fetch.
+     */
+    where?: JiraProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraProjects to fetch.
+     */
+    orderBy?: JiraProjectOrderByWithRelationInput | JiraProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JiraProjects.
+     */
+    cursor?: JiraProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraProjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JiraProjects.
+     */
+    distinct?: JiraProjectScalarFieldEnum | JiraProjectScalarFieldEnum[]
+  }
+
+  /**
+   * JiraProject findMany
+   */
+  export type JiraProjectFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraProject
+     */
+    select?: JiraProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraProject
+     */
+    omit?: JiraProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraProjects to fetch.
+     */
+    where?: JiraProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraProjects to fetch.
+     */
+    orderBy?: JiraProjectOrderByWithRelationInput | JiraProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing JiraProjects.
+     */
+    cursor?: JiraProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraProjects.
+     */
+    skip?: number
+    distinct?: JiraProjectScalarFieldEnum | JiraProjectScalarFieldEnum[]
+  }
+
+  /**
+   * JiraProject create
+   */
+  export type JiraProjectCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraProject
+     */
+    select?: JiraProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraProject
+     */
+    omit?: JiraProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to create a JiraProject.
+     */
+    data: XOR<JiraProjectCreateInput, JiraProjectUncheckedCreateInput>
+  }
+
+  /**
+   * JiraProject createMany
+   */
+  export type JiraProjectCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many JiraProjects.
+     */
+    data: JiraProjectCreateManyInput | JiraProjectCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * JiraProject update
+   */
+  export type JiraProjectUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraProject
+     */
+    select?: JiraProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraProject
+     */
+    omit?: JiraProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to update a JiraProject.
+     */
+    data: XOR<JiraProjectUpdateInput, JiraProjectUncheckedUpdateInput>
+    /**
+     * Choose, which JiraProject to update.
+     */
+    where: JiraProjectWhereUniqueInput
+  }
+
+  /**
+   * JiraProject updateMany
+   */
+  export type JiraProjectUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update JiraProjects.
+     */
+    data: XOR<JiraProjectUpdateManyMutationInput, JiraProjectUncheckedUpdateManyInput>
+    /**
+     * Filter which JiraProjects to update
+     */
+    where?: JiraProjectWhereInput
+    /**
+     * Limit how many JiraProjects to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * JiraProject upsert
+   */
+  export type JiraProjectUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraProject
+     */
+    select?: JiraProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraProject
+     */
+    omit?: JiraProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraProjectInclude<ExtArgs> | null
+    /**
+     * The filter to search for the JiraProject to update in case it exists.
+     */
+    where: JiraProjectWhereUniqueInput
+    /**
+     * In case the JiraProject found by the `where` argument doesn't exist, create a new JiraProject with this data.
+     */
+    create: XOR<JiraProjectCreateInput, JiraProjectUncheckedCreateInput>
+    /**
+     * In case the JiraProject was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<JiraProjectUpdateInput, JiraProjectUncheckedUpdateInput>
+  }
+
+  /**
+   * JiraProject delete
+   */
+  export type JiraProjectDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraProject
+     */
+    select?: JiraProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraProject
+     */
+    omit?: JiraProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraProjectInclude<ExtArgs> | null
+    /**
+     * Filter which JiraProject to delete.
+     */
+    where: JiraProjectWhereUniqueInput
+  }
+
+  /**
+   * JiraProject deleteMany
+   */
+  export type JiraProjectDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JiraProjects to delete
+     */
+    where?: JiraProjectWhereInput
+    /**
+     * Limit how many JiraProjects to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * JiraProject.issues
+   */
+  export type JiraProject$issuesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraIssue
+     */
+    select?: JiraIssueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraIssue
+     */
+    omit?: JiraIssueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraIssueInclude<ExtArgs> | null
+    where?: JiraIssueWhereInput
+    orderBy?: JiraIssueOrderByWithRelationInput | JiraIssueOrderByWithRelationInput[]
+    cursor?: JiraIssueWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JiraIssueScalarFieldEnum | JiraIssueScalarFieldEnum[]
+  }
+
+  /**
+   * JiraProject.JiraEvent
+   */
+  export type JiraProject$JiraEventArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraEvent
+     */
+    select?: JiraEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraEvent
+     */
+    omit?: JiraEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraEventInclude<ExtArgs> | null
+    where?: JiraEventWhereInput
+    orderBy?: JiraEventOrderByWithRelationInput | JiraEventOrderByWithRelationInput[]
+    cursor?: JiraEventWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JiraEventScalarFieldEnum | JiraEventScalarFieldEnum[]
+  }
+
+  /**
+   * JiraProject without action
+   */
+  export type JiraProjectDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraProject
+     */
+    select?: JiraProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraProject
+     */
+    omit?: JiraProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraProjectInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model JiraUser
+   */
+
+  export type AggregateJiraUser = {
+    _count: JiraUserCountAggregateOutputType | null
+    _avg: JiraUserAvgAggregateOutputType | null
+    _sum: JiraUserSumAggregateOutputType | null
+    _min: JiraUserMinAggregateOutputType | null
+    _max: JiraUserMaxAggregateOutputType | null
+  }
+
+  export type JiraUserAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type JiraUserSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type JiraUserMinAggregateOutputType = {
+    id: number | null
+    account_id: string | null
+    display_name: string | null
+  }
+
+  export type JiraUserMaxAggregateOutputType = {
+    id: number | null
+    account_id: string | null
+    display_name: string | null
+  }
+
+  export type JiraUserCountAggregateOutputType = {
+    id: number
+    account_id: number
+    display_name: number
+    _all: number
+  }
+
+
+  export type JiraUserAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type JiraUserSumAggregateInputType = {
+    id?: true
+  }
+
+  export type JiraUserMinAggregateInputType = {
+    id?: true
+    account_id?: true
+    display_name?: true
+  }
+
+  export type JiraUserMaxAggregateInputType = {
+    id?: true
+    account_id?: true
+    display_name?: true
+  }
+
+  export type JiraUserCountAggregateInputType = {
+    id?: true
+    account_id?: true
+    display_name?: true
+    _all?: true
+  }
+
+  export type JiraUserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JiraUser to aggregate.
+     */
+    where?: JiraUserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraUsers to fetch.
+     */
+    orderBy?: JiraUserOrderByWithRelationInput | JiraUserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: JiraUserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraUsers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraUsers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned JiraUsers
+    **/
+    _count?: true | JiraUserCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: JiraUserAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: JiraUserSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: JiraUserMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: JiraUserMaxAggregateInputType
+  }
+
+  export type GetJiraUserAggregateType<T extends JiraUserAggregateArgs> = {
+        [P in keyof T & keyof AggregateJiraUser]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateJiraUser[P]>
+      : GetScalarType<T[P], AggregateJiraUser[P]>
+  }
+
+
+
+
+  export type JiraUserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JiraUserWhereInput
+    orderBy?: JiraUserOrderByWithAggregationInput | JiraUserOrderByWithAggregationInput[]
+    by: JiraUserScalarFieldEnum[] | JiraUserScalarFieldEnum
+    having?: JiraUserScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: JiraUserCountAggregateInputType | true
+    _avg?: JiraUserAvgAggregateInputType
+    _sum?: JiraUserSumAggregateInputType
+    _min?: JiraUserMinAggregateInputType
+    _max?: JiraUserMaxAggregateInputType
+  }
+
+  export type JiraUserGroupByOutputType = {
+    id: number
+    account_id: string
+    display_name: string | null
+    _count: JiraUserCountAggregateOutputType | null
+    _avg: JiraUserAvgAggregateOutputType | null
+    _sum: JiraUserSumAggregateOutputType | null
+    _min: JiraUserMinAggregateOutputType | null
+    _max: JiraUserMaxAggregateOutputType | null
+  }
+
+  type GetJiraUserGroupByPayload<T extends JiraUserGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<JiraUserGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof JiraUserGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], JiraUserGroupByOutputType[P]>
+            : GetScalarType<T[P], JiraUserGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type JiraUserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    account_id?: boolean
+    display_name?: boolean
+    created_issues?: boolean | JiraUser$created_issuesArgs<ExtArgs>
+    assigned_issues?: boolean | JiraUser$assigned_issuesArgs<ExtArgs>
+    JiraEvent?: boolean | JiraUser$JiraEventArgs<ExtArgs>
+    _count?: boolean | JiraUserCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["jiraUser"]>
+
+
+
+  export type JiraUserSelectScalar = {
+    id?: boolean
+    account_id?: boolean
+    display_name?: boolean
+  }
+
+  export type JiraUserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "account_id" | "display_name", ExtArgs["result"]["jiraUser"]>
+  export type JiraUserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    created_issues?: boolean | JiraUser$created_issuesArgs<ExtArgs>
+    assigned_issues?: boolean | JiraUser$assigned_issuesArgs<ExtArgs>
+    JiraEvent?: boolean | JiraUser$JiraEventArgs<ExtArgs>
+    _count?: boolean | JiraUserCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $JiraUserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "JiraUser"
+    objects: {
+      created_issues: Prisma.$JiraIssuePayload<ExtArgs>[]
+      assigned_issues: Prisma.$JiraIssuePayload<ExtArgs>[]
+      JiraEvent: Prisma.$JiraEventPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      account_id: string
+      display_name: string | null
+    }, ExtArgs["result"]["jiraUser"]>
+    composites: {}
+  }
+
+  type JiraUserGetPayload<S extends boolean | null | undefined | JiraUserDefaultArgs> = $Result.GetResult<Prisma.$JiraUserPayload, S>
+
+  type JiraUserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<JiraUserFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: JiraUserCountAggregateInputType | true
+    }
+
+  export interface JiraUserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['JiraUser'], meta: { name: 'JiraUser' } }
+    /**
+     * Find zero or one JiraUser that matches the filter.
+     * @param {JiraUserFindUniqueArgs} args - Arguments to find a JiraUser
+     * @example
+     * // Get one JiraUser
+     * const jiraUser = await prisma.jiraUser.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends JiraUserFindUniqueArgs>(args: SelectSubset<T, JiraUserFindUniqueArgs<ExtArgs>>): Prisma__JiraUserClient<$Result.GetResult<Prisma.$JiraUserPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one JiraUser that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {JiraUserFindUniqueOrThrowArgs} args - Arguments to find a JiraUser
+     * @example
+     * // Get one JiraUser
+     * const jiraUser = await prisma.jiraUser.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends JiraUserFindUniqueOrThrowArgs>(args: SelectSubset<T, JiraUserFindUniqueOrThrowArgs<ExtArgs>>): Prisma__JiraUserClient<$Result.GetResult<Prisma.$JiraUserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JiraUser that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraUserFindFirstArgs} args - Arguments to find a JiraUser
+     * @example
+     * // Get one JiraUser
+     * const jiraUser = await prisma.jiraUser.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends JiraUserFindFirstArgs>(args?: SelectSubset<T, JiraUserFindFirstArgs<ExtArgs>>): Prisma__JiraUserClient<$Result.GetResult<Prisma.$JiraUserPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JiraUser that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraUserFindFirstOrThrowArgs} args - Arguments to find a JiraUser
+     * @example
+     * // Get one JiraUser
+     * const jiraUser = await prisma.jiraUser.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends JiraUserFindFirstOrThrowArgs>(args?: SelectSubset<T, JiraUserFindFirstOrThrowArgs<ExtArgs>>): Prisma__JiraUserClient<$Result.GetResult<Prisma.$JiraUserPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more JiraUsers that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraUserFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all JiraUsers
+     * const jiraUsers = await prisma.jiraUser.findMany()
+     * 
+     * // Get first 10 JiraUsers
+     * const jiraUsers = await prisma.jiraUser.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const jiraUserWithIdOnly = await prisma.jiraUser.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends JiraUserFindManyArgs>(args?: SelectSubset<T, JiraUserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JiraUserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a JiraUser.
+     * @param {JiraUserCreateArgs} args - Arguments to create a JiraUser.
+     * @example
+     * // Create one JiraUser
+     * const JiraUser = await prisma.jiraUser.create({
+     *   data: {
+     *     // ... data to create a JiraUser
+     *   }
+     * })
+     * 
+     */
+    create<T extends JiraUserCreateArgs>(args: SelectSubset<T, JiraUserCreateArgs<ExtArgs>>): Prisma__JiraUserClient<$Result.GetResult<Prisma.$JiraUserPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many JiraUsers.
+     * @param {JiraUserCreateManyArgs} args - Arguments to create many JiraUsers.
+     * @example
+     * // Create many JiraUsers
+     * const jiraUser = await prisma.jiraUser.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends JiraUserCreateManyArgs>(args?: SelectSubset<T, JiraUserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a JiraUser.
+     * @param {JiraUserDeleteArgs} args - Arguments to delete one JiraUser.
+     * @example
+     * // Delete one JiraUser
+     * const JiraUser = await prisma.jiraUser.delete({
+     *   where: {
+     *     // ... filter to delete one JiraUser
+     *   }
+     * })
+     * 
+     */
+    delete<T extends JiraUserDeleteArgs>(args: SelectSubset<T, JiraUserDeleteArgs<ExtArgs>>): Prisma__JiraUserClient<$Result.GetResult<Prisma.$JiraUserPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one JiraUser.
+     * @param {JiraUserUpdateArgs} args - Arguments to update one JiraUser.
+     * @example
+     * // Update one JiraUser
+     * const jiraUser = await prisma.jiraUser.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends JiraUserUpdateArgs>(args: SelectSubset<T, JiraUserUpdateArgs<ExtArgs>>): Prisma__JiraUserClient<$Result.GetResult<Prisma.$JiraUserPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more JiraUsers.
+     * @param {JiraUserDeleteManyArgs} args - Arguments to filter JiraUsers to delete.
+     * @example
+     * // Delete a few JiraUsers
+     * const { count } = await prisma.jiraUser.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends JiraUserDeleteManyArgs>(args?: SelectSubset<T, JiraUserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more JiraUsers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraUserUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many JiraUsers
+     * const jiraUser = await prisma.jiraUser.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends JiraUserUpdateManyArgs>(args: SelectSubset<T, JiraUserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one JiraUser.
+     * @param {JiraUserUpsertArgs} args - Arguments to update or create a JiraUser.
+     * @example
+     * // Update or create a JiraUser
+     * const jiraUser = await prisma.jiraUser.upsert({
+     *   create: {
+     *     // ... data to create a JiraUser
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the JiraUser we want to update
+     *   }
+     * })
+     */
+    upsert<T extends JiraUserUpsertArgs>(args: SelectSubset<T, JiraUserUpsertArgs<ExtArgs>>): Prisma__JiraUserClient<$Result.GetResult<Prisma.$JiraUserPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of JiraUsers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraUserCountArgs} args - Arguments to filter JiraUsers to count.
+     * @example
+     * // Count the number of JiraUsers
+     * const count = await prisma.jiraUser.count({
+     *   where: {
+     *     // ... the filter for the JiraUsers we want to count
+     *   }
+     * })
+    **/
+    count<T extends JiraUserCountArgs>(
+      args?: Subset<T, JiraUserCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], JiraUserCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a JiraUser.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraUserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends JiraUserAggregateArgs>(args: Subset<T, JiraUserAggregateArgs>): Prisma.PrismaPromise<GetJiraUserAggregateType<T>>
+
+    /**
+     * Group by JiraUser.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraUserGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends JiraUserGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: JiraUserGroupByArgs['orderBy'] }
+        : { orderBy?: JiraUserGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, JiraUserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJiraUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the JiraUser model
+   */
+  readonly fields: JiraUserFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for JiraUser.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__JiraUserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    created_issues<T extends JiraUser$created_issuesArgs<ExtArgs> = {}>(args?: Subset<T, JiraUser$created_issuesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JiraIssuePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    assigned_issues<T extends JiraUser$assigned_issuesArgs<ExtArgs> = {}>(args?: Subset<T, JiraUser$assigned_issuesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JiraIssuePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    JiraEvent<T extends JiraUser$JiraEventArgs<ExtArgs> = {}>(args?: Subset<T, JiraUser$JiraEventArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JiraEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the JiraUser model
+   */
+  interface JiraUserFieldRefs {
+    readonly id: FieldRef<"JiraUser", 'Int'>
+    readonly account_id: FieldRef<"JiraUser", 'String'>
+    readonly display_name: FieldRef<"JiraUser", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * JiraUser findUnique
+   */
+  export type JiraUserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraUser
+     */
+    select?: JiraUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraUser
+     */
+    omit?: JiraUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraUserInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraUser to fetch.
+     */
+    where: JiraUserWhereUniqueInput
+  }
+
+  /**
+   * JiraUser findUniqueOrThrow
+   */
+  export type JiraUserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraUser
+     */
+    select?: JiraUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraUser
+     */
+    omit?: JiraUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraUserInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraUser to fetch.
+     */
+    where: JiraUserWhereUniqueInput
+  }
+
+  /**
+   * JiraUser findFirst
+   */
+  export type JiraUserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraUser
+     */
+    select?: JiraUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraUser
+     */
+    omit?: JiraUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraUserInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraUser to fetch.
+     */
+    where?: JiraUserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraUsers to fetch.
+     */
+    orderBy?: JiraUserOrderByWithRelationInput | JiraUserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JiraUsers.
+     */
+    cursor?: JiraUserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraUsers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraUsers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JiraUsers.
+     */
+    distinct?: JiraUserScalarFieldEnum | JiraUserScalarFieldEnum[]
+  }
+
+  /**
+   * JiraUser findFirstOrThrow
+   */
+  export type JiraUserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraUser
+     */
+    select?: JiraUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraUser
+     */
+    omit?: JiraUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraUserInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraUser to fetch.
+     */
+    where?: JiraUserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraUsers to fetch.
+     */
+    orderBy?: JiraUserOrderByWithRelationInput | JiraUserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JiraUsers.
+     */
+    cursor?: JiraUserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraUsers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraUsers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JiraUsers.
+     */
+    distinct?: JiraUserScalarFieldEnum | JiraUserScalarFieldEnum[]
+  }
+
+  /**
+   * JiraUser findMany
+   */
+  export type JiraUserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraUser
+     */
+    select?: JiraUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraUser
+     */
+    omit?: JiraUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraUserInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraUsers to fetch.
+     */
+    where?: JiraUserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraUsers to fetch.
+     */
+    orderBy?: JiraUserOrderByWithRelationInput | JiraUserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing JiraUsers.
+     */
+    cursor?: JiraUserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraUsers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraUsers.
+     */
+    skip?: number
+    distinct?: JiraUserScalarFieldEnum | JiraUserScalarFieldEnum[]
+  }
+
+  /**
+   * JiraUser create
+   */
+  export type JiraUserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraUser
+     */
+    select?: JiraUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraUser
+     */
+    omit?: JiraUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraUserInclude<ExtArgs> | null
+    /**
+     * The data needed to create a JiraUser.
+     */
+    data: XOR<JiraUserCreateInput, JiraUserUncheckedCreateInput>
+  }
+
+  /**
+   * JiraUser createMany
+   */
+  export type JiraUserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many JiraUsers.
+     */
+    data: JiraUserCreateManyInput | JiraUserCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * JiraUser update
+   */
+  export type JiraUserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraUser
+     */
+    select?: JiraUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraUser
+     */
+    omit?: JiraUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraUserInclude<ExtArgs> | null
+    /**
+     * The data needed to update a JiraUser.
+     */
+    data: XOR<JiraUserUpdateInput, JiraUserUncheckedUpdateInput>
+    /**
+     * Choose, which JiraUser to update.
+     */
+    where: JiraUserWhereUniqueInput
+  }
+
+  /**
+   * JiraUser updateMany
+   */
+  export type JiraUserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update JiraUsers.
+     */
+    data: XOR<JiraUserUpdateManyMutationInput, JiraUserUncheckedUpdateManyInput>
+    /**
+     * Filter which JiraUsers to update
+     */
+    where?: JiraUserWhereInput
+    /**
+     * Limit how many JiraUsers to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * JiraUser upsert
+   */
+  export type JiraUserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraUser
+     */
+    select?: JiraUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraUser
+     */
+    omit?: JiraUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraUserInclude<ExtArgs> | null
+    /**
+     * The filter to search for the JiraUser to update in case it exists.
+     */
+    where: JiraUserWhereUniqueInput
+    /**
+     * In case the JiraUser found by the `where` argument doesn't exist, create a new JiraUser with this data.
+     */
+    create: XOR<JiraUserCreateInput, JiraUserUncheckedCreateInput>
+    /**
+     * In case the JiraUser was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<JiraUserUpdateInput, JiraUserUncheckedUpdateInput>
+  }
+
+  /**
+   * JiraUser delete
+   */
+  export type JiraUserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraUser
+     */
+    select?: JiraUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraUser
+     */
+    omit?: JiraUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraUserInclude<ExtArgs> | null
+    /**
+     * Filter which JiraUser to delete.
+     */
+    where: JiraUserWhereUniqueInput
+  }
+
+  /**
+   * JiraUser deleteMany
+   */
+  export type JiraUserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JiraUsers to delete
+     */
+    where?: JiraUserWhereInput
+    /**
+     * Limit how many JiraUsers to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * JiraUser.created_issues
+   */
+  export type JiraUser$created_issuesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraIssue
+     */
+    select?: JiraIssueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraIssue
+     */
+    omit?: JiraIssueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraIssueInclude<ExtArgs> | null
+    where?: JiraIssueWhereInput
+    orderBy?: JiraIssueOrderByWithRelationInput | JiraIssueOrderByWithRelationInput[]
+    cursor?: JiraIssueWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JiraIssueScalarFieldEnum | JiraIssueScalarFieldEnum[]
+  }
+
+  /**
+   * JiraUser.assigned_issues
+   */
+  export type JiraUser$assigned_issuesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraIssue
+     */
+    select?: JiraIssueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraIssue
+     */
+    omit?: JiraIssueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraIssueInclude<ExtArgs> | null
+    where?: JiraIssueWhereInput
+    orderBy?: JiraIssueOrderByWithRelationInput | JiraIssueOrderByWithRelationInput[]
+    cursor?: JiraIssueWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JiraIssueScalarFieldEnum | JiraIssueScalarFieldEnum[]
+  }
+
+  /**
+   * JiraUser.JiraEvent
+   */
+  export type JiraUser$JiraEventArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraEvent
+     */
+    select?: JiraEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraEvent
+     */
+    omit?: JiraEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraEventInclude<ExtArgs> | null
+    where?: JiraEventWhereInput
+    orderBy?: JiraEventOrderByWithRelationInput | JiraEventOrderByWithRelationInput[]
+    cursor?: JiraEventWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JiraEventScalarFieldEnum | JiraEventScalarFieldEnum[]
+  }
+
+  /**
+   * JiraUser without action
+   */
+  export type JiraUserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraUser
+     */
+    select?: JiraUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraUser
+     */
+    omit?: JiraUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraUserInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model JiraIssue
+   */
+
+  export type AggregateJiraIssue = {
+    _count: JiraIssueCountAggregateOutputType | null
+    _avg: JiraIssueAvgAggregateOutputType | null
+    _sum: JiraIssueSumAggregateOutputType | null
+    _min: JiraIssueMinAggregateOutputType | null
+    _max: JiraIssueMaxAggregateOutputType | null
+  }
+
+  export type JiraIssueAvgAggregateOutputType = {
+    id: number | null
+    timespent: number | null
+    timeestimate: number | null
+    project_id: number | null
+    creator_id: number | null
+    assignee_id: number | null
+  }
+
+  export type JiraIssueSumAggregateOutputType = {
+    id: number | null
+    timespent: number | null
+    timeestimate: number | null
+    project_id: number | null
+    creator_id: number | null
+    assignee_id: number | null
+  }
+
+  export type JiraIssueMinAggregateOutputType = {
+    id: number | null
+    issue_id: string | null
+    summary: string | null
+    key: string | null
+    status_name: string | null
+    status_id: string | null
+    timespent: number | null
+    timeestimate: number | null
+    created_at: Date | null
+    updated_at: Date | null
+    resolution_date: Date | null
+    project_id: number | null
+    creator_id: number | null
+    assignee_id: number | null
+    sprint_name: string | null
+    sprint_start: Date | null
+    sprint_end: Date | null
+  }
+
+  export type JiraIssueMaxAggregateOutputType = {
+    id: number | null
+    issue_id: string | null
+    summary: string | null
+    key: string | null
+    status_name: string | null
+    status_id: string | null
+    timespent: number | null
+    timeestimate: number | null
+    created_at: Date | null
+    updated_at: Date | null
+    resolution_date: Date | null
+    project_id: number | null
+    creator_id: number | null
+    assignee_id: number | null
+    sprint_name: string | null
+    sprint_start: Date | null
+    sprint_end: Date | null
+  }
+
+  export type JiraIssueCountAggregateOutputType = {
+    id: number
+    issue_id: number
+    summary: number
+    key: number
+    status_name: number
+    status_id: number
+    timespent: number
+    timeestimate: number
+    created_at: number
+    updated_at: number
+    resolution_date: number
+    project_id: number
+    creator_id: number
+    assignee_id: number
+    sprint_name: number
+    sprint_start: number
+    sprint_end: number
+    raw_fields: number
+    _all: number
+  }
+
+
+  export type JiraIssueAvgAggregateInputType = {
+    id?: true
+    timespent?: true
+    timeestimate?: true
+    project_id?: true
+    creator_id?: true
+    assignee_id?: true
+  }
+
+  export type JiraIssueSumAggregateInputType = {
+    id?: true
+    timespent?: true
+    timeestimate?: true
+    project_id?: true
+    creator_id?: true
+    assignee_id?: true
+  }
+
+  export type JiraIssueMinAggregateInputType = {
+    id?: true
+    issue_id?: true
+    summary?: true
+    key?: true
+    status_name?: true
+    status_id?: true
+    timespent?: true
+    timeestimate?: true
+    created_at?: true
+    updated_at?: true
+    resolution_date?: true
+    project_id?: true
+    creator_id?: true
+    assignee_id?: true
+    sprint_name?: true
+    sprint_start?: true
+    sprint_end?: true
+  }
+
+  export type JiraIssueMaxAggregateInputType = {
+    id?: true
+    issue_id?: true
+    summary?: true
+    key?: true
+    status_name?: true
+    status_id?: true
+    timespent?: true
+    timeestimate?: true
+    created_at?: true
+    updated_at?: true
+    resolution_date?: true
+    project_id?: true
+    creator_id?: true
+    assignee_id?: true
+    sprint_name?: true
+    sprint_start?: true
+    sprint_end?: true
+  }
+
+  export type JiraIssueCountAggregateInputType = {
+    id?: true
+    issue_id?: true
+    summary?: true
+    key?: true
+    status_name?: true
+    status_id?: true
+    timespent?: true
+    timeestimate?: true
+    created_at?: true
+    updated_at?: true
+    resolution_date?: true
+    project_id?: true
+    creator_id?: true
+    assignee_id?: true
+    sprint_name?: true
+    sprint_start?: true
+    sprint_end?: true
+    raw_fields?: true
+    _all?: true
+  }
+
+  export type JiraIssueAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JiraIssue to aggregate.
+     */
+    where?: JiraIssueWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraIssues to fetch.
+     */
+    orderBy?: JiraIssueOrderByWithRelationInput | JiraIssueOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: JiraIssueWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraIssues from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraIssues.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned JiraIssues
+    **/
+    _count?: true | JiraIssueCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: JiraIssueAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: JiraIssueSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: JiraIssueMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: JiraIssueMaxAggregateInputType
+  }
+
+  export type GetJiraIssueAggregateType<T extends JiraIssueAggregateArgs> = {
+        [P in keyof T & keyof AggregateJiraIssue]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateJiraIssue[P]>
+      : GetScalarType<T[P], AggregateJiraIssue[P]>
+  }
+
+
+
+
+  export type JiraIssueGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JiraIssueWhereInput
+    orderBy?: JiraIssueOrderByWithAggregationInput | JiraIssueOrderByWithAggregationInput[]
+    by: JiraIssueScalarFieldEnum[] | JiraIssueScalarFieldEnum
+    having?: JiraIssueScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: JiraIssueCountAggregateInputType | true
+    _avg?: JiraIssueAvgAggregateInputType
+    _sum?: JiraIssueSumAggregateInputType
+    _min?: JiraIssueMinAggregateInputType
+    _max?: JiraIssueMaxAggregateInputType
+  }
+
+  export type JiraIssueGroupByOutputType = {
+    id: number
+    issue_id: string
+    summary: string | null
+    key: string
+    status_name: string | null
+    status_id: string | null
+    timespent: number | null
+    timeestimate: number | null
+    created_at: Date | null
+    updated_at: Date | null
+    resolution_date: Date | null
+    project_id: number | null
+    creator_id: number | null
+    assignee_id: number | null
+    sprint_name: string | null
+    sprint_start: Date | null
+    sprint_end: Date | null
+    raw_fields: JsonValue | null
+    _count: JiraIssueCountAggregateOutputType | null
+    _avg: JiraIssueAvgAggregateOutputType | null
+    _sum: JiraIssueSumAggregateOutputType | null
+    _min: JiraIssueMinAggregateOutputType | null
+    _max: JiraIssueMaxAggregateOutputType | null
+  }
+
+  type GetJiraIssueGroupByPayload<T extends JiraIssueGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<JiraIssueGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof JiraIssueGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], JiraIssueGroupByOutputType[P]>
+            : GetScalarType<T[P], JiraIssueGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type JiraIssueSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    issue_id?: boolean
+    summary?: boolean
+    key?: boolean
+    status_name?: boolean
+    status_id?: boolean
+    timespent?: boolean
+    timeestimate?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    resolution_date?: boolean
+    project_id?: boolean
+    creator_id?: boolean
+    assignee_id?: boolean
+    sprint_name?: boolean
+    sprint_start?: boolean
+    sprint_end?: boolean
+    raw_fields?: boolean
+    project?: boolean | JiraIssue$projectArgs<ExtArgs>
+    creator?: boolean | JiraIssue$creatorArgs<ExtArgs>
+    assignee?: boolean | JiraIssue$assigneeArgs<ExtArgs>
+    events?: boolean | JiraIssue$eventsArgs<ExtArgs>
+    _count?: boolean | JiraIssueCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["jiraIssue"]>
+
+
+
+  export type JiraIssueSelectScalar = {
+    id?: boolean
+    issue_id?: boolean
+    summary?: boolean
+    key?: boolean
+    status_name?: boolean
+    status_id?: boolean
+    timespent?: boolean
+    timeestimate?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    resolution_date?: boolean
+    project_id?: boolean
+    creator_id?: boolean
+    assignee_id?: boolean
+    sprint_name?: boolean
+    sprint_start?: boolean
+    sprint_end?: boolean
+    raw_fields?: boolean
+  }
+
+  export type JiraIssueOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "issue_id" | "summary" | "key" | "status_name" | "status_id" | "timespent" | "timeestimate" | "created_at" | "updated_at" | "resolution_date" | "project_id" | "creator_id" | "assignee_id" | "sprint_name" | "sprint_start" | "sprint_end" | "raw_fields", ExtArgs["result"]["jiraIssue"]>
+  export type JiraIssueInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | JiraIssue$projectArgs<ExtArgs>
+    creator?: boolean | JiraIssue$creatorArgs<ExtArgs>
+    assignee?: boolean | JiraIssue$assigneeArgs<ExtArgs>
+    events?: boolean | JiraIssue$eventsArgs<ExtArgs>
+    _count?: boolean | JiraIssueCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $JiraIssuePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "JiraIssue"
+    objects: {
+      project: Prisma.$JiraProjectPayload<ExtArgs> | null
+      creator: Prisma.$JiraUserPayload<ExtArgs> | null
+      assignee: Prisma.$JiraUserPayload<ExtArgs> | null
+      events: Prisma.$JiraEventPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      issue_id: string
+      summary: string | null
+      key: string
+      status_name: string | null
+      status_id: string | null
+      timespent: number | null
+      timeestimate: number | null
+      created_at: Date | null
+      updated_at: Date | null
+      resolution_date: Date | null
+      project_id: number | null
+      creator_id: number | null
+      assignee_id: number | null
+      sprint_name: string | null
+      sprint_start: Date | null
+      sprint_end: Date | null
+      raw_fields: Prisma.JsonValue | null
+    }, ExtArgs["result"]["jiraIssue"]>
+    composites: {}
+  }
+
+  type JiraIssueGetPayload<S extends boolean | null | undefined | JiraIssueDefaultArgs> = $Result.GetResult<Prisma.$JiraIssuePayload, S>
+
+  type JiraIssueCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<JiraIssueFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: JiraIssueCountAggregateInputType | true
+    }
+
+  export interface JiraIssueDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['JiraIssue'], meta: { name: 'JiraIssue' } }
+    /**
+     * Find zero or one JiraIssue that matches the filter.
+     * @param {JiraIssueFindUniqueArgs} args - Arguments to find a JiraIssue
+     * @example
+     * // Get one JiraIssue
+     * const jiraIssue = await prisma.jiraIssue.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends JiraIssueFindUniqueArgs>(args: SelectSubset<T, JiraIssueFindUniqueArgs<ExtArgs>>): Prisma__JiraIssueClient<$Result.GetResult<Prisma.$JiraIssuePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one JiraIssue that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {JiraIssueFindUniqueOrThrowArgs} args - Arguments to find a JiraIssue
+     * @example
+     * // Get one JiraIssue
+     * const jiraIssue = await prisma.jiraIssue.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends JiraIssueFindUniqueOrThrowArgs>(args: SelectSubset<T, JiraIssueFindUniqueOrThrowArgs<ExtArgs>>): Prisma__JiraIssueClient<$Result.GetResult<Prisma.$JiraIssuePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JiraIssue that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraIssueFindFirstArgs} args - Arguments to find a JiraIssue
+     * @example
+     * // Get one JiraIssue
+     * const jiraIssue = await prisma.jiraIssue.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends JiraIssueFindFirstArgs>(args?: SelectSubset<T, JiraIssueFindFirstArgs<ExtArgs>>): Prisma__JiraIssueClient<$Result.GetResult<Prisma.$JiraIssuePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JiraIssue that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraIssueFindFirstOrThrowArgs} args - Arguments to find a JiraIssue
+     * @example
+     * // Get one JiraIssue
+     * const jiraIssue = await prisma.jiraIssue.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends JiraIssueFindFirstOrThrowArgs>(args?: SelectSubset<T, JiraIssueFindFirstOrThrowArgs<ExtArgs>>): Prisma__JiraIssueClient<$Result.GetResult<Prisma.$JiraIssuePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more JiraIssues that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraIssueFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all JiraIssues
+     * const jiraIssues = await prisma.jiraIssue.findMany()
+     * 
+     * // Get first 10 JiraIssues
+     * const jiraIssues = await prisma.jiraIssue.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const jiraIssueWithIdOnly = await prisma.jiraIssue.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends JiraIssueFindManyArgs>(args?: SelectSubset<T, JiraIssueFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JiraIssuePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a JiraIssue.
+     * @param {JiraIssueCreateArgs} args - Arguments to create a JiraIssue.
+     * @example
+     * // Create one JiraIssue
+     * const JiraIssue = await prisma.jiraIssue.create({
+     *   data: {
+     *     // ... data to create a JiraIssue
+     *   }
+     * })
+     * 
+     */
+    create<T extends JiraIssueCreateArgs>(args: SelectSubset<T, JiraIssueCreateArgs<ExtArgs>>): Prisma__JiraIssueClient<$Result.GetResult<Prisma.$JiraIssuePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many JiraIssues.
+     * @param {JiraIssueCreateManyArgs} args - Arguments to create many JiraIssues.
+     * @example
+     * // Create many JiraIssues
+     * const jiraIssue = await prisma.jiraIssue.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends JiraIssueCreateManyArgs>(args?: SelectSubset<T, JiraIssueCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a JiraIssue.
+     * @param {JiraIssueDeleteArgs} args - Arguments to delete one JiraIssue.
+     * @example
+     * // Delete one JiraIssue
+     * const JiraIssue = await prisma.jiraIssue.delete({
+     *   where: {
+     *     // ... filter to delete one JiraIssue
+     *   }
+     * })
+     * 
+     */
+    delete<T extends JiraIssueDeleteArgs>(args: SelectSubset<T, JiraIssueDeleteArgs<ExtArgs>>): Prisma__JiraIssueClient<$Result.GetResult<Prisma.$JiraIssuePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one JiraIssue.
+     * @param {JiraIssueUpdateArgs} args - Arguments to update one JiraIssue.
+     * @example
+     * // Update one JiraIssue
+     * const jiraIssue = await prisma.jiraIssue.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends JiraIssueUpdateArgs>(args: SelectSubset<T, JiraIssueUpdateArgs<ExtArgs>>): Prisma__JiraIssueClient<$Result.GetResult<Prisma.$JiraIssuePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more JiraIssues.
+     * @param {JiraIssueDeleteManyArgs} args - Arguments to filter JiraIssues to delete.
+     * @example
+     * // Delete a few JiraIssues
+     * const { count } = await prisma.jiraIssue.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends JiraIssueDeleteManyArgs>(args?: SelectSubset<T, JiraIssueDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more JiraIssues.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraIssueUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many JiraIssues
+     * const jiraIssue = await prisma.jiraIssue.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends JiraIssueUpdateManyArgs>(args: SelectSubset<T, JiraIssueUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one JiraIssue.
+     * @param {JiraIssueUpsertArgs} args - Arguments to update or create a JiraIssue.
+     * @example
+     * // Update or create a JiraIssue
+     * const jiraIssue = await prisma.jiraIssue.upsert({
+     *   create: {
+     *     // ... data to create a JiraIssue
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the JiraIssue we want to update
+     *   }
+     * })
+     */
+    upsert<T extends JiraIssueUpsertArgs>(args: SelectSubset<T, JiraIssueUpsertArgs<ExtArgs>>): Prisma__JiraIssueClient<$Result.GetResult<Prisma.$JiraIssuePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of JiraIssues.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraIssueCountArgs} args - Arguments to filter JiraIssues to count.
+     * @example
+     * // Count the number of JiraIssues
+     * const count = await prisma.jiraIssue.count({
+     *   where: {
+     *     // ... the filter for the JiraIssues we want to count
+     *   }
+     * })
+    **/
+    count<T extends JiraIssueCountArgs>(
+      args?: Subset<T, JiraIssueCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], JiraIssueCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a JiraIssue.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraIssueAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends JiraIssueAggregateArgs>(args: Subset<T, JiraIssueAggregateArgs>): Prisma.PrismaPromise<GetJiraIssueAggregateType<T>>
+
+    /**
+     * Group by JiraIssue.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraIssueGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends JiraIssueGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: JiraIssueGroupByArgs['orderBy'] }
+        : { orderBy?: JiraIssueGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, JiraIssueGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJiraIssueGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the JiraIssue model
+   */
+  readonly fields: JiraIssueFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for JiraIssue.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__JiraIssueClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    project<T extends JiraIssue$projectArgs<ExtArgs> = {}>(args?: Subset<T, JiraIssue$projectArgs<ExtArgs>>): Prisma__JiraProjectClient<$Result.GetResult<Prisma.$JiraProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    creator<T extends JiraIssue$creatorArgs<ExtArgs> = {}>(args?: Subset<T, JiraIssue$creatorArgs<ExtArgs>>): Prisma__JiraUserClient<$Result.GetResult<Prisma.$JiraUserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    assignee<T extends JiraIssue$assigneeArgs<ExtArgs> = {}>(args?: Subset<T, JiraIssue$assigneeArgs<ExtArgs>>): Prisma__JiraUserClient<$Result.GetResult<Prisma.$JiraUserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    events<T extends JiraIssue$eventsArgs<ExtArgs> = {}>(args?: Subset<T, JiraIssue$eventsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JiraEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the JiraIssue model
+   */
+  interface JiraIssueFieldRefs {
+    readonly id: FieldRef<"JiraIssue", 'Int'>
+    readonly issue_id: FieldRef<"JiraIssue", 'String'>
+    readonly summary: FieldRef<"JiraIssue", 'String'>
+    readonly key: FieldRef<"JiraIssue", 'String'>
+    readonly status_name: FieldRef<"JiraIssue", 'String'>
+    readonly status_id: FieldRef<"JiraIssue", 'String'>
+    readonly timespent: FieldRef<"JiraIssue", 'Int'>
+    readonly timeestimate: FieldRef<"JiraIssue", 'Int'>
+    readonly created_at: FieldRef<"JiraIssue", 'DateTime'>
+    readonly updated_at: FieldRef<"JiraIssue", 'DateTime'>
+    readonly resolution_date: FieldRef<"JiraIssue", 'DateTime'>
+    readonly project_id: FieldRef<"JiraIssue", 'Int'>
+    readonly creator_id: FieldRef<"JiraIssue", 'Int'>
+    readonly assignee_id: FieldRef<"JiraIssue", 'Int'>
+    readonly sprint_name: FieldRef<"JiraIssue", 'String'>
+    readonly sprint_start: FieldRef<"JiraIssue", 'DateTime'>
+    readonly sprint_end: FieldRef<"JiraIssue", 'DateTime'>
+    readonly raw_fields: FieldRef<"JiraIssue", 'Json'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * JiraIssue findUnique
+   */
+  export type JiraIssueFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraIssue
+     */
+    select?: JiraIssueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraIssue
+     */
+    omit?: JiraIssueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraIssueInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraIssue to fetch.
+     */
+    where: JiraIssueWhereUniqueInput
+  }
+
+  /**
+   * JiraIssue findUniqueOrThrow
+   */
+  export type JiraIssueFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraIssue
+     */
+    select?: JiraIssueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraIssue
+     */
+    omit?: JiraIssueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraIssueInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraIssue to fetch.
+     */
+    where: JiraIssueWhereUniqueInput
+  }
+
+  /**
+   * JiraIssue findFirst
+   */
+  export type JiraIssueFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraIssue
+     */
+    select?: JiraIssueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraIssue
+     */
+    omit?: JiraIssueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraIssueInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraIssue to fetch.
+     */
+    where?: JiraIssueWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraIssues to fetch.
+     */
+    orderBy?: JiraIssueOrderByWithRelationInput | JiraIssueOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JiraIssues.
+     */
+    cursor?: JiraIssueWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraIssues from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraIssues.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JiraIssues.
+     */
+    distinct?: JiraIssueScalarFieldEnum | JiraIssueScalarFieldEnum[]
+  }
+
+  /**
+   * JiraIssue findFirstOrThrow
+   */
+  export type JiraIssueFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraIssue
+     */
+    select?: JiraIssueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraIssue
+     */
+    omit?: JiraIssueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraIssueInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraIssue to fetch.
+     */
+    where?: JiraIssueWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraIssues to fetch.
+     */
+    orderBy?: JiraIssueOrderByWithRelationInput | JiraIssueOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JiraIssues.
+     */
+    cursor?: JiraIssueWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraIssues from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraIssues.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JiraIssues.
+     */
+    distinct?: JiraIssueScalarFieldEnum | JiraIssueScalarFieldEnum[]
+  }
+
+  /**
+   * JiraIssue findMany
+   */
+  export type JiraIssueFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraIssue
+     */
+    select?: JiraIssueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraIssue
+     */
+    omit?: JiraIssueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraIssueInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraIssues to fetch.
+     */
+    where?: JiraIssueWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraIssues to fetch.
+     */
+    orderBy?: JiraIssueOrderByWithRelationInput | JiraIssueOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing JiraIssues.
+     */
+    cursor?: JiraIssueWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraIssues from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraIssues.
+     */
+    skip?: number
+    distinct?: JiraIssueScalarFieldEnum | JiraIssueScalarFieldEnum[]
+  }
+
+  /**
+   * JiraIssue create
+   */
+  export type JiraIssueCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraIssue
+     */
+    select?: JiraIssueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraIssue
+     */
+    omit?: JiraIssueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraIssueInclude<ExtArgs> | null
+    /**
+     * The data needed to create a JiraIssue.
+     */
+    data: XOR<JiraIssueCreateInput, JiraIssueUncheckedCreateInput>
+  }
+
+  /**
+   * JiraIssue createMany
+   */
+  export type JiraIssueCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many JiraIssues.
+     */
+    data: JiraIssueCreateManyInput | JiraIssueCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * JiraIssue update
+   */
+  export type JiraIssueUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraIssue
+     */
+    select?: JiraIssueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraIssue
+     */
+    omit?: JiraIssueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraIssueInclude<ExtArgs> | null
+    /**
+     * The data needed to update a JiraIssue.
+     */
+    data: XOR<JiraIssueUpdateInput, JiraIssueUncheckedUpdateInput>
+    /**
+     * Choose, which JiraIssue to update.
+     */
+    where: JiraIssueWhereUniqueInput
+  }
+
+  /**
+   * JiraIssue updateMany
+   */
+  export type JiraIssueUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update JiraIssues.
+     */
+    data: XOR<JiraIssueUpdateManyMutationInput, JiraIssueUncheckedUpdateManyInput>
+    /**
+     * Filter which JiraIssues to update
+     */
+    where?: JiraIssueWhereInput
+    /**
+     * Limit how many JiraIssues to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * JiraIssue upsert
+   */
+  export type JiraIssueUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraIssue
+     */
+    select?: JiraIssueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraIssue
+     */
+    omit?: JiraIssueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraIssueInclude<ExtArgs> | null
+    /**
+     * The filter to search for the JiraIssue to update in case it exists.
+     */
+    where: JiraIssueWhereUniqueInput
+    /**
+     * In case the JiraIssue found by the `where` argument doesn't exist, create a new JiraIssue with this data.
+     */
+    create: XOR<JiraIssueCreateInput, JiraIssueUncheckedCreateInput>
+    /**
+     * In case the JiraIssue was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<JiraIssueUpdateInput, JiraIssueUncheckedUpdateInput>
+  }
+
+  /**
+   * JiraIssue delete
+   */
+  export type JiraIssueDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraIssue
+     */
+    select?: JiraIssueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraIssue
+     */
+    omit?: JiraIssueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraIssueInclude<ExtArgs> | null
+    /**
+     * Filter which JiraIssue to delete.
+     */
+    where: JiraIssueWhereUniqueInput
+  }
+
+  /**
+   * JiraIssue deleteMany
+   */
+  export type JiraIssueDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JiraIssues to delete
+     */
+    where?: JiraIssueWhereInput
+    /**
+     * Limit how many JiraIssues to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * JiraIssue.project
+   */
+  export type JiraIssue$projectArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraProject
+     */
+    select?: JiraProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraProject
+     */
+    omit?: JiraProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraProjectInclude<ExtArgs> | null
+    where?: JiraProjectWhereInput
+  }
+
+  /**
+   * JiraIssue.creator
+   */
+  export type JiraIssue$creatorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraUser
+     */
+    select?: JiraUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraUser
+     */
+    omit?: JiraUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraUserInclude<ExtArgs> | null
+    where?: JiraUserWhereInput
+  }
+
+  /**
+   * JiraIssue.assignee
+   */
+  export type JiraIssue$assigneeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraUser
+     */
+    select?: JiraUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraUser
+     */
+    omit?: JiraUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraUserInclude<ExtArgs> | null
+    where?: JiraUserWhereInput
+  }
+
+  /**
+   * JiraIssue.events
+   */
+  export type JiraIssue$eventsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraEvent
+     */
+    select?: JiraEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraEvent
+     */
+    omit?: JiraEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraEventInclude<ExtArgs> | null
+    where?: JiraEventWhereInput
+    orderBy?: JiraEventOrderByWithRelationInput | JiraEventOrderByWithRelationInput[]
+    cursor?: JiraEventWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JiraEventScalarFieldEnum | JiraEventScalarFieldEnum[]
+  }
+
+  /**
+   * JiraIssue without action
+   */
+  export type JiraIssueDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraIssue
+     */
+    select?: JiraIssueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraIssue
+     */
+    omit?: JiraIssueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraIssueInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model JiraPayload
+   */
+
+  export type AggregateJiraPayload = {
+    _count: JiraPayloadCountAggregateOutputType | null
+    _avg: JiraPayloadAvgAggregateOutputType | null
+    _sum: JiraPayloadSumAggregateOutputType | null
+    _min: JiraPayloadMinAggregateOutputType | null
+    _max: JiraPayloadMaxAggregateOutputType | null
+  }
+
+  export type JiraPayloadAvgAggregateOutputType = {
+    id: number | null
+    event_id: number | null
+  }
+
+  export type JiraPayloadSumAggregateOutputType = {
+    id: number | null
+    event_id: number | null
+  }
+
+  export type JiraPayloadMinAggregateOutputType = {
+    id: number | null
+    event_id: number | null
+  }
+
+  export type JiraPayloadMaxAggregateOutputType = {
+    id: number | null
+    event_id: number | null
+  }
+
+  export type JiraPayloadCountAggregateOutputType = {
+    id: number
+    raw_payload: number
+    event_id: number
+    _all: number
+  }
+
+
+  export type JiraPayloadAvgAggregateInputType = {
+    id?: true
+    event_id?: true
+  }
+
+  export type JiraPayloadSumAggregateInputType = {
+    id?: true
+    event_id?: true
+  }
+
+  export type JiraPayloadMinAggregateInputType = {
+    id?: true
+    event_id?: true
+  }
+
+  export type JiraPayloadMaxAggregateInputType = {
+    id?: true
+    event_id?: true
+  }
+
+  export type JiraPayloadCountAggregateInputType = {
+    id?: true
+    raw_payload?: true
+    event_id?: true
+    _all?: true
+  }
+
+  export type JiraPayloadAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JiraPayload to aggregate.
+     */
+    where?: JiraPayloadWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraPayloads to fetch.
+     */
+    orderBy?: JiraPayloadOrderByWithRelationInput | JiraPayloadOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: JiraPayloadWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraPayloads from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraPayloads.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned JiraPayloads
+    **/
+    _count?: true | JiraPayloadCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: JiraPayloadAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: JiraPayloadSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: JiraPayloadMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: JiraPayloadMaxAggregateInputType
+  }
+
+  export type GetJiraPayloadAggregateType<T extends JiraPayloadAggregateArgs> = {
+        [P in keyof T & keyof AggregateJiraPayload]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateJiraPayload[P]>
+      : GetScalarType<T[P], AggregateJiraPayload[P]>
+  }
+
+
+
+
+  export type JiraPayloadGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JiraPayloadWhereInput
+    orderBy?: JiraPayloadOrderByWithAggregationInput | JiraPayloadOrderByWithAggregationInput[]
+    by: JiraPayloadScalarFieldEnum[] | JiraPayloadScalarFieldEnum
+    having?: JiraPayloadScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: JiraPayloadCountAggregateInputType | true
+    _avg?: JiraPayloadAvgAggregateInputType
+    _sum?: JiraPayloadSumAggregateInputType
+    _min?: JiraPayloadMinAggregateInputType
+    _max?: JiraPayloadMaxAggregateInputType
+  }
+
+  export type JiraPayloadGroupByOutputType = {
+    id: number
+    raw_payload: JsonValue
+    event_id: number
+    _count: JiraPayloadCountAggregateOutputType | null
+    _avg: JiraPayloadAvgAggregateOutputType | null
+    _sum: JiraPayloadSumAggregateOutputType | null
+    _min: JiraPayloadMinAggregateOutputType | null
+    _max: JiraPayloadMaxAggregateOutputType | null
+  }
+
+  type GetJiraPayloadGroupByPayload<T extends JiraPayloadGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<JiraPayloadGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof JiraPayloadGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], JiraPayloadGroupByOutputType[P]>
+            : GetScalarType<T[P], JiraPayloadGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type JiraPayloadSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    raw_payload?: boolean
+    event_id?: boolean
+    event?: boolean | JiraEventDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["jiraPayload"]>
+
+
+
+  export type JiraPayloadSelectScalar = {
+    id?: boolean
+    raw_payload?: boolean
+    event_id?: boolean
+  }
+
+  export type JiraPayloadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "raw_payload" | "event_id", ExtArgs["result"]["jiraPayload"]>
+  export type JiraPayloadInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    event?: boolean | JiraEventDefaultArgs<ExtArgs>
+  }
+
+  export type $JiraPayloadPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "JiraPayload"
+    objects: {
+      event: Prisma.$JiraEventPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      raw_payload: Prisma.JsonValue
+      event_id: number
+    }, ExtArgs["result"]["jiraPayload"]>
+    composites: {}
+  }
+
+  type JiraPayloadGetPayload<S extends boolean | null | undefined | JiraPayloadDefaultArgs> = $Result.GetResult<Prisma.$JiraPayloadPayload, S>
+
+  type JiraPayloadCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<JiraPayloadFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: JiraPayloadCountAggregateInputType | true
+    }
+
+  export interface JiraPayloadDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['JiraPayload'], meta: { name: 'JiraPayload' } }
+    /**
+     * Find zero or one JiraPayload that matches the filter.
+     * @param {JiraPayloadFindUniqueArgs} args - Arguments to find a JiraPayload
+     * @example
+     * // Get one JiraPayload
+     * const jiraPayload = await prisma.jiraPayload.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends JiraPayloadFindUniqueArgs>(args: SelectSubset<T, JiraPayloadFindUniqueArgs<ExtArgs>>): Prisma__JiraPayloadClient<$Result.GetResult<Prisma.$JiraPayloadPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one JiraPayload that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {JiraPayloadFindUniqueOrThrowArgs} args - Arguments to find a JiraPayload
+     * @example
+     * // Get one JiraPayload
+     * const jiraPayload = await prisma.jiraPayload.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends JiraPayloadFindUniqueOrThrowArgs>(args: SelectSubset<T, JiraPayloadFindUniqueOrThrowArgs<ExtArgs>>): Prisma__JiraPayloadClient<$Result.GetResult<Prisma.$JiraPayloadPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JiraPayload that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraPayloadFindFirstArgs} args - Arguments to find a JiraPayload
+     * @example
+     * // Get one JiraPayload
+     * const jiraPayload = await prisma.jiraPayload.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends JiraPayloadFindFirstArgs>(args?: SelectSubset<T, JiraPayloadFindFirstArgs<ExtArgs>>): Prisma__JiraPayloadClient<$Result.GetResult<Prisma.$JiraPayloadPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JiraPayload that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraPayloadFindFirstOrThrowArgs} args - Arguments to find a JiraPayload
+     * @example
+     * // Get one JiraPayload
+     * const jiraPayload = await prisma.jiraPayload.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends JiraPayloadFindFirstOrThrowArgs>(args?: SelectSubset<T, JiraPayloadFindFirstOrThrowArgs<ExtArgs>>): Prisma__JiraPayloadClient<$Result.GetResult<Prisma.$JiraPayloadPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more JiraPayloads that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraPayloadFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all JiraPayloads
+     * const jiraPayloads = await prisma.jiraPayload.findMany()
+     * 
+     * // Get first 10 JiraPayloads
+     * const jiraPayloads = await prisma.jiraPayload.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const jiraPayloadWithIdOnly = await prisma.jiraPayload.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends JiraPayloadFindManyArgs>(args?: SelectSubset<T, JiraPayloadFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JiraPayloadPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a JiraPayload.
+     * @param {JiraPayloadCreateArgs} args - Arguments to create a JiraPayload.
+     * @example
+     * // Create one JiraPayload
+     * const JiraPayload = await prisma.jiraPayload.create({
+     *   data: {
+     *     // ... data to create a JiraPayload
+     *   }
+     * })
+     * 
+     */
+    create<T extends JiraPayloadCreateArgs>(args: SelectSubset<T, JiraPayloadCreateArgs<ExtArgs>>): Prisma__JiraPayloadClient<$Result.GetResult<Prisma.$JiraPayloadPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many JiraPayloads.
+     * @param {JiraPayloadCreateManyArgs} args - Arguments to create many JiraPayloads.
+     * @example
+     * // Create many JiraPayloads
+     * const jiraPayload = await prisma.jiraPayload.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends JiraPayloadCreateManyArgs>(args?: SelectSubset<T, JiraPayloadCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a JiraPayload.
+     * @param {JiraPayloadDeleteArgs} args - Arguments to delete one JiraPayload.
+     * @example
+     * // Delete one JiraPayload
+     * const JiraPayload = await prisma.jiraPayload.delete({
+     *   where: {
+     *     // ... filter to delete one JiraPayload
+     *   }
+     * })
+     * 
+     */
+    delete<T extends JiraPayloadDeleteArgs>(args: SelectSubset<T, JiraPayloadDeleteArgs<ExtArgs>>): Prisma__JiraPayloadClient<$Result.GetResult<Prisma.$JiraPayloadPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one JiraPayload.
+     * @param {JiraPayloadUpdateArgs} args - Arguments to update one JiraPayload.
+     * @example
+     * // Update one JiraPayload
+     * const jiraPayload = await prisma.jiraPayload.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends JiraPayloadUpdateArgs>(args: SelectSubset<T, JiraPayloadUpdateArgs<ExtArgs>>): Prisma__JiraPayloadClient<$Result.GetResult<Prisma.$JiraPayloadPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more JiraPayloads.
+     * @param {JiraPayloadDeleteManyArgs} args - Arguments to filter JiraPayloads to delete.
+     * @example
+     * // Delete a few JiraPayloads
+     * const { count } = await prisma.jiraPayload.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends JiraPayloadDeleteManyArgs>(args?: SelectSubset<T, JiraPayloadDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more JiraPayloads.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraPayloadUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many JiraPayloads
+     * const jiraPayload = await prisma.jiraPayload.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends JiraPayloadUpdateManyArgs>(args: SelectSubset<T, JiraPayloadUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one JiraPayload.
+     * @param {JiraPayloadUpsertArgs} args - Arguments to update or create a JiraPayload.
+     * @example
+     * // Update or create a JiraPayload
+     * const jiraPayload = await prisma.jiraPayload.upsert({
+     *   create: {
+     *     // ... data to create a JiraPayload
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the JiraPayload we want to update
+     *   }
+     * })
+     */
+    upsert<T extends JiraPayloadUpsertArgs>(args: SelectSubset<T, JiraPayloadUpsertArgs<ExtArgs>>): Prisma__JiraPayloadClient<$Result.GetResult<Prisma.$JiraPayloadPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of JiraPayloads.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraPayloadCountArgs} args - Arguments to filter JiraPayloads to count.
+     * @example
+     * // Count the number of JiraPayloads
+     * const count = await prisma.jiraPayload.count({
+     *   where: {
+     *     // ... the filter for the JiraPayloads we want to count
+     *   }
+     * })
+    **/
+    count<T extends JiraPayloadCountArgs>(
+      args?: Subset<T, JiraPayloadCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], JiraPayloadCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a JiraPayload.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraPayloadAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends JiraPayloadAggregateArgs>(args: Subset<T, JiraPayloadAggregateArgs>): Prisma.PrismaPromise<GetJiraPayloadAggregateType<T>>
+
+    /**
+     * Group by JiraPayload.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JiraPayloadGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends JiraPayloadGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: JiraPayloadGroupByArgs['orderBy'] }
+        : { orderBy?: JiraPayloadGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, JiraPayloadGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJiraPayloadGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the JiraPayload model
+   */
+  readonly fields: JiraPayloadFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for JiraPayload.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__JiraPayloadClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    event<T extends JiraEventDefaultArgs<ExtArgs> = {}>(args?: Subset<T, JiraEventDefaultArgs<ExtArgs>>): Prisma__JiraEventClient<$Result.GetResult<Prisma.$JiraEventPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the JiraPayload model
+   */
+  interface JiraPayloadFieldRefs {
+    readonly id: FieldRef<"JiraPayload", 'Int'>
+    readonly raw_payload: FieldRef<"JiraPayload", 'Json'>
+    readonly event_id: FieldRef<"JiraPayload", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * JiraPayload findUnique
+   */
+  export type JiraPayloadFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraPayload
+     */
+    select?: JiraPayloadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraPayload
+     */
+    omit?: JiraPayloadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraPayloadInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraPayload to fetch.
+     */
+    where: JiraPayloadWhereUniqueInput
+  }
+
+  /**
+   * JiraPayload findUniqueOrThrow
+   */
+  export type JiraPayloadFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraPayload
+     */
+    select?: JiraPayloadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraPayload
+     */
+    omit?: JiraPayloadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraPayloadInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraPayload to fetch.
+     */
+    where: JiraPayloadWhereUniqueInput
+  }
+
+  /**
+   * JiraPayload findFirst
+   */
+  export type JiraPayloadFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraPayload
+     */
+    select?: JiraPayloadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraPayload
+     */
+    omit?: JiraPayloadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraPayloadInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraPayload to fetch.
+     */
+    where?: JiraPayloadWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraPayloads to fetch.
+     */
+    orderBy?: JiraPayloadOrderByWithRelationInput | JiraPayloadOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JiraPayloads.
+     */
+    cursor?: JiraPayloadWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraPayloads from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraPayloads.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JiraPayloads.
+     */
+    distinct?: JiraPayloadScalarFieldEnum | JiraPayloadScalarFieldEnum[]
+  }
+
+  /**
+   * JiraPayload findFirstOrThrow
+   */
+  export type JiraPayloadFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraPayload
+     */
+    select?: JiraPayloadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraPayload
+     */
+    omit?: JiraPayloadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraPayloadInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraPayload to fetch.
+     */
+    where?: JiraPayloadWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraPayloads to fetch.
+     */
+    orderBy?: JiraPayloadOrderByWithRelationInput | JiraPayloadOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JiraPayloads.
+     */
+    cursor?: JiraPayloadWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraPayloads from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraPayloads.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JiraPayloads.
+     */
+    distinct?: JiraPayloadScalarFieldEnum | JiraPayloadScalarFieldEnum[]
+  }
+
+  /**
+   * JiraPayload findMany
+   */
+  export type JiraPayloadFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraPayload
+     */
+    select?: JiraPayloadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraPayload
+     */
+    omit?: JiraPayloadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraPayloadInclude<ExtArgs> | null
+    /**
+     * Filter, which JiraPayloads to fetch.
+     */
+    where?: JiraPayloadWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JiraPayloads to fetch.
+     */
+    orderBy?: JiraPayloadOrderByWithRelationInput | JiraPayloadOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing JiraPayloads.
+     */
+    cursor?: JiraPayloadWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JiraPayloads from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JiraPayloads.
+     */
+    skip?: number
+    distinct?: JiraPayloadScalarFieldEnum | JiraPayloadScalarFieldEnum[]
+  }
+
+  /**
+   * JiraPayload create
+   */
+  export type JiraPayloadCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraPayload
+     */
+    select?: JiraPayloadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraPayload
+     */
+    omit?: JiraPayloadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraPayloadInclude<ExtArgs> | null
+    /**
+     * The data needed to create a JiraPayload.
+     */
+    data: XOR<JiraPayloadCreateInput, JiraPayloadUncheckedCreateInput>
+  }
+
+  /**
+   * JiraPayload createMany
+   */
+  export type JiraPayloadCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many JiraPayloads.
+     */
+    data: JiraPayloadCreateManyInput | JiraPayloadCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * JiraPayload update
+   */
+  export type JiraPayloadUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraPayload
+     */
+    select?: JiraPayloadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraPayload
+     */
+    omit?: JiraPayloadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraPayloadInclude<ExtArgs> | null
+    /**
+     * The data needed to update a JiraPayload.
+     */
+    data: XOR<JiraPayloadUpdateInput, JiraPayloadUncheckedUpdateInput>
+    /**
+     * Choose, which JiraPayload to update.
+     */
+    where: JiraPayloadWhereUniqueInput
+  }
+
+  /**
+   * JiraPayload updateMany
+   */
+  export type JiraPayloadUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update JiraPayloads.
+     */
+    data: XOR<JiraPayloadUpdateManyMutationInput, JiraPayloadUncheckedUpdateManyInput>
+    /**
+     * Filter which JiraPayloads to update
+     */
+    where?: JiraPayloadWhereInput
+    /**
+     * Limit how many JiraPayloads to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * JiraPayload upsert
+   */
+  export type JiraPayloadUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraPayload
+     */
+    select?: JiraPayloadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraPayload
+     */
+    omit?: JiraPayloadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraPayloadInclude<ExtArgs> | null
+    /**
+     * The filter to search for the JiraPayload to update in case it exists.
+     */
+    where: JiraPayloadWhereUniqueInput
+    /**
+     * In case the JiraPayload found by the `where` argument doesn't exist, create a new JiraPayload with this data.
+     */
+    create: XOR<JiraPayloadCreateInput, JiraPayloadUncheckedCreateInput>
+    /**
+     * In case the JiraPayload was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<JiraPayloadUpdateInput, JiraPayloadUncheckedUpdateInput>
+  }
+
+  /**
+   * JiraPayload delete
+   */
+  export type JiraPayloadDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraPayload
+     */
+    select?: JiraPayloadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraPayload
+     */
+    omit?: JiraPayloadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraPayloadInclude<ExtArgs> | null
+    /**
+     * Filter which JiraPayload to delete.
+     */
+    where: JiraPayloadWhereUniqueInput
+  }
+
+  /**
+   * JiraPayload deleteMany
+   */
+  export type JiraPayloadDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JiraPayloads to delete
+     */
+    where?: JiraPayloadWhereInput
+    /**
+     * Limit how many JiraPayloads to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * JiraPayload without action
+   */
+  export type JiraPayloadDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JiraPayload
+     */
+    select?: JiraPayloadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JiraPayload
+     */
+    omit?: JiraPayloadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JiraPayloadInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -7776,6 +13583,71 @@ export namespace Prisma {
   export type RevisionScalarFieldEnum = (typeof RevisionScalarFieldEnum)[keyof typeof RevisionScalarFieldEnum]
 
 
+  export const JiraEventScalarFieldEnum: {
+    id: 'id',
+    webhook_event: 'webhook_event',
+    issue_event_type: 'issue_event_type',
+    issue_id: 'issue_id',
+    project_id: 'project_id',
+    user_id: 'user_id',
+    date_created: 'date_created'
+  };
+
+  export type JiraEventScalarFieldEnum = (typeof JiraEventScalarFieldEnum)[keyof typeof JiraEventScalarFieldEnum]
+
+
+  export const JiraProjectScalarFieldEnum: {
+    id: 'id',
+    key: 'key',
+    name: 'name',
+    created_at: 'created_at'
+  };
+
+  export type JiraProjectScalarFieldEnum = (typeof JiraProjectScalarFieldEnum)[keyof typeof JiraProjectScalarFieldEnum]
+
+
+  export const JiraUserScalarFieldEnum: {
+    id: 'id',
+    account_id: 'account_id',
+    display_name: 'display_name'
+  };
+
+  export type JiraUserScalarFieldEnum = (typeof JiraUserScalarFieldEnum)[keyof typeof JiraUserScalarFieldEnum]
+
+
+  export const JiraIssueScalarFieldEnum: {
+    id: 'id',
+    issue_id: 'issue_id',
+    summary: 'summary',
+    key: 'key',
+    status_name: 'status_name',
+    status_id: 'status_id',
+    timespent: 'timespent',
+    timeestimate: 'timeestimate',
+    created_at: 'created_at',
+    updated_at: 'updated_at',
+    resolution_date: 'resolution_date',
+    project_id: 'project_id',
+    creator_id: 'creator_id',
+    assignee_id: 'assignee_id',
+    sprint_name: 'sprint_name',
+    sprint_start: 'sprint_start',
+    sprint_end: 'sprint_end',
+    raw_fields: 'raw_fields'
+  };
+
+  export type JiraIssueScalarFieldEnum = (typeof JiraIssueScalarFieldEnum)[keyof typeof JiraIssueScalarFieldEnum]
+
+
+  export const JiraPayloadScalarFieldEnum: {
+    id: 'id',
+    raw_payload: 'raw_payload',
+    event_id: 'event_id'
+  };
+
+  export type JiraPayloadScalarFieldEnum = (typeof JiraPayloadScalarFieldEnum)[keyof typeof JiraPayloadScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -7789,6 +13661,14 @@ export namespace Prisma {
   };
 
   export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
+
+
+  export const NullableJsonNullValueInput: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull
+  };
+
+  export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
 
 
   export const ProjectOrderByRelevanceFieldEnum: {
@@ -7845,6 +13725,42 @@ export namespace Prisma {
   };
 
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+  export const JiraEventOrderByRelevanceFieldEnum: {
+    webhook_event: 'webhook_event',
+    issue_event_type: 'issue_event_type'
+  };
+
+  export type JiraEventOrderByRelevanceFieldEnum = (typeof JiraEventOrderByRelevanceFieldEnum)[keyof typeof JiraEventOrderByRelevanceFieldEnum]
+
+
+  export const JiraProjectOrderByRelevanceFieldEnum: {
+    key: 'key',
+    name: 'name'
+  };
+
+  export type JiraProjectOrderByRelevanceFieldEnum = (typeof JiraProjectOrderByRelevanceFieldEnum)[keyof typeof JiraProjectOrderByRelevanceFieldEnum]
+
+
+  export const JiraUserOrderByRelevanceFieldEnum: {
+    account_id: 'account_id',
+    display_name: 'display_name'
+  };
+
+  export type JiraUserOrderByRelevanceFieldEnum = (typeof JiraUserOrderByRelevanceFieldEnum)[keyof typeof JiraUserOrderByRelevanceFieldEnum]
+
+
+  export const JiraIssueOrderByRelevanceFieldEnum: {
+    issue_id: 'issue_id',
+    summary: 'summary',
+    key: 'key',
+    status_name: 'status_name',
+    status_id: 'status_id',
+    sprint_name: 'sprint_name'
+  };
+
+  export type JiraIssueOrderByRelevanceFieldEnum = (typeof JiraIssueOrderByRelevanceFieldEnum)[keyof typeof JiraIssueOrderByRelevanceFieldEnum]
 
 
   /**
@@ -8299,6 +14215,372 @@ export namespace Prisma {
     pr_event_id?: IntWithAggregatesFilter<"Revision"> | number
   }
 
+  export type JiraEventWhereInput = {
+    AND?: JiraEventWhereInput | JiraEventWhereInput[]
+    OR?: JiraEventWhereInput[]
+    NOT?: JiraEventWhereInput | JiraEventWhereInput[]
+    id?: IntFilter<"JiraEvent"> | number
+    webhook_event?: StringFilter<"JiraEvent"> | string
+    issue_event_type?: StringFilter<"JiraEvent"> | string
+    issue_id?: IntNullableFilter<"JiraEvent"> | number | null
+    project_id?: IntNullableFilter<"JiraEvent"> | number | null
+    user_id?: IntNullableFilter<"JiraEvent"> | number | null
+    date_created?: DateTimeFilter<"JiraEvent"> | Date | string
+    issue?: XOR<JiraIssueNullableScalarRelationFilter, JiraIssueWhereInput> | null
+    project?: XOR<JiraProjectNullableScalarRelationFilter, JiraProjectWhereInput> | null
+    user?: XOR<JiraUserNullableScalarRelationFilter, JiraUserWhereInput> | null
+    payload?: XOR<JiraPayloadNullableScalarRelationFilter, JiraPayloadWhereInput> | null
+  }
+
+  export type JiraEventOrderByWithRelationInput = {
+    id?: SortOrder
+    webhook_event?: SortOrder
+    issue_event_type?: SortOrder
+    issue_id?: SortOrderInput | SortOrder
+    project_id?: SortOrderInput | SortOrder
+    user_id?: SortOrderInput | SortOrder
+    date_created?: SortOrder
+    issue?: JiraIssueOrderByWithRelationInput
+    project?: JiraProjectOrderByWithRelationInput
+    user?: JiraUserOrderByWithRelationInput
+    payload?: JiraPayloadOrderByWithRelationInput
+    _relevance?: JiraEventOrderByRelevanceInput
+  }
+
+  export type JiraEventWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: JiraEventWhereInput | JiraEventWhereInput[]
+    OR?: JiraEventWhereInput[]
+    NOT?: JiraEventWhereInput | JiraEventWhereInput[]
+    webhook_event?: StringFilter<"JiraEvent"> | string
+    issue_event_type?: StringFilter<"JiraEvent"> | string
+    issue_id?: IntNullableFilter<"JiraEvent"> | number | null
+    project_id?: IntNullableFilter<"JiraEvent"> | number | null
+    user_id?: IntNullableFilter<"JiraEvent"> | number | null
+    date_created?: DateTimeFilter<"JiraEvent"> | Date | string
+    issue?: XOR<JiraIssueNullableScalarRelationFilter, JiraIssueWhereInput> | null
+    project?: XOR<JiraProjectNullableScalarRelationFilter, JiraProjectWhereInput> | null
+    user?: XOR<JiraUserNullableScalarRelationFilter, JiraUserWhereInput> | null
+    payload?: XOR<JiraPayloadNullableScalarRelationFilter, JiraPayloadWhereInput> | null
+  }, "id">
+
+  export type JiraEventOrderByWithAggregationInput = {
+    id?: SortOrder
+    webhook_event?: SortOrder
+    issue_event_type?: SortOrder
+    issue_id?: SortOrderInput | SortOrder
+    project_id?: SortOrderInput | SortOrder
+    user_id?: SortOrderInput | SortOrder
+    date_created?: SortOrder
+    _count?: JiraEventCountOrderByAggregateInput
+    _avg?: JiraEventAvgOrderByAggregateInput
+    _max?: JiraEventMaxOrderByAggregateInput
+    _min?: JiraEventMinOrderByAggregateInput
+    _sum?: JiraEventSumOrderByAggregateInput
+  }
+
+  export type JiraEventScalarWhereWithAggregatesInput = {
+    AND?: JiraEventScalarWhereWithAggregatesInput | JiraEventScalarWhereWithAggregatesInput[]
+    OR?: JiraEventScalarWhereWithAggregatesInput[]
+    NOT?: JiraEventScalarWhereWithAggregatesInput | JiraEventScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"JiraEvent"> | number
+    webhook_event?: StringWithAggregatesFilter<"JiraEvent"> | string
+    issue_event_type?: StringWithAggregatesFilter<"JiraEvent"> | string
+    issue_id?: IntNullableWithAggregatesFilter<"JiraEvent"> | number | null
+    project_id?: IntNullableWithAggregatesFilter<"JiraEvent"> | number | null
+    user_id?: IntNullableWithAggregatesFilter<"JiraEvent"> | number | null
+    date_created?: DateTimeWithAggregatesFilter<"JiraEvent"> | Date | string
+  }
+
+  export type JiraProjectWhereInput = {
+    AND?: JiraProjectWhereInput | JiraProjectWhereInput[]
+    OR?: JiraProjectWhereInput[]
+    NOT?: JiraProjectWhereInput | JiraProjectWhereInput[]
+    id?: IntFilter<"JiraProject"> | number
+    key?: StringFilter<"JiraProject"> | string
+    name?: StringFilter<"JiraProject"> | string
+    created_at?: DateTimeFilter<"JiraProject"> | Date | string
+    issues?: JiraIssueListRelationFilter
+    JiraEvent?: JiraEventListRelationFilter
+  }
+
+  export type JiraProjectOrderByWithRelationInput = {
+    id?: SortOrder
+    key?: SortOrder
+    name?: SortOrder
+    created_at?: SortOrder
+    issues?: JiraIssueOrderByRelationAggregateInput
+    JiraEvent?: JiraEventOrderByRelationAggregateInput
+    _relevance?: JiraProjectOrderByRelevanceInput
+  }
+
+  export type JiraProjectWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    key?: string
+    AND?: JiraProjectWhereInput | JiraProjectWhereInput[]
+    OR?: JiraProjectWhereInput[]
+    NOT?: JiraProjectWhereInput | JiraProjectWhereInput[]
+    name?: StringFilter<"JiraProject"> | string
+    created_at?: DateTimeFilter<"JiraProject"> | Date | string
+    issues?: JiraIssueListRelationFilter
+    JiraEvent?: JiraEventListRelationFilter
+  }, "id" | "key">
+
+  export type JiraProjectOrderByWithAggregationInput = {
+    id?: SortOrder
+    key?: SortOrder
+    name?: SortOrder
+    created_at?: SortOrder
+    _count?: JiraProjectCountOrderByAggregateInput
+    _avg?: JiraProjectAvgOrderByAggregateInput
+    _max?: JiraProjectMaxOrderByAggregateInput
+    _min?: JiraProjectMinOrderByAggregateInput
+    _sum?: JiraProjectSumOrderByAggregateInput
+  }
+
+  export type JiraProjectScalarWhereWithAggregatesInput = {
+    AND?: JiraProjectScalarWhereWithAggregatesInput | JiraProjectScalarWhereWithAggregatesInput[]
+    OR?: JiraProjectScalarWhereWithAggregatesInput[]
+    NOT?: JiraProjectScalarWhereWithAggregatesInput | JiraProjectScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"JiraProject"> | number
+    key?: StringWithAggregatesFilter<"JiraProject"> | string
+    name?: StringWithAggregatesFilter<"JiraProject"> | string
+    created_at?: DateTimeWithAggregatesFilter<"JiraProject"> | Date | string
+  }
+
+  export type JiraUserWhereInput = {
+    AND?: JiraUserWhereInput | JiraUserWhereInput[]
+    OR?: JiraUserWhereInput[]
+    NOT?: JiraUserWhereInput | JiraUserWhereInput[]
+    id?: IntFilter<"JiraUser"> | number
+    account_id?: StringFilter<"JiraUser"> | string
+    display_name?: StringNullableFilter<"JiraUser"> | string | null
+    created_issues?: JiraIssueListRelationFilter
+    assigned_issues?: JiraIssueListRelationFilter
+    JiraEvent?: JiraEventListRelationFilter
+  }
+
+  export type JiraUserOrderByWithRelationInput = {
+    id?: SortOrder
+    account_id?: SortOrder
+    display_name?: SortOrderInput | SortOrder
+    created_issues?: JiraIssueOrderByRelationAggregateInput
+    assigned_issues?: JiraIssueOrderByRelationAggregateInput
+    JiraEvent?: JiraEventOrderByRelationAggregateInput
+    _relevance?: JiraUserOrderByRelevanceInput
+  }
+
+  export type JiraUserWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    account_id?: string
+    AND?: JiraUserWhereInput | JiraUserWhereInput[]
+    OR?: JiraUserWhereInput[]
+    NOT?: JiraUserWhereInput | JiraUserWhereInput[]
+    display_name?: StringNullableFilter<"JiraUser"> | string | null
+    created_issues?: JiraIssueListRelationFilter
+    assigned_issues?: JiraIssueListRelationFilter
+    JiraEvent?: JiraEventListRelationFilter
+  }, "id" | "account_id">
+
+  export type JiraUserOrderByWithAggregationInput = {
+    id?: SortOrder
+    account_id?: SortOrder
+    display_name?: SortOrderInput | SortOrder
+    _count?: JiraUserCountOrderByAggregateInput
+    _avg?: JiraUserAvgOrderByAggregateInput
+    _max?: JiraUserMaxOrderByAggregateInput
+    _min?: JiraUserMinOrderByAggregateInput
+    _sum?: JiraUserSumOrderByAggregateInput
+  }
+
+  export type JiraUserScalarWhereWithAggregatesInput = {
+    AND?: JiraUserScalarWhereWithAggregatesInput | JiraUserScalarWhereWithAggregatesInput[]
+    OR?: JiraUserScalarWhereWithAggregatesInput[]
+    NOT?: JiraUserScalarWhereWithAggregatesInput | JiraUserScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"JiraUser"> | number
+    account_id?: StringWithAggregatesFilter<"JiraUser"> | string
+    display_name?: StringNullableWithAggregatesFilter<"JiraUser"> | string | null
+  }
+
+  export type JiraIssueWhereInput = {
+    AND?: JiraIssueWhereInput | JiraIssueWhereInput[]
+    OR?: JiraIssueWhereInput[]
+    NOT?: JiraIssueWhereInput | JiraIssueWhereInput[]
+    id?: IntFilter<"JiraIssue"> | number
+    issue_id?: StringFilter<"JiraIssue"> | string
+    summary?: StringNullableFilter<"JiraIssue"> | string | null
+    key?: StringFilter<"JiraIssue"> | string
+    status_name?: StringNullableFilter<"JiraIssue"> | string | null
+    status_id?: StringNullableFilter<"JiraIssue"> | string | null
+    timespent?: IntNullableFilter<"JiraIssue"> | number | null
+    timeestimate?: IntNullableFilter<"JiraIssue"> | number | null
+    created_at?: DateTimeNullableFilter<"JiraIssue"> | Date | string | null
+    updated_at?: DateTimeNullableFilter<"JiraIssue"> | Date | string | null
+    resolution_date?: DateTimeNullableFilter<"JiraIssue"> | Date | string | null
+    project_id?: IntNullableFilter<"JiraIssue"> | number | null
+    creator_id?: IntNullableFilter<"JiraIssue"> | number | null
+    assignee_id?: IntNullableFilter<"JiraIssue"> | number | null
+    sprint_name?: StringNullableFilter<"JiraIssue"> | string | null
+    sprint_start?: DateTimeNullableFilter<"JiraIssue"> | Date | string | null
+    sprint_end?: DateTimeNullableFilter<"JiraIssue"> | Date | string | null
+    raw_fields?: JsonNullableFilter<"JiraIssue">
+    project?: XOR<JiraProjectNullableScalarRelationFilter, JiraProjectWhereInput> | null
+    creator?: XOR<JiraUserNullableScalarRelationFilter, JiraUserWhereInput> | null
+    assignee?: XOR<JiraUserNullableScalarRelationFilter, JiraUserWhereInput> | null
+    events?: JiraEventListRelationFilter
+  }
+
+  export type JiraIssueOrderByWithRelationInput = {
+    id?: SortOrder
+    issue_id?: SortOrder
+    summary?: SortOrderInput | SortOrder
+    key?: SortOrder
+    status_name?: SortOrderInput | SortOrder
+    status_id?: SortOrderInput | SortOrder
+    timespent?: SortOrderInput | SortOrder
+    timeestimate?: SortOrderInput | SortOrder
+    created_at?: SortOrderInput | SortOrder
+    updated_at?: SortOrderInput | SortOrder
+    resolution_date?: SortOrderInput | SortOrder
+    project_id?: SortOrderInput | SortOrder
+    creator_id?: SortOrderInput | SortOrder
+    assignee_id?: SortOrderInput | SortOrder
+    sprint_name?: SortOrderInput | SortOrder
+    sprint_start?: SortOrderInput | SortOrder
+    sprint_end?: SortOrderInput | SortOrder
+    raw_fields?: SortOrderInput | SortOrder
+    project?: JiraProjectOrderByWithRelationInput
+    creator?: JiraUserOrderByWithRelationInput
+    assignee?: JiraUserOrderByWithRelationInput
+    events?: JiraEventOrderByRelationAggregateInput
+    _relevance?: JiraIssueOrderByRelevanceInput
+  }
+
+  export type JiraIssueWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    issue_id?: string
+    AND?: JiraIssueWhereInput | JiraIssueWhereInput[]
+    OR?: JiraIssueWhereInput[]
+    NOT?: JiraIssueWhereInput | JiraIssueWhereInput[]
+    summary?: StringNullableFilter<"JiraIssue"> | string | null
+    key?: StringFilter<"JiraIssue"> | string
+    status_name?: StringNullableFilter<"JiraIssue"> | string | null
+    status_id?: StringNullableFilter<"JiraIssue"> | string | null
+    timespent?: IntNullableFilter<"JiraIssue"> | number | null
+    timeestimate?: IntNullableFilter<"JiraIssue"> | number | null
+    created_at?: DateTimeNullableFilter<"JiraIssue"> | Date | string | null
+    updated_at?: DateTimeNullableFilter<"JiraIssue"> | Date | string | null
+    resolution_date?: DateTimeNullableFilter<"JiraIssue"> | Date | string | null
+    project_id?: IntNullableFilter<"JiraIssue"> | number | null
+    creator_id?: IntNullableFilter<"JiraIssue"> | number | null
+    assignee_id?: IntNullableFilter<"JiraIssue"> | number | null
+    sprint_name?: StringNullableFilter<"JiraIssue"> | string | null
+    sprint_start?: DateTimeNullableFilter<"JiraIssue"> | Date | string | null
+    sprint_end?: DateTimeNullableFilter<"JiraIssue"> | Date | string | null
+    raw_fields?: JsonNullableFilter<"JiraIssue">
+    project?: XOR<JiraProjectNullableScalarRelationFilter, JiraProjectWhereInput> | null
+    creator?: XOR<JiraUserNullableScalarRelationFilter, JiraUserWhereInput> | null
+    assignee?: XOR<JiraUserNullableScalarRelationFilter, JiraUserWhereInput> | null
+    events?: JiraEventListRelationFilter
+  }, "id" | "issue_id">
+
+  export type JiraIssueOrderByWithAggregationInput = {
+    id?: SortOrder
+    issue_id?: SortOrder
+    summary?: SortOrderInput | SortOrder
+    key?: SortOrder
+    status_name?: SortOrderInput | SortOrder
+    status_id?: SortOrderInput | SortOrder
+    timespent?: SortOrderInput | SortOrder
+    timeestimate?: SortOrderInput | SortOrder
+    created_at?: SortOrderInput | SortOrder
+    updated_at?: SortOrderInput | SortOrder
+    resolution_date?: SortOrderInput | SortOrder
+    project_id?: SortOrderInput | SortOrder
+    creator_id?: SortOrderInput | SortOrder
+    assignee_id?: SortOrderInput | SortOrder
+    sprint_name?: SortOrderInput | SortOrder
+    sprint_start?: SortOrderInput | SortOrder
+    sprint_end?: SortOrderInput | SortOrder
+    raw_fields?: SortOrderInput | SortOrder
+    _count?: JiraIssueCountOrderByAggregateInput
+    _avg?: JiraIssueAvgOrderByAggregateInput
+    _max?: JiraIssueMaxOrderByAggregateInput
+    _min?: JiraIssueMinOrderByAggregateInput
+    _sum?: JiraIssueSumOrderByAggregateInput
+  }
+
+  export type JiraIssueScalarWhereWithAggregatesInput = {
+    AND?: JiraIssueScalarWhereWithAggregatesInput | JiraIssueScalarWhereWithAggregatesInput[]
+    OR?: JiraIssueScalarWhereWithAggregatesInput[]
+    NOT?: JiraIssueScalarWhereWithAggregatesInput | JiraIssueScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"JiraIssue"> | number
+    issue_id?: StringWithAggregatesFilter<"JiraIssue"> | string
+    summary?: StringNullableWithAggregatesFilter<"JiraIssue"> | string | null
+    key?: StringWithAggregatesFilter<"JiraIssue"> | string
+    status_name?: StringNullableWithAggregatesFilter<"JiraIssue"> | string | null
+    status_id?: StringNullableWithAggregatesFilter<"JiraIssue"> | string | null
+    timespent?: IntNullableWithAggregatesFilter<"JiraIssue"> | number | null
+    timeestimate?: IntNullableWithAggregatesFilter<"JiraIssue"> | number | null
+    created_at?: DateTimeNullableWithAggregatesFilter<"JiraIssue"> | Date | string | null
+    updated_at?: DateTimeNullableWithAggregatesFilter<"JiraIssue"> | Date | string | null
+    resolution_date?: DateTimeNullableWithAggregatesFilter<"JiraIssue"> | Date | string | null
+    project_id?: IntNullableWithAggregatesFilter<"JiraIssue"> | number | null
+    creator_id?: IntNullableWithAggregatesFilter<"JiraIssue"> | number | null
+    assignee_id?: IntNullableWithAggregatesFilter<"JiraIssue"> | number | null
+    sprint_name?: StringNullableWithAggregatesFilter<"JiraIssue"> | string | null
+    sprint_start?: DateTimeNullableWithAggregatesFilter<"JiraIssue"> | Date | string | null
+    sprint_end?: DateTimeNullableWithAggregatesFilter<"JiraIssue"> | Date | string | null
+    raw_fields?: JsonNullableWithAggregatesFilter<"JiraIssue">
+  }
+
+  export type JiraPayloadWhereInput = {
+    AND?: JiraPayloadWhereInput | JiraPayloadWhereInput[]
+    OR?: JiraPayloadWhereInput[]
+    NOT?: JiraPayloadWhereInput | JiraPayloadWhereInput[]
+    id?: IntFilter<"JiraPayload"> | number
+    raw_payload?: JsonFilter<"JiraPayload">
+    event_id?: IntFilter<"JiraPayload"> | number
+    event?: XOR<JiraEventScalarRelationFilter, JiraEventWhereInput>
+  }
+
+  export type JiraPayloadOrderByWithRelationInput = {
+    id?: SortOrder
+    raw_payload?: SortOrder
+    event_id?: SortOrder
+    event?: JiraEventOrderByWithRelationInput
+  }
+
+  export type JiraPayloadWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    event_id?: number
+    AND?: JiraPayloadWhereInput | JiraPayloadWhereInput[]
+    OR?: JiraPayloadWhereInput[]
+    NOT?: JiraPayloadWhereInput | JiraPayloadWhereInput[]
+    raw_payload?: JsonFilter<"JiraPayload">
+    event?: XOR<JiraEventScalarRelationFilter, JiraEventWhereInput>
+  }, "id" | "event_id">
+
+  export type JiraPayloadOrderByWithAggregationInput = {
+    id?: SortOrder
+    raw_payload?: SortOrder
+    event_id?: SortOrder
+    _count?: JiraPayloadCountOrderByAggregateInput
+    _avg?: JiraPayloadAvgOrderByAggregateInput
+    _max?: JiraPayloadMaxOrderByAggregateInput
+    _min?: JiraPayloadMinOrderByAggregateInput
+    _sum?: JiraPayloadSumOrderByAggregateInput
+  }
+
+  export type JiraPayloadScalarWhereWithAggregatesInput = {
+    AND?: JiraPayloadScalarWhereWithAggregatesInput | JiraPayloadScalarWhereWithAggregatesInput[]
+    OR?: JiraPayloadScalarWhereWithAggregatesInput[]
+    NOT?: JiraPayloadScalarWhereWithAggregatesInput | JiraPayloadScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"JiraPayload"> | number
+    raw_payload?: JsonWithAggregatesFilter<"JiraPayload">
+    event_id?: IntWithAggregatesFilter<"JiraPayload"> | number
+  }
+
   export type ProjectCreateInput = {
     name: string
     repository: string
@@ -8651,6 +14933,362 @@ export namespace Prisma {
     user_id?: IntFieldUpdateOperationsInput | number
     reviewer_id?: NullableIntFieldUpdateOperationsInput | number | null
     pr_event_id?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type JiraEventCreateInput = {
+    webhook_event: string
+    issue_event_type: string
+    date_created?: Date | string
+    issue?: JiraIssueCreateNestedOneWithoutEventsInput
+    project?: JiraProjectCreateNestedOneWithoutJiraEventInput
+    user?: JiraUserCreateNestedOneWithoutJiraEventInput
+    payload?: JiraPayloadCreateNestedOneWithoutEventInput
+  }
+
+  export type JiraEventUncheckedCreateInput = {
+    id?: number
+    webhook_event: string
+    issue_event_type: string
+    issue_id?: number | null
+    project_id?: number | null
+    user_id?: number | null
+    date_created?: Date | string
+    payload?: JiraPayloadUncheckedCreateNestedOneWithoutEventInput
+  }
+
+  export type JiraEventUpdateInput = {
+    webhook_event?: StringFieldUpdateOperationsInput | string
+    issue_event_type?: StringFieldUpdateOperationsInput | string
+    date_created?: DateTimeFieldUpdateOperationsInput | Date | string
+    issue?: JiraIssueUpdateOneWithoutEventsNestedInput
+    project?: JiraProjectUpdateOneWithoutJiraEventNestedInput
+    user?: JiraUserUpdateOneWithoutJiraEventNestedInput
+    payload?: JiraPayloadUpdateOneWithoutEventNestedInput
+  }
+
+  export type JiraEventUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    webhook_event?: StringFieldUpdateOperationsInput | string
+    issue_event_type?: StringFieldUpdateOperationsInput | string
+    issue_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    date_created?: DateTimeFieldUpdateOperationsInput | Date | string
+    payload?: JiraPayloadUncheckedUpdateOneWithoutEventNestedInput
+  }
+
+  export type JiraEventCreateManyInput = {
+    id?: number
+    webhook_event: string
+    issue_event_type: string
+    issue_id?: number | null
+    project_id?: number | null
+    user_id?: number | null
+    date_created?: Date | string
+  }
+
+  export type JiraEventUpdateManyMutationInput = {
+    webhook_event?: StringFieldUpdateOperationsInput | string
+    issue_event_type?: StringFieldUpdateOperationsInput | string
+    date_created?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JiraEventUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    webhook_event?: StringFieldUpdateOperationsInput | string
+    issue_event_type?: StringFieldUpdateOperationsInput | string
+    issue_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    date_created?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JiraProjectCreateInput = {
+    key: string
+    name: string
+    created_at?: Date | string
+    issues?: JiraIssueCreateNestedManyWithoutProjectInput
+    JiraEvent?: JiraEventCreateNestedManyWithoutProjectInput
+  }
+
+  export type JiraProjectUncheckedCreateInput = {
+    id?: number
+    key: string
+    name: string
+    created_at?: Date | string
+    issues?: JiraIssueUncheckedCreateNestedManyWithoutProjectInput
+    JiraEvent?: JiraEventUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type JiraProjectUpdateInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    issues?: JiraIssueUpdateManyWithoutProjectNestedInput
+    JiraEvent?: JiraEventUpdateManyWithoutProjectNestedInput
+  }
+
+  export type JiraProjectUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    key?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    issues?: JiraIssueUncheckedUpdateManyWithoutProjectNestedInput
+    JiraEvent?: JiraEventUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type JiraProjectCreateManyInput = {
+    id?: number
+    key: string
+    name: string
+    created_at?: Date | string
+  }
+
+  export type JiraProjectUpdateManyMutationInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JiraProjectUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    key?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JiraUserCreateInput = {
+    account_id: string
+    display_name?: string | null
+    created_issues?: JiraIssueCreateNestedManyWithoutCreatorInput
+    assigned_issues?: JiraIssueCreateNestedManyWithoutAssigneeInput
+    JiraEvent?: JiraEventCreateNestedManyWithoutUserInput
+  }
+
+  export type JiraUserUncheckedCreateInput = {
+    id?: number
+    account_id: string
+    display_name?: string | null
+    created_issues?: JiraIssueUncheckedCreateNestedManyWithoutCreatorInput
+    assigned_issues?: JiraIssueUncheckedCreateNestedManyWithoutAssigneeInput
+    JiraEvent?: JiraEventUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type JiraUserUpdateInput = {
+    account_id?: StringFieldUpdateOperationsInput | string
+    display_name?: NullableStringFieldUpdateOperationsInput | string | null
+    created_issues?: JiraIssueUpdateManyWithoutCreatorNestedInput
+    assigned_issues?: JiraIssueUpdateManyWithoutAssigneeNestedInput
+    JiraEvent?: JiraEventUpdateManyWithoutUserNestedInput
+  }
+
+  export type JiraUserUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    account_id?: StringFieldUpdateOperationsInput | string
+    display_name?: NullableStringFieldUpdateOperationsInput | string | null
+    created_issues?: JiraIssueUncheckedUpdateManyWithoutCreatorNestedInput
+    assigned_issues?: JiraIssueUncheckedUpdateManyWithoutAssigneeNestedInput
+    JiraEvent?: JiraEventUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type JiraUserCreateManyInput = {
+    id?: number
+    account_id: string
+    display_name?: string | null
+  }
+
+  export type JiraUserUpdateManyMutationInput = {
+    account_id?: StringFieldUpdateOperationsInput | string
+    display_name?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type JiraUserUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    account_id?: StringFieldUpdateOperationsInput | string
+    display_name?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type JiraIssueCreateInput = {
+    issue_id: string
+    summary?: string | null
+    key: string
+    status_name?: string | null
+    status_id?: string | null
+    timespent?: number | null
+    timeestimate?: number | null
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    resolution_date?: Date | string | null
+    sprint_name?: string | null
+    sprint_start?: Date | string | null
+    sprint_end?: Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+    project?: JiraProjectCreateNestedOneWithoutIssuesInput
+    creator?: JiraUserCreateNestedOneWithoutCreated_issuesInput
+    assignee?: JiraUserCreateNestedOneWithoutAssigned_issuesInput
+    events?: JiraEventCreateNestedManyWithoutIssueInput
+  }
+
+  export type JiraIssueUncheckedCreateInput = {
+    id?: number
+    issue_id: string
+    summary?: string | null
+    key: string
+    status_name?: string | null
+    status_id?: string | null
+    timespent?: number | null
+    timeestimate?: number | null
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    resolution_date?: Date | string | null
+    project_id?: number | null
+    creator_id?: number | null
+    assignee_id?: number | null
+    sprint_name?: string | null
+    sprint_start?: Date | string | null
+    sprint_end?: Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+    events?: JiraEventUncheckedCreateNestedManyWithoutIssueInput
+  }
+
+  export type JiraIssueUpdateInput = {
+    issue_id?: StringFieldUpdateOperationsInput | string
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    key?: StringFieldUpdateOperationsInput | string
+    status_name?: NullableStringFieldUpdateOperationsInput | string | null
+    status_id?: NullableStringFieldUpdateOperationsInput | string | null
+    timespent?: NullableIntFieldUpdateOperationsInput | number | null
+    timeestimate?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resolution_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_name?: NullableStringFieldUpdateOperationsInput | string | null
+    sprint_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+    project?: JiraProjectUpdateOneWithoutIssuesNestedInput
+    creator?: JiraUserUpdateOneWithoutCreated_issuesNestedInput
+    assignee?: JiraUserUpdateOneWithoutAssigned_issuesNestedInput
+    events?: JiraEventUpdateManyWithoutIssueNestedInput
+  }
+
+  export type JiraIssueUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    issue_id?: StringFieldUpdateOperationsInput | string
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    key?: StringFieldUpdateOperationsInput | string
+    status_name?: NullableStringFieldUpdateOperationsInput | string | null
+    status_id?: NullableStringFieldUpdateOperationsInput | string | null
+    timespent?: NullableIntFieldUpdateOperationsInput | number | null
+    timeestimate?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resolution_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    creator_id?: NullableIntFieldUpdateOperationsInput | number | null
+    assignee_id?: NullableIntFieldUpdateOperationsInput | number | null
+    sprint_name?: NullableStringFieldUpdateOperationsInput | string | null
+    sprint_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+    events?: JiraEventUncheckedUpdateManyWithoutIssueNestedInput
+  }
+
+  export type JiraIssueCreateManyInput = {
+    id?: number
+    issue_id: string
+    summary?: string | null
+    key: string
+    status_name?: string | null
+    status_id?: string | null
+    timespent?: number | null
+    timeestimate?: number | null
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    resolution_date?: Date | string | null
+    project_id?: number | null
+    creator_id?: number | null
+    assignee_id?: number | null
+    sprint_name?: string | null
+    sprint_start?: Date | string | null
+    sprint_end?: Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type JiraIssueUpdateManyMutationInput = {
+    issue_id?: StringFieldUpdateOperationsInput | string
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    key?: StringFieldUpdateOperationsInput | string
+    status_name?: NullableStringFieldUpdateOperationsInput | string | null
+    status_id?: NullableStringFieldUpdateOperationsInput | string | null
+    timespent?: NullableIntFieldUpdateOperationsInput | number | null
+    timeestimate?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resolution_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_name?: NullableStringFieldUpdateOperationsInput | string | null
+    sprint_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type JiraIssueUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    issue_id?: StringFieldUpdateOperationsInput | string
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    key?: StringFieldUpdateOperationsInput | string
+    status_name?: NullableStringFieldUpdateOperationsInput | string | null
+    status_id?: NullableStringFieldUpdateOperationsInput | string | null
+    timespent?: NullableIntFieldUpdateOperationsInput | number | null
+    timeestimate?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resolution_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    creator_id?: NullableIntFieldUpdateOperationsInput | number | null
+    assignee_id?: NullableIntFieldUpdateOperationsInput | number | null
+    sprint_name?: NullableStringFieldUpdateOperationsInput | string | null
+    sprint_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type JiraPayloadCreateInput = {
+    raw_payload: JsonNullValueInput | InputJsonValue
+    event: JiraEventCreateNestedOneWithoutPayloadInput
+  }
+
+  export type JiraPayloadUncheckedCreateInput = {
+    id?: number
+    raw_payload: JsonNullValueInput | InputJsonValue
+    event_id: number
+  }
+
+  export type JiraPayloadUpdateInput = {
+    raw_payload?: JsonNullValueInput | InputJsonValue
+    event?: JiraEventUpdateOneRequiredWithoutPayloadNestedInput
+  }
+
+  export type JiraPayloadUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    raw_payload?: JsonNullValueInput | InputJsonValue
+    event_id?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type JiraPayloadCreateManyInput = {
+    id?: number
+    raw_payload: JsonNullValueInput | InputJsonValue
+    event_id: number
+  }
+
+  export type JiraPayloadUpdateManyMutationInput = {
+    raw_payload?: JsonNullValueInput | InputJsonValue
+  }
+
+  export type JiraPayloadUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    raw_payload?: JsonNullValueInput | InputJsonValue
+    event_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -9214,6 +15852,353 @@ export namespace Prisma {
     user_id?: SortOrder
     reviewer_id?: SortOrder
     pr_event_id?: SortOrder
+  }
+
+  export type JiraIssueNullableScalarRelationFilter = {
+    is?: JiraIssueWhereInput | null
+    isNot?: JiraIssueWhereInput | null
+  }
+
+  export type JiraProjectNullableScalarRelationFilter = {
+    is?: JiraProjectWhereInput | null
+    isNot?: JiraProjectWhereInput | null
+  }
+
+  export type JiraUserNullableScalarRelationFilter = {
+    is?: JiraUserWhereInput | null
+    isNot?: JiraUserWhereInput | null
+  }
+
+  export type JiraPayloadNullableScalarRelationFilter = {
+    is?: JiraPayloadWhereInput | null
+    isNot?: JiraPayloadWhereInput | null
+  }
+
+  export type JiraEventOrderByRelevanceInput = {
+    fields: JiraEventOrderByRelevanceFieldEnum | JiraEventOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type JiraEventCountOrderByAggregateInput = {
+    id?: SortOrder
+    webhook_event?: SortOrder
+    issue_event_type?: SortOrder
+    issue_id?: SortOrder
+    project_id?: SortOrder
+    user_id?: SortOrder
+    date_created?: SortOrder
+  }
+
+  export type JiraEventAvgOrderByAggregateInput = {
+    id?: SortOrder
+    issue_id?: SortOrder
+    project_id?: SortOrder
+    user_id?: SortOrder
+  }
+
+  export type JiraEventMaxOrderByAggregateInput = {
+    id?: SortOrder
+    webhook_event?: SortOrder
+    issue_event_type?: SortOrder
+    issue_id?: SortOrder
+    project_id?: SortOrder
+    user_id?: SortOrder
+    date_created?: SortOrder
+  }
+
+  export type JiraEventMinOrderByAggregateInput = {
+    id?: SortOrder
+    webhook_event?: SortOrder
+    issue_event_type?: SortOrder
+    issue_id?: SortOrder
+    project_id?: SortOrder
+    user_id?: SortOrder
+    date_created?: SortOrder
+  }
+
+  export type JiraEventSumOrderByAggregateInput = {
+    id?: SortOrder
+    issue_id?: SortOrder
+    project_id?: SortOrder
+    user_id?: SortOrder
+  }
+
+  export type JiraIssueListRelationFilter = {
+    every?: JiraIssueWhereInput
+    some?: JiraIssueWhereInput
+    none?: JiraIssueWhereInput
+  }
+
+  export type JiraEventListRelationFilter = {
+    every?: JiraEventWhereInput
+    some?: JiraEventWhereInput
+    none?: JiraEventWhereInput
+  }
+
+  export type JiraIssueOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type JiraEventOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type JiraProjectOrderByRelevanceInput = {
+    fields: JiraProjectOrderByRelevanceFieldEnum | JiraProjectOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type JiraProjectCountOrderByAggregateInput = {
+    id?: SortOrder
+    key?: SortOrder
+    name?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type JiraProjectAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type JiraProjectMaxOrderByAggregateInput = {
+    id?: SortOrder
+    key?: SortOrder
+    name?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type JiraProjectMinOrderByAggregateInput = {
+    id?: SortOrder
+    key?: SortOrder
+    name?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type JiraProjectSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type JiraUserOrderByRelevanceInput = {
+    fields: JiraUserOrderByRelevanceFieldEnum | JiraUserOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type JiraUserCountOrderByAggregateInput = {
+    id?: SortOrder
+    account_id?: SortOrder
+    display_name?: SortOrder
+  }
+
+  export type JiraUserAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type JiraUserMaxOrderByAggregateInput = {
+    id?: SortOrder
+    account_id?: SortOrder
+    display_name?: SortOrder
+  }
+
+  export type JiraUserMinOrderByAggregateInput = {
+    id?: SortOrder
+    account_id?: SortOrder
+    display_name?: SortOrder
+  }
+
+  export type JiraUserSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+  export type JsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue
+    lte?: InputJsonValue
+    gt?: InputJsonValue
+    gte?: InputJsonValue
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type JiraIssueOrderByRelevanceInput = {
+    fields: JiraIssueOrderByRelevanceFieldEnum | JiraIssueOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type JiraIssueCountOrderByAggregateInput = {
+    id?: SortOrder
+    issue_id?: SortOrder
+    summary?: SortOrder
+    key?: SortOrder
+    status_name?: SortOrder
+    status_id?: SortOrder
+    timespent?: SortOrder
+    timeestimate?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    resolution_date?: SortOrder
+    project_id?: SortOrder
+    creator_id?: SortOrder
+    assignee_id?: SortOrder
+    sprint_name?: SortOrder
+    sprint_start?: SortOrder
+    sprint_end?: SortOrder
+    raw_fields?: SortOrder
+  }
+
+  export type JiraIssueAvgOrderByAggregateInput = {
+    id?: SortOrder
+    timespent?: SortOrder
+    timeestimate?: SortOrder
+    project_id?: SortOrder
+    creator_id?: SortOrder
+    assignee_id?: SortOrder
+  }
+
+  export type JiraIssueMaxOrderByAggregateInput = {
+    id?: SortOrder
+    issue_id?: SortOrder
+    summary?: SortOrder
+    key?: SortOrder
+    status_name?: SortOrder
+    status_id?: SortOrder
+    timespent?: SortOrder
+    timeestimate?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    resolution_date?: SortOrder
+    project_id?: SortOrder
+    creator_id?: SortOrder
+    assignee_id?: SortOrder
+    sprint_name?: SortOrder
+    sprint_start?: SortOrder
+    sprint_end?: SortOrder
+  }
+
+  export type JiraIssueMinOrderByAggregateInput = {
+    id?: SortOrder
+    issue_id?: SortOrder
+    summary?: SortOrder
+    key?: SortOrder
+    status_name?: SortOrder
+    status_id?: SortOrder
+    timespent?: SortOrder
+    timeestimate?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    resolution_date?: SortOrder
+    project_id?: SortOrder
+    creator_id?: SortOrder
+    assignee_id?: SortOrder
+    sprint_name?: SortOrder
+    sprint_start?: SortOrder
+    sprint_end?: SortOrder
+  }
+
+  export type JiraIssueSumOrderByAggregateInput = {
+    id?: SortOrder
+    timespent?: SortOrder
+    timeestimate?: SortOrder
+    project_id?: SortOrder
+    creator_id?: SortOrder
+    assignee_id?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue
+    lte?: InputJsonValue
+    gt?: InputJsonValue
+    gte?: InputJsonValue
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedJsonNullableFilter<$PrismaModel>
+    _max?: NestedJsonNullableFilter<$PrismaModel>
+  }
+
+  export type JiraEventScalarRelationFilter = {
+    is?: JiraEventWhereInput
+    isNot?: JiraEventWhereInput
+  }
+
+  export type JiraPayloadCountOrderByAggregateInput = {
+    id?: SortOrder
+    raw_payload?: SortOrder
+    event_id?: SortOrder
+  }
+
+  export type JiraPayloadAvgOrderByAggregateInput = {
+    id?: SortOrder
+    event_id?: SortOrder
+  }
+
+  export type JiraPayloadMaxOrderByAggregateInput = {
+    id?: SortOrder
+    event_id?: SortOrder
+  }
+
+  export type JiraPayloadMinOrderByAggregateInput = {
+    id?: SortOrder
+    event_id?: SortOrder
+  }
+
+  export type JiraPayloadSumOrderByAggregateInput = {
+    id?: SortOrder
+    event_id?: SortOrder
   }
 
   export type EventCreateNestedManyWithoutProjectInput = {
@@ -9822,6 +16807,404 @@ export namespace Prisma {
     update?: XOR<XOR<EventUpdateToOneWithWhereWithoutRevisionInput, EventUpdateWithoutRevisionInput>, EventUncheckedUpdateWithoutRevisionInput>
   }
 
+  export type JiraIssueCreateNestedOneWithoutEventsInput = {
+    create?: XOR<JiraIssueCreateWithoutEventsInput, JiraIssueUncheckedCreateWithoutEventsInput>
+    connectOrCreate?: JiraIssueCreateOrConnectWithoutEventsInput
+    connect?: JiraIssueWhereUniqueInput
+  }
+
+  export type JiraProjectCreateNestedOneWithoutJiraEventInput = {
+    create?: XOR<JiraProjectCreateWithoutJiraEventInput, JiraProjectUncheckedCreateWithoutJiraEventInput>
+    connectOrCreate?: JiraProjectCreateOrConnectWithoutJiraEventInput
+    connect?: JiraProjectWhereUniqueInput
+  }
+
+  export type JiraUserCreateNestedOneWithoutJiraEventInput = {
+    create?: XOR<JiraUserCreateWithoutJiraEventInput, JiraUserUncheckedCreateWithoutJiraEventInput>
+    connectOrCreate?: JiraUserCreateOrConnectWithoutJiraEventInput
+    connect?: JiraUserWhereUniqueInput
+  }
+
+  export type JiraPayloadCreateNestedOneWithoutEventInput = {
+    create?: XOR<JiraPayloadCreateWithoutEventInput, JiraPayloadUncheckedCreateWithoutEventInput>
+    connectOrCreate?: JiraPayloadCreateOrConnectWithoutEventInput
+    connect?: JiraPayloadWhereUniqueInput
+  }
+
+  export type JiraPayloadUncheckedCreateNestedOneWithoutEventInput = {
+    create?: XOR<JiraPayloadCreateWithoutEventInput, JiraPayloadUncheckedCreateWithoutEventInput>
+    connectOrCreate?: JiraPayloadCreateOrConnectWithoutEventInput
+    connect?: JiraPayloadWhereUniqueInput
+  }
+
+  export type JiraIssueUpdateOneWithoutEventsNestedInput = {
+    create?: XOR<JiraIssueCreateWithoutEventsInput, JiraIssueUncheckedCreateWithoutEventsInput>
+    connectOrCreate?: JiraIssueCreateOrConnectWithoutEventsInput
+    upsert?: JiraIssueUpsertWithoutEventsInput
+    disconnect?: JiraIssueWhereInput | boolean
+    delete?: JiraIssueWhereInput | boolean
+    connect?: JiraIssueWhereUniqueInput
+    update?: XOR<XOR<JiraIssueUpdateToOneWithWhereWithoutEventsInput, JiraIssueUpdateWithoutEventsInput>, JiraIssueUncheckedUpdateWithoutEventsInput>
+  }
+
+  export type JiraProjectUpdateOneWithoutJiraEventNestedInput = {
+    create?: XOR<JiraProjectCreateWithoutJiraEventInput, JiraProjectUncheckedCreateWithoutJiraEventInput>
+    connectOrCreate?: JiraProjectCreateOrConnectWithoutJiraEventInput
+    upsert?: JiraProjectUpsertWithoutJiraEventInput
+    disconnect?: JiraProjectWhereInput | boolean
+    delete?: JiraProjectWhereInput | boolean
+    connect?: JiraProjectWhereUniqueInput
+    update?: XOR<XOR<JiraProjectUpdateToOneWithWhereWithoutJiraEventInput, JiraProjectUpdateWithoutJiraEventInput>, JiraProjectUncheckedUpdateWithoutJiraEventInput>
+  }
+
+  export type JiraUserUpdateOneWithoutJiraEventNestedInput = {
+    create?: XOR<JiraUserCreateWithoutJiraEventInput, JiraUserUncheckedCreateWithoutJiraEventInput>
+    connectOrCreate?: JiraUserCreateOrConnectWithoutJiraEventInput
+    upsert?: JiraUserUpsertWithoutJiraEventInput
+    disconnect?: JiraUserWhereInput | boolean
+    delete?: JiraUserWhereInput | boolean
+    connect?: JiraUserWhereUniqueInput
+    update?: XOR<XOR<JiraUserUpdateToOneWithWhereWithoutJiraEventInput, JiraUserUpdateWithoutJiraEventInput>, JiraUserUncheckedUpdateWithoutJiraEventInput>
+  }
+
+  export type JiraPayloadUpdateOneWithoutEventNestedInput = {
+    create?: XOR<JiraPayloadCreateWithoutEventInput, JiraPayloadUncheckedCreateWithoutEventInput>
+    connectOrCreate?: JiraPayloadCreateOrConnectWithoutEventInput
+    upsert?: JiraPayloadUpsertWithoutEventInput
+    disconnect?: JiraPayloadWhereInput | boolean
+    delete?: JiraPayloadWhereInput | boolean
+    connect?: JiraPayloadWhereUniqueInput
+    update?: XOR<XOR<JiraPayloadUpdateToOneWithWhereWithoutEventInput, JiraPayloadUpdateWithoutEventInput>, JiraPayloadUncheckedUpdateWithoutEventInput>
+  }
+
+  export type JiraPayloadUncheckedUpdateOneWithoutEventNestedInput = {
+    create?: XOR<JiraPayloadCreateWithoutEventInput, JiraPayloadUncheckedCreateWithoutEventInput>
+    connectOrCreate?: JiraPayloadCreateOrConnectWithoutEventInput
+    upsert?: JiraPayloadUpsertWithoutEventInput
+    disconnect?: JiraPayloadWhereInput | boolean
+    delete?: JiraPayloadWhereInput | boolean
+    connect?: JiraPayloadWhereUniqueInput
+    update?: XOR<XOR<JiraPayloadUpdateToOneWithWhereWithoutEventInput, JiraPayloadUpdateWithoutEventInput>, JiraPayloadUncheckedUpdateWithoutEventInput>
+  }
+
+  export type JiraIssueCreateNestedManyWithoutProjectInput = {
+    create?: XOR<JiraIssueCreateWithoutProjectInput, JiraIssueUncheckedCreateWithoutProjectInput> | JiraIssueCreateWithoutProjectInput[] | JiraIssueUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: JiraIssueCreateOrConnectWithoutProjectInput | JiraIssueCreateOrConnectWithoutProjectInput[]
+    createMany?: JiraIssueCreateManyProjectInputEnvelope
+    connect?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+  }
+
+  export type JiraEventCreateNestedManyWithoutProjectInput = {
+    create?: XOR<JiraEventCreateWithoutProjectInput, JiraEventUncheckedCreateWithoutProjectInput> | JiraEventCreateWithoutProjectInput[] | JiraEventUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: JiraEventCreateOrConnectWithoutProjectInput | JiraEventCreateOrConnectWithoutProjectInput[]
+    createMany?: JiraEventCreateManyProjectInputEnvelope
+    connect?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+  }
+
+  export type JiraIssueUncheckedCreateNestedManyWithoutProjectInput = {
+    create?: XOR<JiraIssueCreateWithoutProjectInput, JiraIssueUncheckedCreateWithoutProjectInput> | JiraIssueCreateWithoutProjectInput[] | JiraIssueUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: JiraIssueCreateOrConnectWithoutProjectInput | JiraIssueCreateOrConnectWithoutProjectInput[]
+    createMany?: JiraIssueCreateManyProjectInputEnvelope
+    connect?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+  }
+
+  export type JiraEventUncheckedCreateNestedManyWithoutProjectInput = {
+    create?: XOR<JiraEventCreateWithoutProjectInput, JiraEventUncheckedCreateWithoutProjectInput> | JiraEventCreateWithoutProjectInput[] | JiraEventUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: JiraEventCreateOrConnectWithoutProjectInput | JiraEventCreateOrConnectWithoutProjectInput[]
+    createMany?: JiraEventCreateManyProjectInputEnvelope
+    connect?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+  }
+
+  export type JiraIssueUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<JiraIssueCreateWithoutProjectInput, JiraIssueUncheckedCreateWithoutProjectInput> | JiraIssueCreateWithoutProjectInput[] | JiraIssueUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: JiraIssueCreateOrConnectWithoutProjectInput | JiraIssueCreateOrConnectWithoutProjectInput[]
+    upsert?: JiraIssueUpsertWithWhereUniqueWithoutProjectInput | JiraIssueUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: JiraIssueCreateManyProjectInputEnvelope
+    set?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    disconnect?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    delete?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    connect?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    update?: JiraIssueUpdateWithWhereUniqueWithoutProjectInput | JiraIssueUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: JiraIssueUpdateManyWithWhereWithoutProjectInput | JiraIssueUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: JiraIssueScalarWhereInput | JiraIssueScalarWhereInput[]
+  }
+
+  export type JiraEventUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<JiraEventCreateWithoutProjectInput, JiraEventUncheckedCreateWithoutProjectInput> | JiraEventCreateWithoutProjectInput[] | JiraEventUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: JiraEventCreateOrConnectWithoutProjectInput | JiraEventCreateOrConnectWithoutProjectInput[]
+    upsert?: JiraEventUpsertWithWhereUniqueWithoutProjectInput | JiraEventUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: JiraEventCreateManyProjectInputEnvelope
+    set?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    disconnect?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    delete?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    connect?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    update?: JiraEventUpdateWithWhereUniqueWithoutProjectInput | JiraEventUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: JiraEventUpdateManyWithWhereWithoutProjectInput | JiraEventUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: JiraEventScalarWhereInput | JiraEventScalarWhereInput[]
+  }
+
+  export type JiraIssueUncheckedUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<JiraIssueCreateWithoutProjectInput, JiraIssueUncheckedCreateWithoutProjectInput> | JiraIssueCreateWithoutProjectInput[] | JiraIssueUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: JiraIssueCreateOrConnectWithoutProjectInput | JiraIssueCreateOrConnectWithoutProjectInput[]
+    upsert?: JiraIssueUpsertWithWhereUniqueWithoutProjectInput | JiraIssueUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: JiraIssueCreateManyProjectInputEnvelope
+    set?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    disconnect?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    delete?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    connect?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    update?: JiraIssueUpdateWithWhereUniqueWithoutProjectInput | JiraIssueUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: JiraIssueUpdateManyWithWhereWithoutProjectInput | JiraIssueUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: JiraIssueScalarWhereInput | JiraIssueScalarWhereInput[]
+  }
+
+  export type JiraEventUncheckedUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<JiraEventCreateWithoutProjectInput, JiraEventUncheckedCreateWithoutProjectInput> | JiraEventCreateWithoutProjectInput[] | JiraEventUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: JiraEventCreateOrConnectWithoutProjectInput | JiraEventCreateOrConnectWithoutProjectInput[]
+    upsert?: JiraEventUpsertWithWhereUniqueWithoutProjectInput | JiraEventUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: JiraEventCreateManyProjectInputEnvelope
+    set?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    disconnect?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    delete?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    connect?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    update?: JiraEventUpdateWithWhereUniqueWithoutProjectInput | JiraEventUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: JiraEventUpdateManyWithWhereWithoutProjectInput | JiraEventUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: JiraEventScalarWhereInput | JiraEventScalarWhereInput[]
+  }
+
+  export type JiraIssueCreateNestedManyWithoutCreatorInput = {
+    create?: XOR<JiraIssueCreateWithoutCreatorInput, JiraIssueUncheckedCreateWithoutCreatorInput> | JiraIssueCreateWithoutCreatorInput[] | JiraIssueUncheckedCreateWithoutCreatorInput[]
+    connectOrCreate?: JiraIssueCreateOrConnectWithoutCreatorInput | JiraIssueCreateOrConnectWithoutCreatorInput[]
+    createMany?: JiraIssueCreateManyCreatorInputEnvelope
+    connect?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+  }
+
+  export type JiraIssueCreateNestedManyWithoutAssigneeInput = {
+    create?: XOR<JiraIssueCreateWithoutAssigneeInput, JiraIssueUncheckedCreateWithoutAssigneeInput> | JiraIssueCreateWithoutAssigneeInput[] | JiraIssueUncheckedCreateWithoutAssigneeInput[]
+    connectOrCreate?: JiraIssueCreateOrConnectWithoutAssigneeInput | JiraIssueCreateOrConnectWithoutAssigneeInput[]
+    createMany?: JiraIssueCreateManyAssigneeInputEnvelope
+    connect?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+  }
+
+  export type JiraEventCreateNestedManyWithoutUserInput = {
+    create?: XOR<JiraEventCreateWithoutUserInput, JiraEventUncheckedCreateWithoutUserInput> | JiraEventCreateWithoutUserInput[] | JiraEventUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: JiraEventCreateOrConnectWithoutUserInput | JiraEventCreateOrConnectWithoutUserInput[]
+    createMany?: JiraEventCreateManyUserInputEnvelope
+    connect?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+  }
+
+  export type JiraIssueUncheckedCreateNestedManyWithoutCreatorInput = {
+    create?: XOR<JiraIssueCreateWithoutCreatorInput, JiraIssueUncheckedCreateWithoutCreatorInput> | JiraIssueCreateWithoutCreatorInput[] | JiraIssueUncheckedCreateWithoutCreatorInput[]
+    connectOrCreate?: JiraIssueCreateOrConnectWithoutCreatorInput | JiraIssueCreateOrConnectWithoutCreatorInput[]
+    createMany?: JiraIssueCreateManyCreatorInputEnvelope
+    connect?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+  }
+
+  export type JiraIssueUncheckedCreateNestedManyWithoutAssigneeInput = {
+    create?: XOR<JiraIssueCreateWithoutAssigneeInput, JiraIssueUncheckedCreateWithoutAssigneeInput> | JiraIssueCreateWithoutAssigneeInput[] | JiraIssueUncheckedCreateWithoutAssigneeInput[]
+    connectOrCreate?: JiraIssueCreateOrConnectWithoutAssigneeInput | JiraIssueCreateOrConnectWithoutAssigneeInput[]
+    createMany?: JiraIssueCreateManyAssigneeInputEnvelope
+    connect?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+  }
+
+  export type JiraEventUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<JiraEventCreateWithoutUserInput, JiraEventUncheckedCreateWithoutUserInput> | JiraEventCreateWithoutUserInput[] | JiraEventUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: JiraEventCreateOrConnectWithoutUserInput | JiraEventCreateOrConnectWithoutUserInput[]
+    createMany?: JiraEventCreateManyUserInputEnvelope
+    connect?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+  }
+
+  export type JiraIssueUpdateManyWithoutCreatorNestedInput = {
+    create?: XOR<JiraIssueCreateWithoutCreatorInput, JiraIssueUncheckedCreateWithoutCreatorInput> | JiraIssueCreateWithoutCreatorInput[] | JiraIssueUncheckedCreateWithoutCreatorInput[]
+    connectOrCreate?: JiraIssueCreateOrConnectWithoutCreatorInput | JiraIssueCreateOrConnectWithoutCreatorInput[]
+    upsert?: JiraIssueUpsertWithWhereUniqueWithoutCreatorInput | JiraIssueUpsertWithWhereUniqueWithoutCreatorInput[]
+    createMany?: JiraIssueCreateManyCreatorInputEnvelope
+    set?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    disconnect?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    delete?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    connect?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    update?: JiraIssueUpdateWithWhereUniqueWithoutCreatorInput | JiraIssueUpdateWithWhereUniqueWithoutCreatorInput[]
+    updateMany?: JiraIssueUpdateManyWithWhereWithoutCreatorInput | JiraIssueUpdateManyWithWhereWithoutCreatorInput[]
+    deleteMany?: JiraIssueScalarWhereInput | JiraIssueScalarWhereInput[]
+  }
+
+  export type JiraIssueUpdateManyWithoutAssigneeNestedInput = {
+    create?: XOR<JiraIssueCreateWithoutAssigneeInput, JiraIssueUncheckedCreateWithoutAssigneeInput> | JiraIssueCreateWithoutAssigneeInput[] | JiraIssueUncheckedCreateWithoutAssigneeInput[]
+    connectOrCreate?: JiraIssueCreateOrConnectWithoutAssigneeInput | JiraIssueCreateOrConnectWithoutAssigneeInput[]
+    upsert?: JiraIssueUpsertWithWhereUniqueWithoutAssigneeInput | JiraIssueUpsertWithWhereUniqueWithoutAssigneeInput[]
+    createMany?: JiraIssueCreateManyAssigneeInputEnvelope
+    set?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    disconnect?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    delete?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    connect?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    update?: JiraIssueUpdateWithWhereUniqueWithoutAssigneeInput | JiraIssueUpdateWithWhereUniqueWithoutAssigneeInput[]
+    updateMany?: JiraIssueUpdateManyWithWhereWithoutAssigneeInput | JiraIssueUpdateManyWithWhereWithoutAssigneeInput[]
+    deleteMany?: JiraIssueScalarWhereInput | JiraIssueScalarWhereInput[]
+  }
+
+  export type JiraEventUpdateManyWithoutUserNestedInput = {
+    create?: XOR<JiraEventCreateWithoutUserInput, JiraEventUncheckedCreateWithoutUserInput> | JiraEventCreateWithoutUserInput[] | JiraEventUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: JiraEventCreateOrConnectWithoutUserInput | JiraEventCreateOrConnectWithoutUserInput[]
+    upsert?: JiraEventUpsertWithWhereUniqueWithoutUserInput | JiraEventUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: JiraEventCreateManyUserInputEnvelope
+    set?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    disconnect?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    delete?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    connect?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    update?: JiraEventUpdateWithWhereUniqueWithoutUserInput | JiraEventUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: JiraEventUpdateManyWithWhereWithoutUserInput | JiraEventUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: JiraEventScalarWhereInput | JiraEventScalarWhereInput[]
+  }
+
+  export type JiraIssueUncheckedUpdateManyWithoutCreatorNestedInput = {
+    create?: XOR<JiraIssueCreateWithoutCreatorInput, JiraIssueUncheckedCreateWithoutCreatorInput> | JiraIssueCreateWithoutCreatorInput[] | JiraIssueUncheckedCreateWithoutCreatorInput[]
+    connectOrCreate?: JiraIssueCreateOrConnectWithoutCreatorInput | JiraIssueCreateOrConnectWithoutCreatorInput[]
+    upsert?: JiraIssueUpsertWithWhereUniqueWithoutCreatorInput | JiraIssueUpsertWithWhereUniqueWithoutCreatorInput[]
+    createMany?: JiraIssueCreateManyCreatorInputEnvelope
+    set?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    disconnect?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    delete?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    connect?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    update?: JiraIssueUpdateWithWhereUniqueWithoutCreatorInput | JiraIssueUpdateWithWhereUniqueWithoutCreatorInput[]
+    updateMany?: JiraIssueUpdateManyWithWhereWithoutCreatorInput | JiraIssueUpdateManyWithWhereWithoutCreatorInput[]
+    deleteMany?: JiraIssueScalarWhereInput | JiraIssueScalarWhereInput[]
+  }
+
+  export type JiraIssueUncheckedUpdateManyWithoutAssigneeNestedInput = {
+    create?: XOR<JiraIssueCreateWithoutAssigneeInput, JiraIssueUncheckedCreateWithoutAssigneeInput> | JiraIssueCreateWithoutAssigneeInput[] | JiraIssueUncheckedCreateWithoutAssigneeInput[]
+    connectOrCreate?: JiraIssueCreateOrConnectWithoutAssigneeInput | JiraIssueCreateOrConnectWithoutAssigneeInput[]
+    upsert?: JiraIssueUpsertWithWhereUniqueWithoutAssigneeInput | JiraIssueUpsertWithWhereUniqueWithoutAssigneeInput[]
+    createMany?: JiraIssueCreateManyAssigneeInputEnvelope
+    set?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    disconnect?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    delete?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    connect?: JiraIssueWhereUniqueInput | JiraIssueWhereUniqueInput[]
+    update?: JiraIssueUpdateWithWhereUniqueWithoutAssigneeInput | JiraIssueUpdateWithWhereUniqueWithoutAssigneeInput[]
+    updateMany?: JiraIssueUpdateManyWithWhereWithoutAssigneeInput | JiraIssueUpdateManyWithWhereWithoutAssigneeInput[]
+    deleteMany?: JiraIssueScalarWhereInput | JiraIssueScalarWhereInput[]
+  }
+
+  export type JiraEventUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<JiraEventCreateWithoutUserInput, JiraEventUncheckedCreateWithoutUserInput> | JiraEventCreateWithoutUserInput[] | JiraEventUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: JiraEventCreateOrConnectWithoutUserInput | JiraEventCreateOrConnectWithoutUserInput[]
+    upsert?: JiraEventUpsertWithWhereUniqueWithoutUserInput | JiraEventUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: JiraEventCreateManyUserInputEnvelope
+    set?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    disconnect?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    delete?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    connect?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    update?: JiraEventUpdateWithWhereUniqueWithoutUserInput | JiraEventUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: JiraEventUpdateManyWithWhereWithoutUserInput | JiraEventUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: JiraEventScalarWhereInput | JiraEventScalarWhereInput[]
+  }
+
+  export type JiraProjectCreateNestedOneWithoutIssuesInput = {
+    create?: XOR<JiraProjectCreateWithoutIssuesInput, JiraProjectUncheckedCreateWithoutIssuesInput>
+    connectOrCreate?: JiraProjectCreateOrConnectWithoutIssuesInput
+    connect?: JiraProjectWhereUniqueInput
+  }
+
+  export type JiraUserCreateNestedOneWithoutCreated_issuesInput = {
+    create?: XOR<JiraUserCreateWithoutCreated_issuesInput, JiraUserUncheckedCreateWithoutCreated_issuesInput>
+    connectOrCreate?: JiraUserCreateOrConnectWithoutCreated_issuesInput
+    connect?: JiraUserWhereUniqueInput
+  }
+
+  export type JiraUserCreateNestedOneWithoutAssigned_issuesInput = {
+    create?: XOR<JiraUserCreateWithoutAssigned_issuesInput, JiraUserUncheckedCreateWithoutAssigned_issuesInput>
+    connectOrCreate?: JiraUserCreateOrConnectWithoutAssigned_issuesInput
+    connect?: JiraUserWhereUniqueInput
+  }
+
+  export type JiraEventCreateNestedManyWithoutIssueInput = {
+    create?: XOR<JiraEventCreateWithoutIssueInput, JiraEventUncheckedCreateWithoutIssueInput> | JiraEventCreateWithoutIssueInput[] | JiraEventUncheckedCreateWithoutIssueInput[]
+    connectOrCreate?: JiraEventCreateOrConnectWithoutIssueInput | JiraEventCreateOrConnectWithoutIssueInput[]
+    createMany?: JiraEventCreateManyIssueInputEnvelope
+    connect?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+  }
+
+  export type JiraEventUncheckedCreateNestedManyWithoutIssueInput = {
+    create?: XOR<JiraEventCreateWithoutIssueInput, JiraEventUncheckedCreateWithoutIssueInput> | JiraEventCreateWithoutIssueInput[] | JiraEventUncheckedCreateWithoutIssueInput[]
+    connectOrCreate?: JiraEventCreateOrConnectWithoutIssueInput | JiraEventCreateOrConnectWithoutIssueInput[]
+    createMany?: JiraEventCreateManyIssueInputEnvelope
+    connect?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type JiraProjectUpdateOneWithoutIssuesNestedInput = {
+    create?: XOR<JiraProjectCreateWithoutIssuesInput, JiraProjectUncheckedCreateWithoutIssuesInput>
+    connectOrCreate?: JiraProjectCreateOrConnectWithoutIssuesInput
+    upsert?: JiraProjectUpsertWithoutIssuesInput
+    disconnect?: JiraProjectWhereInput | boolean
+    delete?: JiraProjectWhereInput | boolean
+    connect?: JiraProjectWhereUniqueInput
+    update?: XOR<XOR<JiraProjectUpdateToOneWithWhereWithoutIssuesInput, JiraProjectUpdateWithoutIssuesInput>, JiraProjectUncheckedUpdateWithoutIssuesInput>
+  }
+
+  export type JiraUserUpdateOneWithoutCreated_issuesNestedInput = {
+    create?: XOR<JiraUserCreateWithoutCreated_issuesInput, JiraUserUncheckedCreateWithoutCreated_issuesInput>
+    connectOrCreate?: JiraUserCreateOrConnectWithoutCreated_issuesInput
+    upsert?: JiraUserUpsertWithoutCreated_issuesInput
+    disconnect?: JiraUserWhereInput | boolean
+    delete?: JiraUserWhereInput | boolean
+    connect?: JiraUserWhereUniqueInput
+    update?: XOR<XOR<JiraUserUpdateToOneWithWhereWithoutCreated_issuesInput, JiraUserUpdateWithoutCreated_issuesInput>, JiraUserUncheckedUpdateWithoutCreated_issuesInput>
+  }
+
+  export type JiraUserUpdateOneWithoutAssigned_issuesNestedInput = {
+    create?: XOR<JiraUserCreateWithoutAssigned_issuesInput, JiraUserUncheckedCreateWithoutAssigned_issuesInput>
+    connectOrCreate?: JiraUserCreateOrConnectWithoutAssigned_issuesInput
+    upsert?: JiraUserUpsertWithoutAssigned_issuesInput
+    disconnect?: JiraUserWhereInput | boolean
+    delete?: JiraUserWhereInput | boolean
+    connect?: JiraUserWhereUniqueInput
+    update?: XOR<XOR<JiraUserUpdateToOneWithWhereWithoutAssigned_issuesInput, JiraUserUpdateWithoutAssigned_issuesInput>, JiraUserUncheckedUpdateWithoutAssigned_issuesInput>
+  }
+
+  export type JiraEventUpdateManyWithoutIssueNestedInput = {
+    create?: XOR<JiraEventCreateWithoutIssueInput, JiraEventUncheckedCreateWithoutIssueInput> | JiraEventCreateWithoutIssueInput[] | JiraEventUncheckedCreateWithoutIssueInput[]
+    connectOrCreate?: JiraEventCreateOrConnectWithoutIssueInput | JiraEventCreateOrConnectWithoutIssueInput[]
+    upsert?: JiraEventUpsertWithWhereUniqueWithoutIssueInput | JiraEventUpsertWithWhereUniqueWithoutIssueInput[]
+    createMany?: JiraEventCreateManyIssueInputEnvelope
+    set?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    disconnect?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    delete?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    connect?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    update?: JiraEventUpdateWithWhereUniqueWithoutIssueInput | JiraEventUpdateWithWhereUniqueWithoutIssueInput[]
+    updateMany?: JiraEventUpdateManyWithWhereWithoutIssueInput | JiraEventUpdateManyWithWhereWithoutIssueInput[]
+    deleteMany?: JiraEventScalarWhereInput | JiraEventScalarWhereInput[]
+  }
+
+  export type JiraEventUncheckedUpdateManyWithoutIssueNestedInput = {
+    create?: XOR<JiraEventCreateWithoutIssueInput, JiraEventUncheckedCreateWithoutIssueInput> | JiraEventCreateWithoutIssueInput[] | JiraEventUncheckedCreateWithoutIssueInput[]
+    connectOrCreate?: JiraEventCreateOrConnectWithoutIssueInput | JiraEventCreateOrConnectWithoutIssueInput[]
+    upsert?: JiraEventUpsertWithWhereUniqueWithoutIssueInput | JiraEventUpsertWithWhereUniqueWithoutIssueInput[]
+    createMany?: JiraEventCreateManyIssueInputEnvelope
+    set?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    disconnect?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    delete?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    connect?: JiraEventWhereUniqueInput | JiraEventWhereUniqueInput[]
+    update?: JiraEventUpdateWithWhereUniqueWithoutIssueInput | JiraEventUpdateWithWhereUniqueWithoutIssueInput[]
+    updateMany?: JiraEventUpdateManyWithWhereWithoutIssueInput | JiraEventUpdateManyWithWhereWithoutIssueInput[]
+    deleteMany?: JiraEventScalarWhereInput | JiraEventScalarWhereInput[]
+  }
+
+  export type JiraEventCreateNestedOneWithoutPayloadInput = {
+    create?: XOR<JiraEventCreateWithoutPayloadInput, JiraEventUncheckedCreateWithoutPayloadInput>
+    connectOrCreate?: JiraEventCreateOrConnectWithoutPayloadInput
+    connect?: JiraEventWhereUniqueInput
+  }
+
+  export type JiraEventUpdateOneRequiredWithoutPayloadNestedInput = {
+    create?: XOR<JiraEventCreateWithoutPayloadInput, JiraEventUncheckedCreateWithoutPayloadInput>
+    connectOrCreate?: JiraEventCreateOrConnectWithoutPayloadInput
+    upsert?: JiraEventUpsertWithoutPayloadInput
+    connect?: JiraEventWhereUniqueInput
+    update?: XOR<XOR<JiraEventUpdateToOneWithWhereWithoutPayloadInput, JiraEventUpdateWithoutPayloadInput>, JiraEventUncheckedUpdateWithoutPayloadInput>
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -10030,6 +17413,54 @@ export namespace Prisma {
     | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
 
   export type NestedJsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue
+    lte?: InputJsonValue
+    gt?: InputJsonValue
+    gte?: InputJsonValue
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+  export type NestedJsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
     equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
     path?: string
     mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
@@ -11126,6 +18557,795 @@ export namespace Prisma {
     payload?: PayloadUncheckedUpdateOneWithoutEventNestedInput
   }
 
+  export type JiraIssueCreateWithoutEventsInput = {
+    issue_id: string
+    summary?: string | null
+    key: string
+    status_name?: string | null
+    status_id?: string | null
+    timespent?: number | null
+    timeestimate?: number | null
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    resolution_date?: Date | string | null
+    sprint_name?: string | null
+    sprint_start?: Date | string | null
+    sprint_end?: Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+    project?: JiraProjectCreateNestedOneWithoutIssuesInput
+    creator?: JiraUserCreateNestedOneWithoutCreated_issuesInput
+    assignee?: JiraUserCreateNestedOneWithoutAssigned_issuesInput
+  }
+
+  export type JiraIssueUncheckedCreateWithoutEventsInput = {
+    id?: number
+    issue_id: string
+    summary?: string | null
+    key: string
+    status_name?: string | null
+    status_id?: string | null
+    timespent?: number | null
+    timeestimate?: number | null
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    resolution_date?: Date | string | null
+    project_id?: number | null
+    creator_id?: number | null
+    assignee_id?: number | null
+    sprint_name?: string | null
+    sprint_start?: Date | string | null
+    sprint_end?: Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type JiraIssueCreateOrConnectWithoutEventsInput = {
+    where: JiraIssueWhereUniqueInput
+    create: XOR<JiraIssueCreateWithoutEventsInput, JiraIssueUncheckedCreateWithoutEventsInput>
+  }
+
+  export type JiraProjectCreateWithoutJiraEventInput = {
+    key: string
+    name: string
+    created_at?: Date | string
+    issues?: JiraIssueCreateNestedManyWithoutProjectInput
+  }
+
+  export type JiraProjectUncheckedCreateWithoutJiraEventInput = {
+    id?: number
+    key: string
+    name: string
+    created_at?: Date | string
+    issues?: JiraIssueUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type JiraProjectCreateOrConnectWithoutJiraEventInput = {
+    where: JiraProjectWhereUniqueInput
+    create: XOR<JiraProjectCreateWithoutJiraEventInput, JiraProjectUncheckedCreateWithoutJiraEventInput>
+  }
+
+  export type JiraUserCreateWithoutJiraEventInput = {
+    account_id: string
+    display_name?: string | null
+    created_issues?: JiraIssueCreateNestedManyWithoutCreatorInput
+    assigned_issues?: JiraIssueCreateNestedManyWithoutAssigneeInput
+  }
+
+  export type JiraUserUncheckedCreateWithoutJiraEventInput = {
+    id?: number
+    account_id: string
+    display_name?: string | null
+    created_issues?: JiraIssueUncheckedCreateNestedManyWithoutCreatorInput
+    assigned_issues?: JiraIssueUncheckedCreateNestedManyWithoutAssigneeInput
+  }
+
+  export type JiraUserCreateOrConnectWithoutJiraEventInput = {
+    where: JiraUserWhereUniqueInput
+    create: XOR<JiraUserCreateWithoutJiraEventInput, JiraUserUncheckedCreateWithoutJiraEventInput>
+  }
+
+  export type JiraPayloadCreateWithoutEventInput = {
+    raw_payload: JsonNullValueInput | InputJsonValue
+  }
+
+  export type JiraPayloadUncheckedCreateWithoutEventInput = {
+    id?: number
+    raw_payload: JsonNullValueInput | InputJsonValue
+  }
+
+  export type JiraPayloadCreateOrConnectWithoutEventInput = {
+    where: JiraPayloadWhereUniqueInput
+    create: XOR<JiraPayloadCreateWithoutEventInput, JiraPayloadUncheckedCreateWithoutEventInput>
+  }
+
+  export type JiraIssueUpsertWithoutEventsInput = {
+    update: XOR<JiraIssueUpdateWithoutEventsInput, JiraIssueUncheckedUpdateWithoutEventsInput>
+    create: XOR<JiraIssueCreateWithoutEventsInput, JiraIssueUncheckedCreateWithoutEventsInput>
+    where?: JiraIssueWhereInput
+  }
+
+  export type JiraIssueUpdateToOneWithWhereWithoutEventsInput = {
+    where?: JiraIssueWhereInput
+    data: XOR<JiraIssueUpdateWithoutEventsInput, JiraIssueUncheckedUpdateWithoutEventsInput>
+  }
+
+  export type JiraIssueUpdateWithoutEventsInput = {
+    issue_id?: StringFieldUpdateOperationsInput | string
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    key?: StringFieldUpdateOperationsInput | string
+    status_name?: NullableStringFieldUpdateOperationsInput | string | null
+    status_id?: NullableStringFieldUpdateOperationsInput | string | null
+    timespent?: NullableIntFieldUpdateOperationsInput | number | null
+    timeestimate?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resolution_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_name?: NullableStringFieldUpdateOperationsInput | string | null
+    sprint_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+    project?: JiraProjectUpdateOneWithoutIssuesNestedInput
+    creator?: JiraUserUpdateOneWithoutCreated_issuesNestedInput
+    assignee?: JiraUserUpdateOneWithoutAssigned_issuesNestedInput
+  }
+
+  export type JiraIssueUncheckedUpdateWithoutEventsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    issue_id?: StringFieldUpdateOperationsInput | string
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    key?: StringFieldUpdateOperationsInput | string
+    status_name?: NullableStringFieldUpdateOperationsInput | string | null
+    status_id?: NullableStringFieldUpdateOperationsInput | string | null
+    timespent?: NullableIntFieldUpdateOperationsInput | number | null
+    timeestimate?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resolution_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    creator_id?: NullableIntFieldUpdateOperationsInput | number | null
+    assignee_id?: NullableIntFieldUpdateOperationsInput | number | null
+    sprint_name?: NullableStringFieldUpdateOperationsInput | string | null
+    sprint_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type JiraProjectUpsertWithoutJiraEventInput = {
+    update: XOR<JiraProjectUpdateWithoutJiraEventInput, JiraProjectUncheckedUpdateWithoutJiraEventInput>
+    create: XOR<JiraProjectCreateWithoutJiraEventInput, JiraProjectUncheckedCreateWithoutJiraEventInput>
+    where?: JiraProjectWhereInput
+  }
+
+  export type JiraProjectUpdateToOneWithWhereWithoutJiraEventInput = {
+    where?: JiraProjectWhereInput
+    data: XOR<JiraProjectUpdateWithoutJiraEventInput, JiraProjectUncheckedUpdateWithoutJiraEventInput>
+  }
+
+  export type JiraProjectUpdateWithoutJiraEventInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    issues?: JiraIssueUpdateManyWithoutProjectNestedInput
+  }
+
+  export type JiraProjectUncheckedUpdateWithoutJiraEventInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    key?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    issues?: JiraIssueUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type JiraUserUpsertWithoutJiraEventInput = {
+    update: XOR<JiraUserUpdateWithoutJiraEventInput, JiraUserUncheckedUpdateWithoutJiraEventInput>
+    create: XOR<JiraUserCreateWithoutJiraEventInput, JiraUserUncheckedCreateWithoutJiraEventInput>
+    where?: JiraUserWhereInput
+  }
+
+  export type JiraUserUpdateToOneWithWhereWithoutJiraEventInput = {
+    where?: JiraUserWhereInput
+    data: XOR<JiraUserUpdateWithoutJiraEventInput, JiraUserUncheckedUpdateWithoutJiraEventInput>
+  }
+
+  export type JiraUserUpdateWithoutJiraEventInput = {
+    account_id?: StringFieldUpdateOperationsInput | string
+    display_name?: NullableStringFieldUpdateOperationsInput | string | null
+    created_issues?: JiraIssueUpdateManyWithoutCreatorNestedInput
+    assigned_issues?: JiraIssueUpdateManyWithoutAssigneeNestedInput
+  }
+
+  export type JiraUserUncheckedUpdateWithoutJiraEventInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    account_id?: StringFieldUpdateOperationsInput | string
+    display_name?: NullableStringFieldUpdateOperationsInput | string | null
+    created_issues?: JiraIssueUncheckedUpdateManyWithoutCreatorNestedInput
+    assigned_issues?: JiraIssueUncheckedUpdateManyWithoutAssigneeNestedInput
+  }
+
+  export type JiraPayloadUpsertWithoutEventInput = {
+    update: XOR<JiraPayloadUpdateWithoutEventInput, JiraPayloadUncheckedUpdateWithoutEventInput>
+    create: XOR<JiraPayloadCreateWithoutEventInput, JiraPayloadUncheckedCreateWithoutEventInput>
+    where?: JiraPayloadWhereInput
+  }
+
+  export type JiraPayloadUpdateToOneWithWhereWithoutEventInput = {
+    where?: JiraPayloadWhereInput
+    data: XOR<JiraPayloadUpdateWithoutEventInput, JiraPayloadUncheckedUpdateWithoutEventInput>
+  }
+
+  export type JiraPayloadUpdateWithoutEventInput = {
+    raw_payload?: JsonNullValueInput | InputJsonValue
+  }
+
+  export type JiraPayloadUncheckedUpdateWithoutEventInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    raw_payload?: JsonNullValueInput | InputJsonValue
+  }
+
+  export type JiraIssueCreateWithoutProjectInput = {
+    issue_id: string
+    summary?: string | null
+    key: string
+    status_name?: string | null
+    status_id?: string | null
+    timespent?: number | null
+    timeestimate?: number | null
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    resolution_date?: Date | string | null
+    sprint_name?: string | null
+    sprint_start?: Date | string | null
+    sprint_end?: Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+    creator?: JiraUserCreateNestedOneWithoutCreated_issuesInput
+    assignee?: JiraUserCreateNestedOneWithoutAssigned_issuesInput
+    events?: JiraEventCreateNestedManyWithoutIssueInput
+  }
+
+  export type JiraIssueUncheckedCreateWithoutProjectInput = {
+    id?: number
+    issue_id: string
+    summary?: string | null
+    key: string
+    status_name?: string | null
+    status_id?: string | null
+    timespent?: number | null
+    timeestimate?: number | null
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    resolution_date?: Date | string | null
+    creator_id?: number | null
+    assignee_id?: number | null
+    sprint_name?: string | null
+    sprint_start?: Date | string | null
+    sprint_end?: Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+    events?: JiraEventUncheckedCreateNestedManyWithoutIssueInput
+  }
+
+  export type JiraIssueCreateOrConnectWithoutProjectInput = {
+    where: JiraIssueWhereUniqueInput
+    create: XOR<JiraIssueCreateWithoutProjectInput, JiraIssueUncheckedCreateWithoutProjectInput>
+  }
+
+  export type JiraIssueCreateManyProjectInputEnvelope = {
+    data: JiraIssueCreateManyProjectInput | JiraIssueCreateManyProjectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type JiraEventCreateWithoutProjectInput = {
+    webhook_event: string
+    issue_event_type: string
+    date_created?: Date | string
+    issue?: JiraIssueCreateNestedOneWithoutEventsInput
+    user?: JiraUserCreateNestedOneWithoutJiraEventInput
+    payload?: JiraPayloadCreateNestedOneWithoutEventInput
+  }
+
+  export type JiraEventUncheckedCreateWithoutProjectInput = {
+    id?: number
+    webhook_event: string
+    issue_event_type: string
+    issue_id?: number | null
+    user_id?: number | null
+    date_created?: Date | string
+    payload?: JiraPayloadUncheckedCreateNestedOneWithoutEventInput
+  }
+
+  export type JiraEventCreateOrConnectWithoutProjectInput = {
+    where: JiraEventWhereUniqueInput
+    create: XOR<JiraEventCreateWithoutProjectInput, JiraEventUncheckedCreateWithoutProjectInput>
+  }
+
+  export type JiraEventCreateManyProjectInputEnvelope = {
+    data: JiraEventCreateManyProjectInput | JiraEventCreateManyProjectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type JiraIssueUpsertWithWhereUniqueWithoutProjectInput = {
+    where: JiraIssueWhereUniqueInput
+    update: XOR<JiraIssueUpdateWithoutProjectInput, JiraIssueUncheckedUpdateWithoutProjectInput>
+    create: XOR<JiraIssueCreateWithoutProjectInput, JiraIssueUncheckedCreateWithoutProjectInput>
+  }
+
+  export type JiraIssueUpdateWithWhereUniqueWithoutProjectInput = {
+    where: JiraIssueWhereUniqueInput
+    data: XOR<JiraIssueUpdateWithoutProjectInput, JiraIssueUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type JiraIssueUpdateManyWithWhereWithoutProjectInput = {
+    where: JiraIssueScalarWhereInput
+    data: XOR<JiraIssueUpdateManyMutationInput, JiraIssueUncheckedUpdateManyWithoutProjectInput>
+  }
+
+  export type JiraIssueScalarWhereInput = {
+    AND?: JiraIssueScalarWhereInput | JiraIssueScalarWhereInput[]
+    OR?: JiraIssueScalarWhereInput[]
+    NOT?: JiraIssueScalarWhereInput | JiraIssueScalarWhereInput[]
+    id?: IntFilter<"JiraIssue"> | number
+    issue_id?: StringFilter<"JiraIssue"> | string
+    summary?: StringNullableFilter<"JiraIssue"> | string | null
+    key?: StringFilter<"JiraIssue"> | string
+    status_name?: StringNullableFilter<"JiraIssue"> | string | null
+    status_id?: StringNullableFilter<"JiraIssue"> | string | null
+    timespent?: IntNullableFilter<"JiraIssue"> | number | null
+    timeestimate?: IntNullableFilter<"JiraIssue"> | number | null
+    created_at?: DateTimeNullableFilter<"JiraIssue"> | Date | string | null
+    updated_at?: DateTimeNullableFilter<"JiraIssue"> | Date | string | null
+    resolution_date?: DateTimeNullableFilter<"JiraIssue"> | Date | string | null
+    project_id?: IntNullableFilter<"JiraIssue"> | number | null
+    creator_id?: IntNullableFilter<"JiraIssue"> | number | null
+    assignee_id?: IntNullableFilter<"JiraIssue"> | number | null
+    sprint_name?: StringNullableFilter<"JiraIssue"> | string | null
+    sprint_start?: DateTimeNullableFilter<"JiraIssue"> | Date | string | null
+    sprint_end?: DateTimeNullableFilter<"JiraIssue"> | Date | string | null
+    raw_fields?: JsonNullableFilter<"JiraIssue">
+  }
+
+  export type JiraEventUpsertWithWhereUniqueWithoutProjectInput = {
+    where: JiraEventWhereUniqueInput
+    update: XOR<JiraEventUpdateWithoutProjectInput, JiraEventUncheckedUpdateWithoutProjectInput>
+    create: XOR<JiraEventCreateWithoutProjectInput, JiraEventUncheckedCreateWithoutProjectInput>
+  }
+
+  export type JiraEventUpdateWithWhereUniqueWithoutProjectInput = {
+    where: JiraEventWhereUniqueInput
+    data: XOR<JiraEventUpdateWithoutProjectInput, JiraEventUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type JiraEventUpdateManyWithWhereWithoutProjectInput = {
+    where: JiraEventScalarWhereInput
+    data: XOR<JiraEventUpdateManyMutationInput, JiraEventUncheckedUpdateManyWithoutProjectInput>
+  }
+
+  export type JiraEventScalarWhereInput = {
+    AND?: JiraEventScalarWhereInput | JiraEventScalarWhereInput[]
+    OR?: JiraEventScalarWhereInput[]
+    NOT?: JiraEventScalarWhereInput | JiraEventScalarWhereInput[]
+    id?: IntFilter<"JiraEvent"> | number
+    webhook_event?: StringFilter<"JiraEvent"> | string
+    issue_event_type?: StringFilter<"JiraEvent"> | string
+    issue_id?: IntNullableFilter<"JiraEvent"> | number | null
+    project_id?: IntNullableFilter<"JiraEvent"> | number | null
+    user_id?: IntNullableFilter<"JiraEvent"> | number | null
+    date_created?: DateTimeFilter<"JiraEvent"> | Date | string
+  }
+
+  export type JiraIssueCreateWithoutCreatorInput = {
+    issue_id: string
+    summary?: string | null
+    key: string
+    status_name?: string | null
+    status_id?: string | null
+    timespent?: number | null
+    timeestimate?: number | null
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    resolution_date?: Date | string | null
+    sprint_name?: string | null
+    sprint_start?: Date | string | null
+    sprint_end?: Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+    project?: JiraProjectCreateNestedOneWithoutIssuesInput
+    assignee?: JiraUserCreateNestedOneWithoutAssigned_issuesInput
+    events?: JiraEventCreateNestedManyWithoutIssueInput
+  }
+
+  export type JiraIssueUncheckedCreateWithoutCreatorInput = {
+    id?: number
+    issue_id: string
+    summary?: string | null
+    key: string
+    status_name?: string | null
+    status_id?: string | null
+    timespent?: number | null
+    timeestimate?: number | null
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    resolution_date?: Date | string | null
+    project_id?: number | null
+    assignee_id?: number | null
+    sprint_name?: string | null
+    sprint_start?: Date | string | null
+    sprint_end?: Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+    events?: JiraEventUncheckedCreateNestedManyWithoutIssueInput
+  }
+
+  export type JiraIssueCreateOrConnectWithoutCreatorInput = {
+    where: JiraIssueWhereUniqueInput
+    create: XOR<JiraIssueCreateWithoutCreatorInput, JiraIssueUncheckedCreateWithoutCreatorInput>
+  }
+
+  export type JiraIssueCreateManyCreatorInputEnvelope = {
+    data: JiraIssueCreateManyCreatorInput | JiraIssueCreateManyCreatorInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type JiraIssueCreateWithoutAssigneeInput = {
+    issue_id: string
+    summary?: string | null
+    key: string
+    status_name?: string | null
+    status_id?: string | null
+    timespent?: number | null
+    timeestimate?: number | null
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    resolution_date?: Date | string | null
+    sprint_name?: string | null
+    sprint_start?: Date | string | null
+    sprint_end?: Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+    project?: JiraProjectCreateNestedOneWithoutIssuesInput
+    creator?: JiraUserCreateNestedOneWithoutCreated_issuesInput
+    events?: JiraEventCreateNestedManyWithoutIssueInput
+  }
+
+  export type JiraIssueUncheckedCreateWithoutAssigneeInput = {
+    id?: number
+    issue_id: string
+    summary?: string | null
+    key: string
+    status_name?: string | null
+    status_id?: string | null
+    timespent?: number | null
+    timeestimate?: number | null
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    resolution_date?: Date | string | null
+    project_id?: number | null
+    creator_id?: number | null
+    sprint_name?: string | null
+    sprint_start?: Date | string | null
+    sprint_end?: Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+    events?: JiraEventUncheckedCreateNestedManyWithoutIssueInput
+  }
+
+  export type JiraIssueCreateOrConnectWithoutAssigneeInput = {
+    where: JiraIssueWhereUniqueInput
+    create: XOR<JiraIssueCreateWithoutAssigneeInput, JiraIssueUncheckedCreateWithoutAssigneeInput>
+  }
+
+  export type JiraIssueCreateManyAssigneeInputEnvelope = {
+    data: JiraIssueCreateManyAssigneeInput | JiraIssueCreateManyAssigneeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type JiraEventCreateWithoutUserInput = {
+    webhook_event: string
+    issue_event_type: string
+    date_created?: Date | string
+    issue?: JiraIssueCreateNestedOneWithoutEventsInput
+    project?: JiraProjectCreateNestedOneWithoutJiraEventInput
+    payload?: JiraPayloadCreateNestedOneWithoutEventInput
+  }
+
+  export type JiraEventUncheckedCreateWithoutUserInput = {
+    id?: number
+    webhook_event: string
+    issue_event_type: string
+    issue_id?: number | null
+    project_id?: number | null
+    date_created?: Date | string
+    payload?: JiraPayloadUncheckedCreateNestedOneWithoutEventInput
+  }
+
+  export type JiraEventCreateOrConnectWithoutUserInput = {
+    where: JiraEventWhereUniqueInput
+    create: XOR<JiraEventCreateWithoutUserInput, JiraEventUncheckedCreateWithoutUserInput>
+  }
+
+  export type JiraEventCreateManyUserInputEnvelope = {
+    data: JiraEventCreateManyUserInput | JiraEventCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type JiraIssueUpsertWithWhereUniqueWithoutCreatorInput = {
+    where: JiraIssueWhereUniqueInput
+    update: XOR<JiraIssueUpdateWithoutCreatorInput, JiraIssueUncheckedUpdateWithoutCreatorInput>
+    create: XOR<JiraIssueCreateWithoutCreatorInput, JiraIssueUncheckedCreateWithoutCreatorInput>
+  }
+
+  export type JiraIssueUpdateWithWhereUniqueWithoutCreatorInput = {
+    where: JiraIssueWhereUniqueInput
+    data: XOR<JiraIssueUpdateWithoutCreatorInput, JiraIssueUncheckedUpdateWithoutCreatorInput>
+  }
+
+  export type JiraIssueUpdateManyWithWhereWithoutCreatorInput = {
+    where: JiraIssueScalarWhereInput
+    data: XOR<JiraIssueUpdateManyMutationInput, JiraIssueUncheckedUpdateManyWithoutCreatorInput>
+  }
+
+  export type JiraIssueUpsertWithWhereUniqueWithoutAssigneeInput = {
+    where: JiraIssueWhereUniqueInput
+    update: XOR<JiraIssueUpdateWithoutAssigneeInput, JiraIssueUncheckedUpdateWithoutAssigneeInput>
+    create: XOR<JiraIssueCreateWithoutAssigneeInput, JiraIssueUncheckedCreateWithoutAssigneeInput>
+  }
+
+  export type JiraIssueUpdateWithWhereUniqueWithoutAssigneeInput = {
+    where: JiraIssueWhereUniqueInput
+    data: XOR<JiraIssueUpdateWithoutAssigneeInput, JiraIssueUncheckedUpdateWithoutAssigneeInput>
+  }
+
+  export type JiraIssueUpdateManyWithWhereWithoutAssigneeInput = {
+    where: JiraIssueScalarWhereInput
+    data: XOR<JiraIssueUpdateManyMutationInput, JiraIssueUncheckedUpdateManyWithoutAssigneeInput>
+  }
+
+  export type JiraEventUpsertWithWhereUniqueWithoutUserInput = {
+    where: JiraEventWhereUniqueInput
+    update: XOR<JiraEventUpdateWithoutUserInput, JiraEventUncheckedUpdateWithoutUserInput>
+    create: XOR<JiraEventCreateWithoutUserInput, JiraEventUncheckedCreateWithoutUserInput>
+  }
+
+  export type JiraEventUpdateWithWhereUniqueWithoutUserInput = {
+    where: JiraEventWhereUniqueInput
+    data: XOR<JiraEventUpdateWithoutUserInput, JiraEventUncheckedUpdateWithoutUserInput>
+  }
+
+  export type JiraEventUpdateManyWithWhereWithoutUserInput = {
+    where: JiraEventScalarWhereInput
+    data: XOR<JiraEventUpdateManyMutationInput, JiraEventUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type JiraProjectCreateWithoutIssuesInput = {
+    key: string
+    name: string
+    created_at?: Date | string
+    JiraEvent?: JiraEventCreateNestedManyWithoutProjectInput
+  }
+
+  export type JiraProjectUncheckedCreateWithoutIssuesInput = {
+    id?: number
+    key: string
+    name: string
+    created_at?: Date | string
+    JiraEvent?: JiraEventUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type JiraProjectCreateOrConnectWithoutIssuesInput = {
+    where: JiraProjectWhereUniqueInput
+    create: XOR<JiraProjectCreateWithoutIssuesInput, JiraProjectUncheckedCreateWithoutIssuesInput>
+  }
+
+  export type JiraUserCreateWithoutCreated_issuesInput = {
+    account_id: string
+    display_name?: string | null
+    assigned_issues?: JiraIssueCreateNestedManyWithoutAssigneeInput
+    JiraEvent?: JiraEventCreateNestedManyWithoutUserInput
+  }
+
+  export type JiraUserUncheckedCreateWithoutCreated_issuesInput = {
+    id?: number
+    account_id: string
+    display_name?: string | null
+    assigned_issues?: JiraIssueUncheckedCreateNestedManyWithoutAssigneeInput
+    JiraEvent?: JiraEventUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type JiraUserCreateOrConnectWithoutCreated_issuesInput = {
+    where: JiraUserWhereUniqueInput
+    create: XOR<JiraUserCreateWithoutCreated_issuesInput, JiraUserUncheckedCreateWithoutCreated_issuesInput>
+  }
+
+  export type JiraUserCreateWithoutAssigned_issuesInput = {
+    account_id: string
+    display_name?: string | null
+    created_issues?: JiraIssueCreateNestedManyWithoutCreatorInput
+    JiraEvent?: JiraEventCreateNestedManyWithoutUserInput
+  }
+
+  export type JiraUserUncheckedCreateWithoutAssigned_issuesInput = {
+    id?: number
+    account_id: string
+    display_name?: string | null
+    created_issues?: JiraIssueUncheckedCreateNestedManyWithoutCreatorInput
+    JiraEvent?: JiraEventUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type JiraUserCreateOrConnectWithoutAssigned_issuesInput = {
+    where: JiraUserWhereUniqueInput
+    create: XOR<JiraUserCreateWithoutAssigned_issuesInput, JiraUserUncheckedCreateWithoutAssigned_issuesInput>
+  }
+
+  export type JiraEventCreateWithoutIssueInput = {
+    webhook_event: string
+    issue_event_type: string
+    date_created?: Date | string
+    project?: JiraProjectCreateNestedOneWithoutJiraEventInput
+    user?: JiraUserCreateNestedOneWithoutJiraEventInput
+    payload?: JiraPayloadCreateNestedOneWithoutEventInput
+  }
+
+  export type JiraEventUncheckedCreateWithoutIssueInput = {
+    id?: number
+    webhook_event: string
+    issue_event_type: string
+    project_id?: number | null
+    user_id?: number | null
+    date_created?: Date | string
+    payload?: JiraPayloadUncheckedCreateNestedOneWithoutEventInput
+  }
+
+  export type JiraEventCreateOrConnectWithoutIssueInput = {
+    where: JiraEventWhereUniqueInput
+    create: XOR<JiraEventCreateWithoutIssueInput, JiraEventUncheckedCreateWithoutIssueInput>
+  }
+
+  export type JiraEventCreateManyIssueInputEnvelope = {
+    data: JiraEventCreateManyIssueInput | JiraEventCreateManyIssueInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type JiraProjectUpsertWithoutIssuesInput = {
+    update: XOR<JiraProjectUpdateWithoutIssuesInput, JiraProjectUncheckedUpdateWithoutIssuesInput>
+    create: XOR<JiraProjectCreateWithoutIssuesInput, JiraProjectUncheckedCreateWithoutIssuesInput>
+    where?: JiraProjectWhereInput
+  }
+
+  export type JiraProjectUpdateToOneWithWhereWithoutIssuesInput = {
+    where?: JiraProjectWhereInput
+    data: XOR<JiraProjectUpdateWithoutIssuesInput, JiraProjectUncheckedUpdateWithoutIssuesInput>
+  }
+
+  export type JiraProjectUpdateWithoutIssuesInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    JiraEvent?: JiraEventUpdateManyWithoutProjectNestedInput
+  }
+
+  export type JiraProjectUncheckedUpdateWithoutIssuesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    key?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    JiraEvent?: JiraEventUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type JiraUserUpsertWithoutCreated_issuesInput = {
+    update: XOR<JiraUserUpdateWithoutCreated_issuesInput, JiraUserUncheckedUpdateWithoutCreated_issuesInput>
+    create: XOR<JiraUserCreateWithoutCreated_issuesInput, JiraUserUncheckedCreateWithoutCreated_issuesInput>
+    where?: JiraUserWhereInput
+  }
+
+  export type JiraUserUpdateToOneWithWhereWithoutCreated_issuesInput = {
+    where?: JiraUserWhereInput
+    data: XOR<JiraUserUpdateWithoutCreated_issuesInput, JiraUserUncheckedUpdateWithoutCreated_issuesInput>
+  }
+
+  export type JiraUserUpdateWithoutCreated_issuesInput = {
+    account_id?: StringFieldUpdateOperationsInput | string
+    display_name?: NullableStringFieldUpdateOperationsInput | string | null
+    assigned_issues?: JiraIssueUpdateManyWithoutAssigneeNestedInput
+    JiraEvent?: JiraEventUpdateManyWithoutUserNestedInput
+  }
+
+  export type JiraUserUncheckedUpdateWithoutCreated_issuesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    account_id?: StringFieldUpdateOperationsInput | string
+    display_name?: NullableStringFieldUpdateOperationsInput | string | null
+    assigned_issues?: JiraIssueUncheckedUpdateManyWithoutAssigneeNestedInput
+    JiraEvent?: JiraEventUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type JiraUserUpsertWithoutAssigned_issuesInput = {
+    update: XOR<JiraUserUpdateWithoutAssigned_issuesInput, JiraUserUncheckedUpdateWithoutAssigned_issuesInput>
+    create: XOR<JiraUserCreateWithoutAssigned_issuesInput, JiraUserUncheckedCreateWithoutAssigned_issuesInput>
+    where?: JiraUserWhereInput
+  }
+
+  export type JiraUserUpdateToOneWithWhereWithoutAssigned_issuesInput = {
+    where?: JiraUserWhereInput
+    data: XOR<JiraUserUpdateWithoutAssigned_issuesInput, JiraUserUncheckedUpdateWithoutAssigned_issuesInput>
+  }
+
+  export type JiraUserUpdateWithoutAssigned_issuesInput = {
+    account_id?: StringFieldUpdateOperationsInput | string
+    display_name?: NullableStringFieldUpdateOperationsInput | string | null
+    created_issues?: JiraIssueUpdateManyWithoutCreatorNestedInput
+    JiraEvent?: JiraEventUpdateManyWithoutUserNestedInput
+  }
+
+  export type JiraUserUncheckedUpdateWithoutAssigned_issuesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    account_id?: StringFieldUpdateOperationsInput | string
+    display_name?: NullableStringFieldUpdateOperationsInput | string | null
+    created_issues?: JiraIssueUncheckedUpdateManyWithoutCreatorNestedInput
+    JiraEvent?: JiraEventUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type JiraEventUpsertWithWhereUniqueWithoutIssueInput = {
+    where: JiraEventWhereUniqueInput
+    update: XOR<JiraEventUpdateWithoutIssueInput, JiraEventUncheckedUpdateWithoutIssueInput>
+    create: XOR<JiraEventCreateWithoutIssueInput, JiraEventUncheckedCreateWithoutIssueInput>
+  }
+
+  export type JiraEventUpdateWithWhereUniqueWithoutIssueInput = {
+    where: JiraEventWhereUniqueInput
+    data: XOR<JiraEventUpdateWithoutIssueInput, JiraEventUncheckedUpdateWithoutIssueInput>
+  }
+
+  export type JiraEventUpdateManyWithWhereWithoutIssueInput = {
+    where: JiraEventScalarWhereInput
+    data: XOR<JiraEventUpdateManyMutationInput, JiraEventUncheckedUpdateManyWithoutIssueInput>
+  }
+
+  export type JiraEventCreateWithoutPayloadInput = {
+    webhook_event: string
+    issue_event_type: string
+    date_created?: Date | string
+    issue?: JiraIssueCreateNestedOneWithoutEventsInput
+    project?: JiraProjectCreateNestedOneWithoutJiraEventInput
+    user?: JiraUserCreateNestedOneWithoutJiraEventInput
+  }
+
+  export type JiraEventUncheckedCreateWithoutPayloadInput = {
+    id?: number
+    webhook_event: string
+    issue_event_type: string
+    issue_id?: number | null
+    project_id?: number | null
+    user_id?: number | null
+    date_created?: Date | string
+  }
+
+  export type JiraEventCreateOrConnectWithoutPayloadInput = {
+    where: JiraEventWhereUniqueInput
+    create: XOR<JiraEventCreateWithoutPayloadInput, JiraEventUncheckedCreateWithoutPayloadInput>
+  }
+
+  export type JiraEventUpsertWithoutPayloadInput = {
+    update: XOR<JiraEventUpdateWithoutPayloadInput, JiraEventUncheckedUpdateWithoutPayloadInput>
+    create: XOR<JiraEventCreateWithoutPayloadInput, JiraEventUncheckedCreateWithoutPayloadInput>
+    where?: JiraEventWhereInput
+  }
+
+  export type JiraEventUpdateToOneWithWhereWithoutPayloadInput = {
+    where?: JiraEventWhereInput
+    data: XOR<JiraEventUpdateWithoutPayloadInput, JiraEventUncheckedUpdateWithoutPayloadInput>
+  }
+
+  export type JiraEventUpdateWithoutPayloadInput = {
+    webhook_event?: StringFieldUpdateOperationsInput | string
+    issue_event_type?: StringFieldUpdateOperationsInput | string
+    date_created?: DateTimeFieldUpdateOperationsInput | Date | string
+    issue?: JiraIssueUpdateOneWithoutEventsNestedInput
+    project?: JiraProjectUpdateOneWithoutJiraEventNestedInput
+    user?: JiraUserUpdateOneWithoutJiraEventNestedInput
+  }
+
+  export type JiraEventUncheckedUpdateWithoutPayloadInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    webhook_event?: StringFieldUpdateOperationsInput | string
+    issue_event_type?: StringFieldUpdateOperationsInput | string
+    issue_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    date_created?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type EventCreateManyProjectInput = {
     id?: number
     author_id?: number | null
@@ -11491,6 +19711,360 @@ export namespace Prisma {
     deletions?: NullableIntFieldUpdateOperationsInput | number | null
     changed_files?: NullableIntFieldUpdateOperationsInput | number | null
     event_type?: EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
+    date_created?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JiraIssueCreateManyProjectInput = {
+    id?: number
+    issue_id: string
+    summary?: string | null
+    key: string
+    status_name?: string | null
+    status_id?: string | null
+    timespent?: number | null
+    timeestimate?: number | null
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    resolution_date?: Date | string | null
+    creator_id?: number | null
+    assignee_id?: number | null
+    sprint_name?: string | null
+    sprint_start?: Date | string | null
+    sprint_end?: Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type JiraEventCreateManyProjectInput = {
+    id?: number
+    webhook_event: string
+    issue_event_type: string
+    issue_id?: number | null
+    user_id?: number | null
+    date_created?: Date | string
+  }
+
+  export type JiraIssueUpdateWithoutProjectInput = {
+    issue_id?: StringFieldUpdateOperationsInput | string
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    key?: StringFieldUpdateOperationsInput | string
+    status_name?: NullableStringFieldUpdateOperationsInput | string | null
+    status_id?: NullableStringFieldUpdateOperationsInput | string | null
+    timespent?: NullableIntFieldUpdateOperationsInput | number | null
+    timeestimate?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resolution_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_name?: NullableStringFieldUpdateOperationsInput | string | null
+    sprint_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+    creator?: JiraUserUpdateOneWithoutCreated_issuesNestedInput
+    assignee?: JiraUserUpdateOneWithoutAssigned_issuesNestedInput
+    events?: JiraEventUpdateManyWithoutIssueNestedInput
+  }
+
+  export type JiraIssueUncheckedUpdateWithoutProjectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    issue_id?: StringFieldUpdateOperationsInput | string
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    key?: StringFieldUpdateOperationsInput | string
+    status_name?: NullableStringFieldUpdateOperationsInput | string | null
+    status_id?: NullableStringFieldUpdateOperationsInput | string | null
+    timespent?: NullableIntFieldUpdateOperationsInput | number | null
+    timeestimate?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resolution_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creator_id?: NullableIntFieldUpdateOperationsInput | number | null
+    assignee_id?: NullableIntFieldUpdateOperationsInput | number | null
+    sprint_name?: NullableStringFieldUpdateOperationsInput | string | null
+    sprint_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+    events?: JiraEventUncheckedUpdateManyWithoutIssueNestedInput
+  }
+
+  export type JiraIssueUncheckedUpdateManyWithoutProjectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    issue_id?: StringFieldUpdateOperationsInput | string
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    key?: StringFieldUpdateOperationsInput | string
+    status_name?: NullableStringFieldUpdateOperationsInput | string | null
+    status_id?: NullableStringFieldUpdateOperationsInput | string | null
+    timespent?: NullableIntFieldUpdateOperationsInput | number | null
+    timeestimate?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resolution_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creator_id?: NullableIntFieldUpdateOperationsInput | number | null
+    assignee_id?: NullableIntFieldUpdateOperationsInput | number | null
+    sprint_name?: NullableStringFieldUpdateOperationsInput | string | null
+    sprint_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type JiraEventUpdateWithoutProjectInput = {
+    webhook_event?: StringFieldUpdateOperationsInput | string
+    issue_event_type?: StringFieldUpdateOperationsInput | string
+    date_created?: DateTimeFieldUpdateOperationsInput | Date | string
+    issue?: JiraIssueUpdateOneWithoutEventsNestedInput
+    user?: JiraUserUpdateOneWithoutJiraEventNestedInput
+    payload?: JiraPayloadUpdateOneWithoutEventNestedInput
+  }
+
+  export type JiraEventUncheckedUpdateWithoutProjectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    webhook_event?: StringFieldUpdateOperationsInput | string
+    issue_event_type?: StringFieldUpdateOperationsInput | string
+    issue_id?: NullableIntFieldUpdateOperationsInput | number | null
+    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    date_created?: DateTimeFieldUpdateOperationsInput | Date | string
+    payload?: JiraPayloadUncheckedUpdateOneWithoutEventNestedInput
+  }
+
+  export type JiraEventUncheckedUpdateManyWithoutProjectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    webhook_event?: StringFieldUpdateOperationsInput | string
+    issue_event_type?: StringFieldUpdateOperationsInput | string
+    issue_id?: NullableIntFieldUpdateOperationsInput | number | null
+    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    date_created?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JiraIssueCreateManyCreatorInput = {
+    id?: number
+    issue_id: string
+    summary?: string | null
+    key: string
+    status_name?: string | null
+    status_id?: string | null
+    timespent?: number | null
+    timeestimate?: number | null
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    resolution_date?: Date | string | null
+    project_id?: number | null
+    assignee_id?: number | null
+    sprint_name?: string | null
+    sprint_start?: Date | string | null
+    sprint_end?: Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type JiraIssueCreateManyAssigneeInput = {
+    id?: number
+    issue_id: string
+    summary?: string | null
+    key: string
+    status_name?: string | null
+    status_id?: string | null
+    timespent?: number | null
+    timeestimate?: number | null
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    resolution_date?: Date | string | null
+    project_id?: number | null
+    creator_id?: number | null
+    sprint_name?: string | null
+    sprint_start?: Date | string | null
+    sprint_end?: Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type JiraEventCreateManyUserInput = {
+    id?: number
+    webhook_event: string
+    issue_event_type: string
+    issue_id?: number | null
+    project_id?: number | null
+    date_created?: Date | string
+  }
+
+  export type JiraIssueUpdateWithoutCreatorInput = {
+    issue_id?: StringFieldUpdateOperationsInput | string
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    key?: StringFieldUpdateOperationsInput | string
+    status_name?: NullableStringFieldUpdateOperationsInput | string | null
+    status_id?: NullableStringFieldUpdateOperationsInput | string | null
+    timespent?: NullableIntFieldUpdateOperationsInput | number | null
+    timeestimate?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resolution_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_name?: NullableStringFieldUpdateOperationsInput | string | null
+    sprint_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+    project?: JiraProjectUpdateOneWithoutIssuesNestedInput
+    assignee?: JiraUserUpdateOneWithoutAssigned_issuesNestedInput
+    events?: JiraEventUpdateManyWithoutIssueNestedInput
+  }
+
+  export type JiraIssueUncheckedUpdateWithoutCreatorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    issue_id?: StringFieldUpdateOperationsInput | string
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    key?: StringFieldUpdateOperationsInput | string
+    status_name?: NullableStringFieldUpdateOperationsInput | string | null
+    status_id?: NullableStringFieldUpdateOperationsInput | string | null
+    timespent?: NullableIntFieldUpdateOperationsInput | number | null
+    timeestimate?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resolution_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    assignee_id?: NullableIntFieldUpdateOperationsInput | number | null
+    sprint_name?: NullableStringFieldUpdateOperationsInput | string | null
+    sprint_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+    events?: JiraEventUncheckedUpdateManyWithoutIssueNestedInput
+  }
+
+  export type JiraIssueUncheckedUpdateManyWithoutCreatorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    issue_id?: StringFieldUpdateOperationsInput | string
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    key?: StringFieldUpdateOperationsInput | string
+    status_name?: NullableStringFieldUpdateOperationsInput | string | null
+    status_id?: NullableStringFieldUpdateOperationsInput | string | null
+    timespent?: NullableIntFieldUpdateOperationsInput | number | null
+    timeestimate?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resolution_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    assignee_id?: NullableIntFieldUpdateOperationsInput | number | null
+    sprint_name?: NullableStringFieldUpdateOperationsInput | string | null
+    sprint_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type JiraIssueUpdateWithoutAssigneeInput = {
+    issue_id?: StringFieldUpdateOperationsInput | string
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    key?: StringFieldUpdateOperationsInput | string
+    status_name?: NullableStringFieldUpdateOperationsInput | string | null
+    status_id?: NullableStringFieldUpdateOperationsInput | string | null
+    timespent?: NullableIntFieldUpdateOperationsInput | number | null
+    timeestimate?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resolution_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_name?: NullableStringFieldUpdateOperationsInput | string | null
+    sprint_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+    project?: JiraProjectUpdateOneWithoutIssuesNestedInput
+    creator?: JiraUserUpdateOneWithoutCreated_issuesNestedInput
+    events?: JiraEventUpdateManyWithoutIssueNestedInput
+  }
+
+  export type JiraIssueUncheckedUpdateWithoutAssigneeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    issue_id?: StringFieldUpdateOperationsInput | string
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    key?: StringFieldUpdateOperationsInput | string
+    status_name?: NullableStringFieldUpdateOperationsInput | string | null
+    status_id?: NullableStringFieldUpdateOperationsInput | string | null
+    timespent?: NullableIntFieldUpdateOperationsInput | number | null
+    timeestimate?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resolution_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    creator_id?: NullableIntFieldUpdateOperationsInput | number | null
+    sprint_name?: NullableStringFieldUpdateOperationsInput | string | null
+    sprint_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+    events?: JiraEventUncheckedUpdateManyWithoutIssueNestedInput
+  }
+
+  export type JiraIssueUncheckedUpdateManyWithoutAssigneeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    issue_id?: StringFieldUpdateOperationsInput | string
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    key?: StringFieldUpdateOperationsInput | string
+    status_name?: NullableStringFieldUpdateOperationsInput | string | null
+    status_id?: NullableStringFieldUpdateOperationsInput | string | null
+    timespent?: NullableIntFieldUpdateOperationsInput | number | null
+    timeestimate?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resolution_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    creator_id?: NullableIntFieldUpdateOperationsInput | number | null
+    sprint_name?: NullableStringFieldUpdateOperationsInput | string | null
+    sprint_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sprint_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    raw_fields?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type JiraEventUpdateWithoutUserInput = {
+    webhook_event?: StringFieldUpdateOperationsInput | string
+    issue_event_type?: StringFieldUpdateOperationsInput | string
+    date_created?: DateTimeFieldUpdateOperationsInput | Date | string
+    issue?: JiraIssueUpdateOneWithoutEventsNestedInput
+    project?: JiraProjectUpdateOneWithoutJiraEventNestedInput
+    payload?: JiraPayloadUpdateOneWithoutEventNestedInput
+  }
+
+  export type JiraEventUncheckedUpdateWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    webhook_event?: StringFieldUpdateOperationsInput | string
+    issue_event_type?: StringFieldUpdateOperationsInput | string
+    issue_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    date_created?: DateTimeFieldUpdateOperationsInput | Date | string
+    payload?: JiraPayloadUncheckedUpdateOneWithoutEventNestedInput
+  }
+
+  export type JiraEventUncheckedUpdateManyWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    webhook_event?: StringFieldUpdateOperationsInput | string
+    issue_event_type?: StringFieldUpdateOperationsInput | string
+    issue_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    date_created?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JiraEventCreateManyIssueInput = {
+    id?: number
+    webhook_event: string
+    issue_event_type: string
+    project_id?: number | null
+    user_id?: number | null
+    date_created?: Date | string
+  }
+
+  export type JiraEventUpdateWithoutIssueInput = {
+    webhook_event?: StringFieldUpdateOperationsInput | string
+    issue_event_type?: StringFieldUpdateOperationsInput | string
+    date_created?: DateTimeFieldUpdateOperationsInput | Date | string
+    project?: JiraProjectUpdateOneWithoutJiraEventNestedInput
+    user?: JiraUserUpdateOneWithoutJiraEventNestedInput
+    payload?: JiraPayloadUpdateOneWithoutEventNestedInput
+  }
+
+  export type JiraEventUncheckedUpdateWithoutIssueInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    webhook_event?: StringFieldUpdateOperationsInput | string
+    issue_event_type?: StringFieldUpdateOperationsInput | string
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    date_created?: DateTimeFieldUpdateOperationsInput | Date | string
+    payload?: JiraPayloadUncheckedUpdateOneWithoutEventNestedInput
+  }
+
+  export type JiraEventUncheckedUpdateManyWithoutIssueInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    webhook_event?: StringFieldUpdateOperationsInput | string
+    issue_event_type?: StringFieldUpdateOperationsInput | string
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    user_id?: NullableIntFieldUpdateOperationsInput | number | null
     date_created?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
