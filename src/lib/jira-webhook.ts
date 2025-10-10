@@ -29,13 +29,13 @@ export const JiraWebhook = async (req: Request, res: Response) => {
 
     const jiraUser = assignee
       ? await prisma.jiraUser.upsert({
-        where: { account_id: assignee.account_id },
+        where: { account_id: assignee.accountId },
         update: {
           display_name: assignee.displayName,
         },
         create: {
           display_name: assignee.displayName,
-          account_id: assignee.account_id,
+          account_id: assignee.accountId,
         },
       })
       : null;
