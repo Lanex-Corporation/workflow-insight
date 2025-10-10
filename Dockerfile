@@ -9,7 +9,7 @@ RUN pnpm install --frozen-lockfile
 
 COPY prisma ./prisma
 
-RUN npx prisma generate
+RUN npx prisma generate --schema=prisma/main/schema.prisma
 
 COPY . .
 
