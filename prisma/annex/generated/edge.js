@@ -236,11 +236,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "D:\\Projects\\lanex-corp\\productivity-tracker\\prisma\\annex\\annex.prisma",
+    "sourceFilePath": "D:\\Projects\\lanex-corp\\productivity-tracker\\prisma\\annex\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
+    "rootEnvPath": "../../../.env",
     "schemaEnvPath": "../../../.env"
   },
   "relativePath": "..",
