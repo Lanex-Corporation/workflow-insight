@@ -1,6 +1,6 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "./generated"
+  output   = "../../node_modules/.prisma/main-client"
 }
 
 datasource db {
@@ -110,6 +110,7 @@ model JiraEvent {
   issue_event_type String
   issue            JiraIssue?   @relation(fields: [issue_id], references: [id])
   issue_id         Int?
+  issue_status     String?
   // changelog_id      String?
   project_id       Int?
   project          JiraProject? @relation(fields: [project_id], references: [id])
