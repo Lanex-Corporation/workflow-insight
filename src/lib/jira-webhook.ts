@@ -78,6 +78,7 @@ export const JiraWebhook = async (req: Request, res: Response) => {
         webhook_event: webhookEvent,
         issue_event_type: issue_event_type_name,
         issue: jiraIssue ? { connect: { id: jiraIssue.id } } : undefined,
+        issue_status: status ? status.name : null,
         project: { connect: { id: jiraProject.id } },
         user: jiraUser ? { connect: { id: jiraUser.id } } : undefined,
         payload: {
