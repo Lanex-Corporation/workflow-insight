@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { CommitStats, GitHubPushPayload, PRLike, Repo } from './interface';
-import { PrismaClient, Project, Ticket, User } from '../../prisma/main/generated';
+import { PrismaClient, Project, Ticket, User } from '.prisma/main-client';
 
 
 const GITHUB_TOKEN = process.env.WEBHOOK_GITHUB_TOKEN;
