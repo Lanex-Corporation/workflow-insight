@@ -1,7 +1,8 @@
 
 import { Request, Response } from "express";
 import axios from "axios";
-import { PrismaClient, Project, Ticket, User } from ".prisma/main-client";
+import { PrismaClient as MainClient, Project, Ticket, User } from '../../node_modules/.prisma/main-client/index.js';
+
 
 export enum GitlabWeebhookEventType {
   NOTE = 'note',
@@ -169,7 +170,7 @@ const GitlabWebhookHandler = (request: any) => {
 
   const payload = request.body;
   const params = request.query;
-  const prisma = new PrismaClient();
+  const prisma = new MainClient();
   const eventType = payload.event_type ?? payload.event_name;
   let repositoryId = payload.project.id;
   let mrStats: MergeRequestStats | null = null;

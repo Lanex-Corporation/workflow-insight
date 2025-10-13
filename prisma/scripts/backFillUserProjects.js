@@ -1,6 +1,6 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient as MainClient } from '../../node_modules/.prisma/main-client';
 
-const prisma = new PrismaClient();
+const prisma = new MainClient();
 
 async function backfillUserProjects() {
   // fetch all projects with only the event author_id values

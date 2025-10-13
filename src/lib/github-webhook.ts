@@ -1,13 +1,10 @@
 import { NextFunction, Request, RequestHandler, Response } from "express";
 
 import { fetchPushCommitStats, getChangedFilesDetails, resolveEntities } from "./helper";
-import { PrismaClient, EventType } from ".prisma/main-client";
+import { PrismaClient as MainClient, EventType } from '../../node_modules/.prisma/main-client/index.js';
 
+const prisma = new MainClient();
 
-
-
-
-const prisma = new PrismaClient();
 const SOURCE = "github";
 
 export const GithubWebhook = async (req: Request, res: Response) => {

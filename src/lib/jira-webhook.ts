@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { PrismaClient } from ".prisma/main-client";
+import { PrismaClient as MainClient } from '../../node_modules/.prisma/main-client/index.js';
 
-const prisma = new PrismaClient();
+const prisma = new MainClient();
 
 export const JiraWebhook = async (req: Request, res: Response) => {
   try {

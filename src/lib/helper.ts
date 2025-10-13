@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { CommitStats, GitHubPushPayload, PRLike, Repo } from './interface';
-import { PrismaClient, Project, Ticket, User } from '.prisma/main-client';
+import { PrismaClient as MainClient, Project, Ticket, User } from '../../node_modules/.prisma/main-client/index.js';
 
 
 const GITHUB_TOKEN = process.env.WEBHOOK_GITHUB_TOKEN;
@@ -11,7 +11,7 @@ if (!GITHUB_TOKEN) {
 
 
 export const resolveEntities = async (
-  prisma: PrismaClient,
+  prisma: MainClient,
   pr: PRLike,
   repo: Repo
 ): Promise<{
