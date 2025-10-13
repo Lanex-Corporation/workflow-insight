@@ -168,12 +168,67 @@ exports.Prisma.RevisionScalarFieldEnum = {
   pr_event_id: 'pr_event_id'
 };
 
+exports.Prisma.JiraEventScalarFieldEnum = {
+  id: 'id',
+  webhook_event: 'webhook_event',
+  issue_event_type: 'issue_event_type',
+  issue_id: 'issue_id',
+  project_id: 'project_id',
+  user_id: 'user_id',
+  date_created: 'date_created'
+};
+
+exports.Prisma.JiraProjectScalarFieldEnum = {
+  id: 'id',
+  key: 'key',
+  name: 'name',
+  created_at: 'created_at'
+};
+
+exports.Prisma.JiraUserScalarFieldEnum = {
+  id: 'id',
+  account_id: 'account_id',
+  display_name: 'display_name'
+};
+
+exports.Prisma.JiraIssueScalarFieldEnum = {
+  id: 'id',
+  issue_id: 'issue_id',
+  summary: 'summary',
+  key: 'key',
+  status_name: 'status_name',
+  status_id: 'status_id',
+  timespent: 'timespent',
+  timeestimate: 'timeestimate',
+  created_at: 'created_at',
+  updated_at: 'updated_at',
+  resolution_date: 'resolution_date',
+  project_id: 'project_id',
+  creator_id: 'creator_id',
+  assignee_id: 'assignee_id',
+  sprint_name: 'sprint_name',
+  sprint_start: 'sprint_start',
+  sprint_end: 'sprint_end',
+  raw_fields: 'raw_fields'
+};
+
+exports.Prisma.JiraPayloadScalarFieldEnum = {
+  id: 'id',
+  raw_payload: 'raw_payload',
+  event_id: 'event_id'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
 };
 
 exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
+};
+
+exports.Prisma.NullableJsonNullValueInput = {
+  DbNull: Prisma.DbNull,
   JsonNull: Prisma.JsonNull
 };
 
@@ -211,6 +266,30 @@ exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
 };
+
+exports.Prisma.JiraEventOrderByRelevanceFieldEnum = {
+  webhook_event: 'webhook_event',
+  issue_event_type: 'issue_event_type'
+};
+
+exports.Prisma.JiraProjectOrderByRelevanceFieldEnum = {
+  key: 'key',
+  name: 'name'
+};
+
+exports.Prisma.JiraUserOrderByRelevanceFieldEnum = {
+  account_id: 'account_id',
+  display_name: 'display_name'
+};
+
+exports.Prisma.JiraIssueOrderByRelevanceFieldEnum = {
+  issue_id: 'issue_id',
+  summary: 'summary',
+  key: 'key',
+  status_name: 'status_name',
+  status_id: 'status_id',
+  sprint_name: 'sprint_name'
+};
 exports.SourceType = exports.$Enums.SourceType = {
   github: 'github',
   gitlab: 'gitlab',
@@ -235,7 +314,12 @@ exports.Prisma.ModelName = {
   Ticket: 'Ticket',
   Event: 'Event',
   Payload: 'Payload',
-  Revision: 'Revision'
+  Revision: 'Revision',
+  JiraEvent: 'JiraEvent',
+  JiraProject: 'JiraProject',
+  JiraUser: 'JiraUser',
+  JiraIssue: 'JiraIssue',
+  JiraPayload: 'JiraPayload'
 };
 
 /**
