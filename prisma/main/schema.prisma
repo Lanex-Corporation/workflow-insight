@@ -12,6 +12,7 @@ enum SourceType {
   github
   gitlab
   bitbucket
+  external
 }
 
 enum EventType {
