@@ -52,12 +52,12 @@ function normalizeHeader(header: string): keyof SheetRow {
     .replace(/\s+/g, " ")
     .replace(/\s*\/\s*/g, "/");
   const map: Record<string, keyof SheetRow> = {
-    "ticket id/number": "ticket",
     project: "project",
+    "ticket id/number": "ticket",
     event: "event",
     timestamp: "timestamp",
     reviewer: "reviewer",
-    "branch/ticket": "branch",
+    branch: "branch",
     "manager/poc": "manager",
   };
   return map[key] ?? (key as keyof SheetRow);
@@ -101,7 +101,7 @@ async function getDocumentAuthor(): Promise<string | null> {
 
   const title = meta.data.properties?.title || "";
   const [author] = title
-    .split("-")
+    .split("|")
     .map((part) => part.trim())
     .filter(Boolean);
 
@@ -125,7 +125,7 @@ async function processRow(row: SheetRow, docAuthor: string | null) {
     project = await prisma.project.create({
       data: {
         name: projectName,
-        repository: SourceType.external,
+        repository: "External",
       },
     });
   }
@@ -142,8 +142,8 @@ async function processRow(row: SheetRow, docAuthor: string | null) {
       })
     : null;
 
-  const reviewer = await upsertUser(row.reviewer);
-  const author = await upsertUser(docAuthor ?? row.manager);
+  const reviewer = await upsertUser("external");
+  const author = await upsertUser(docAuthor);
 
   const existing = ticket
     ? await prisma.event.findFirst({
