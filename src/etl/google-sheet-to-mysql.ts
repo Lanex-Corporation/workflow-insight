@@ -93,7 +93,6 @@ async function upsertUser(username?: string | null) {
     create: { username: trimmed },
   });
 }
-
 async function getDocumentAuthor(): Promise<string | null> {
   const meta = await sheets.spreadsheets.get({
     spreadsheetId: GOOGLE_SHEETS_ID!,
@@ -102,7 +101,7 @@ async function getDocumentAuthor(): Promise<string | null> {
 
   const title = meta.data.properties?.title || "";
   const [author] = title
-    .split("|")
+    .split("-")
     .map((part) => part.trim())
     .filter(Boolean);
 
@@ -126,7 +125,7 @@ async function processRow(row: SheetRow, docAuthor: string | null) {
     project = await prisma.project.create({
       data: {
         name: projectName,
-        repository: projectName,
+        repository: SourceType.external,
       },
     });
   }
