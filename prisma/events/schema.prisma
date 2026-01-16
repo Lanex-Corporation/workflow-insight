@@ -1,0 +1,34 @@
+generator eventsClient {
+  provider = "prisma-client-js"
+  output   = "../../node_modules/.prisma/events-client"
+}
+
+datasource events {
+  provider = "mysql"
+  url      = env("EVENTS_API_DB_URL")
+}
+
+model GitEvent {
+  id                Int       @id @default(autoincrement())
+  source            String
+  external_event_id String
+  event_type        String
+  repo_id           Int?
+  branch            String?
+  actor_id          Int?
+  actor_login       String?
+  pr_action         String?
+  additions         Int?
+  deletions         Int?
+  changed_files     Int?
+  created_at        DateTime?
+  payload           Json
+  received_at       DateTime  @default(now())
+
+  @@unique([source, external_event_id])
+  @@index([source])
+  @@index([repo_id])
+  @@index([event_type])
+  @@index([created_at])
+  @@map("git_events")
+}
