@@ -6,7 +6,11 @@
     "dev": "nodemon --exec ts-node src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "etl:sheet": "ts-node src/etl/google-sheet-to-mysql.ts"
+    "etl:sheet": "ts-node src/etl/google-sheet-to-mysql.ts",
+    "etl:github": "ts-node src/etl/github-events-to-mysql.ts",
+    "etl:gitlab": "ts-node src/etl/gitlab-events-to-mysql.ts",
+    "prisma:generate:events": "prisma generate --schema prisma/events/schema.prisma",
+    "prisma:db:push:events": "prisma db push --schema prisma/events/schema.prisma"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +28,7 @@
   "dependencies": {
     "@prisma/client": "^6.11.1",
     "axios": "^1.10.0",
+    "dotenv": "^16.6.1",
     "express": "^5.1.0",
     "googleapis": "^144.0.0",
     "octokit": "^5.0.3"
