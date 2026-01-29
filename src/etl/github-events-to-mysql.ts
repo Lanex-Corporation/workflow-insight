@@ -22,7 +22,7 @@ type GitHubEvent = {
 const {
   WEBHOOK_GITHUB_TOKEN,
   GITHUB_EVENTS_TOKEN,
-  GITHUB_REPO,
+  GITHUB_REPOS,
   GITHUB_EVENTS_PAGES = "1",
   GITHUB_EVENTS_PER_PAGE = "100",
   EVENTS_API_DB_URL,
@@ -36,18 +36,47 @@ if (!token) {
   throw new Error("Missing GITHUB_EVENTS_TOKEN or WEBHOOK_GITHUB_TOKEN.");
 }
 
-if (!GITHUB_REPO) {
-  throw new Error("Missing GITHUB_REPO (format: owner/repo).");
+if (!GITHUB_REPOS) {
+  throw new Error(
+    "Missing GITHUB_REPOS (format: owner/repo,owner/repo)."
+  );
 }
 
 if (!EVENTS_API_DB_URL) {
   throw new Error("Missing EVENTS_API_DB_URL for database connection.");
 }
 
-const [owner, repo] = GITHUB_REPO.split("/");
-if (!owner || !repo) {
-  throw new Error("Invalid GITHUB_REPO. Expected format: owner/repo.");
+type RepoTarget = {
+  owner: string;
+  repo: string;
+  fullName: string;
+};
+
+function parseRepoTargets(value: string): RepoTarget[] {
+  const entries = value
+    .split(",")
+    .map((entry) => entry.trim())
+    .filter(Boolean);
+
+  if (entries.length === 0) {
+    throw new Error(
+      "Missing GITHUB_REPOS (format: owner/repo,owner/repo)."
+    );
+  }
+
+  return entries.map((entry) => {
+    const parts = entry.split("/");
+    if (parts.length !== 2 || !parts[0] || !parts[1]) {
+      throw new Error(
+        "Invalid GITHUB_REPOS entry. Expected format: owner/repo."
+      );
+    }
+    const [owner, repo] = parts;
+    return { owner, repo, fullName: `${owner}/${repo}` };
+  });
 }
+
+const repoTargets = parseRepoTargets(GITHUB_REPOS);
 
 const octokit = new Octokit({ auth: token });
 const prisma = new EventsClient();
@@ -86,8 +115,11 @@ function toJsonPayload(event: GitHubEvent): Prisma.InputJsonValue {
   return JSON.parse(JSON.stringify(event)) as Prisma.InputJsonValue;
 }
 
-function parseRepoFullName(event: GitHubEvent): string {
-  return event.repo?.name || `${owner}/${repo}`;
+function parseRepoFullName(
+  event: GitHubEvent,
+  fallbackRepoFullName: string
+): string {
+  return event.repo?.name || fallbackRepoFullName;
 }
 
 function parseBranchFromRef(ref?: string): string | null {
@@ -232,6 +264,8 @@ async function getPullRequestStats(
 }
 
 async function fetchRepoEvents(
+  owner: string,
+  repo: string,
   maxPages: number,
   perPage: number
 ): Promise<GitHubEvent[]> {
@@ -258,7 +292,10 @@ async function fetchRepoEvents(
   return events;
 }
 
-async function storeEvents(events: GitHubEvent[]): Promise<{
+async function storeEvents(
+  events: GitHubEvent[],
+  fallbackRepoFullName: string
+): Promise<{
   processed: number;
   skipped: number;
   ignored: number;
@@ -284,7 +321,7 @@ async function storeEvents(events: GitHubEvent[]): Promise<{
       continue;
     }
 
-    const repoFullName = parseRepoFullName(event);
+    const repoFullName = parseRepoFullName(event, fallbackRepoFullName);
     const payload = normalizePayload(event.payload);
     let branch: string | null = null;
     let additions: number | null = null;
@@ -353,12 +390,19 @@ async function run(): Promise<void> {
     Math.max(1, Number.parseInt(GITHUB_EVENTS_PER_PAGE, 10) || 100)
   );
 
-  const events = await fetchRepoEvents(maxPages, perPage);
-  const result = await storeEvents(events);
+  for (const repoTarget of repoTargets) {
+    const events = await fetchRepoEvents(
+      repoTarget.owner,
+      repoTarget.repo,
+      maxPages,
+      perPage
+    );
+    const result = await storeEvents(events, repoTarget.fullName);
 
-  console.log(
-    `Stored ${result.processed} events (skipped ${result.skipped}, ignored ${result.ignored}) for ${owner}/${repo} into git_events (${SOURCE}).`
-  );
+    console.log(
+      `Stored ${result.processed} events (skipped ${result.skipped}, ignored ${result.ignored}) for ${repoTarget.fullName} into git_events (${SOURCE}).`
+    );
+  }
 }
 
 run()

@@ -47,7 +47,7 @@ if (!token) {
 
 if (!GITLAB_PROJECTS) {
   throw new Error(
-    "Missing GITLAB_PROJECTS. Provide project IDs or paths (comma/space-separated)."
+    "Missing GITLAB_PROJECTS. Provide project IDs or paths (comma/space-separated).",
   );
 }
 
@@ -55,8 +55,8 @@ if (!EVENTS_API_DB_URL) {
   throw new Error("Missing EVENTS_API_DB_URL for database connection.");
 }
 
-const projectInputs = GITLAB_PROJECTS.split(/[\s,]+/)
-  .map((value) => value.trim())
+const projectInputs = GITLAB_PROJECTS.split(",")
+  .map((v) => v.trim())
   .filter(Boolean);
 
 const prisma = new EventsClient();
@@ -79,7 +79,7 @@ function normalizeProjectId(value: string): string {
 
 function safeJsonStringify(value: unknown): string {
   const serialized = JSON.stringify(value, (_key, val) =>
-    typeof val === "bigint" ? val.toString() : val
+    typeof val === "bigint" ? val.toString() : val,
   );
   return serialized ?? "{}";
 }
@@ -143,7 +143,7 @@ function computeDiffStats(diffs: DiffItem[]): {
 async function fetchProjectEvents(
   projectId: string,
   maxPages: number,
-  perPage: number
+  perPage: number,
 ): Promise<GitlabEvent[]> {
   const events: GitlabEvent[] = [];
 
@@ -169,7 +169,7 @@ async function fetchProjectEvents(
 async function fetchCompareDiffs(
   projectId: string,
   from: string,
-  to: string
+  to: string,
 ): Promise<DiffItem[]> {
   const response = await gitlab.get(
     `/projects/${projectId}/repository/compare`,
@@ -178,7 +178,7 @@ async function fetchCompareDiffs(
         from,
         to,
       },
-    }
+    },
   );
 
   return Array.isArray(response.data?.diffs) ? response.data.diffs : [];
@@ -186,10 +186,10 @@ async function fetchCompareDiffs(
 
 async function fetchCommitDiffs(
   projectId: string,
-  sha: string
+  sha: string,
 ): Promise<DiffItem[]> {
   const response = await gitlab.get(
-    `/projects/${projectId}/repository/commits/${encodeURIComponent(sha)}/diff`
+    `/projects/${projectId}/repository/commits/${encodeURIComponent(sha)}/diff`,
   );
 
   return Array.isArray(response.data) ? response.data : [];
@@ -197,10 +197,10 @@ async function fetchCommitDiffs(
 
 async function fetchMergeRequestChanges(
   projectId: string,
-  iid: number
+  iid: number,
 ): Promise<{ diffs: DiffItem[]; branch: string | null }> {
   const response = await gitlab.get(
-    `/projects/${projectId}/merge_requests/${iid}/changes`
+    `/projects/${projectId}/merge_requests/${iid}/changes`,
   );
 
   const diffs = Array.isArray(response.data?.changes)
@@ -213,7 +213,7 @@ async function fetchMergeRequestChanges(
 
 async function getPushStats(
   projectId: string,
-  payload: any
+  payload: any,
 ): Promise<{
   additions: number | null;
   deletions: number | null;
@@ -256,7 +256,7 @@ async function getPushStats(
 
 async function getMergeRequestStats(
   projectId: string,
-  iid: number
+  iid: number,
 ): Promise<{
   additions: number | null;
   deletions: number | null;
@@ -275,7 +275,7 @@ async function getMergeRequestStats(
   } catch (error: any) {
     console.error(
       "Failed to fetch merge request stats:",
-      error?.message || error
+      error?.message || error,
     );
     return {
       additions: null,
@@ -334,8 +334,8 @@ async function storeEvents(events: GitlabEvent[]): Promise<{
         typeof event.target_iid === "number"
           ? event.target_iid
           : typeof event.target_id === "number"
-          ? event.target_id
-          : null;
+            ? event.target_id
+            : null;
       if (iid !== null) {
         const stats = await getMergeRequestStats(projectId, iid);
         branch = stats.branch;
@@ -386,7 +386,7 @@ async function run(): Promise<void> {
   const maxPages = Math.max(1, Number.parseInt(GITLAB_EVENTS_PAGES, 10) || 1);
   const perPage = Math.min(
     100,
-    Math.max(1, Number.parseInt(GITLAB_EVENTS_PER_PAGE, 10) || 100)
+    Math.max(1, Number.parseInt(GITLAB_EVENTS_PER_PAGE, 10) || 100),
   );
 
   let processed = 0;
@@ -403,7 +403,7 @@ async function run(): Promise<void> {
   }
 
   console.log(
-    `Stored ${processed} events (skipped ${skipped}, ignored ${ignored}) into git_events (${SOURCE}).`
+    `Stored ${processed} events (skipped ${skipped}, ignored ${ignored}) into git_events (${SOURCE}).`,
   );
 }
 
