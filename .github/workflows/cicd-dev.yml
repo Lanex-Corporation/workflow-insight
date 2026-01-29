@@ -40,11 +40,11 @@ jobs:
           AWS_REGION=${{ secrets.AWS_REGION }}
           PORT=8000
           WEBHOOK_GITHUB_TOKEN=${{ secrets.WEBHOOK_GITHUB_TOKEN }}
-          GITLAB_HOST=${{ secrets.GITLAB_HOST }}
+          GITLAB_HOST=${{ vars.GITLAB_HOST }}
           GITLAB_PRIVATE_TOKEN=${{ secrets.GITLAB_PRIVATE_TOKEN }}
-          GITHUB_REPOS=${{ var.REPOS_GITHUB }}
+          GITHUB_REPOS=${{ vars.REPOS_GITHUB }}
           EVENTS_API_DB_URL=${{ secrets.EVENTS_API_DB_URL }}
-          GITLAB_PROJECTS=${{ var.GITLAB_PROJECTS }}
+          GITLAB_PROJECTS=${{ vars.GITLAB_PROJECTS }}
           EOF
 
       - name: Copy docker-compose and .env to EC2
